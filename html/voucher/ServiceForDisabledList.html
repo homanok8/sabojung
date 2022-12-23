@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>장애인활동 서비스 추천 상세</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script>
+      $(function() {
+         var aiListHeight = $('.list--ai').height() + 120;
+         $('.ai_bg').css({
+            'width': 'calc(100vw - 21px)',
+            'height': aiListHeight + 'px',
+            'background-color': '#F5F5F5',
+            'position': 'absolute',
+            'top': '50%',
+            'left': '50%',
+            'transform': 'translate(-50%,-50%)',
+            'z-index': '-1'
+         });
+      });
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>온라인 계약</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">바우처 서비스</a>
+            </li>
+            <li>
+               <a href="#" class="focus">장애인활동 서비스 추천 상세</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>장애인활동 서비스 추천 상세</h2>
+         </div>
+         <section class="my_info">
+            <h3>나의 기본 정보</h3>
+            <table>
+               <caption class="blind">나의기본정보<span>나의기본정보로 분류, 등록일, 신청자, 나이, 희망지역, 욕구정보, 희망시간을 보여준다.</span></caption>
+               <tbody>
+                  <tr>
+                     <th scope="row">분류</th>
+                     <td colspan="3">바우처서비스</td>
+                     <th scope="row">등록일</th>
+                     <td>2022.10.11</td>
+                  </tr>
+                  <tr>
+                     <th scope="row">신청자</th>
+                     <td>박철수</td>
+                     <th scope="row">나이</th>
+                     <td>11세</td>
+                     <th scope="row">희망지역</th>
+                     <td>서울 광진구</td>
+                  </tr>
+                  <tr>
+                     <th scope="row">욕구정보</th>
+                     <td colspan="5">신체활동지원 > 개인위생관리 > 목욕도움</td>
+                  </tr>
+                  <tr>
+                     <th scope="row">희망 시간</th>
+                     <td colspan="5">
+                        <div class="desired_time">
+                           <span>월요일: 9시, 10시</span>
+                           <span>화요일: 14시, 17시</span>
+                           <span>금요일: 14시</span>
+                        </div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+            <div class="basic_btnbox">
+               <button type="button">목록</button>
+            </div>
+         </section>
+
+         <section class="list">
+            <p>7개의 추천 정보가 있습니다.</p>
+            <ul>
+               <li>
+                  <dl>
+                     <dt>청소년특별지원</dt>
+                     <dd class="list_desc">보호자가 없거나, 실질적 보호자의 보호를 받지 못하는 사회, 경제적으로 어려움이 있는 위기 청소년이 올바르게 성장하고 안정된 생활...</dd>
+                     <dd class="list_hash">
+                        <span>#서민금융</span>
+                        <span>#신체건강</span>
+                        <span>#청년</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>상병수당 시범사업</dt>
+                     <dd class="list_desc">근로자가 업무 외 질병·부상으로 경제활동이 어려운 경우 치료에 집중할 수 있도록 소득을 보전하는 제도 입니다.</dd>
+                     <dd class="list_hash">
+                        <span>#안전·위기</span>
+                        <span>#생활지원</span>
+                        <span>#중장년</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>청년월세 한시 특별지원</dt>
+                     <dd class="list_desc">코로나19 장기화로 경제적 어려움을 겪는 청년층의 주거비 부담 경감을 위해 청년월세를 한시적으로 지원합니다.</dd>
+                     <dd class="list_hash">
+                        <span>#주거</span>
+                        <span>#서민금융</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>아이돌봄 서비스</dt>
+                     <dd class="list_desc">맞벌이를 하거나 갑자기 아이를 돌볼 수 없는 일이 생겼을 때 육아 도우미가 방문하여 만12세 이하 자녀의 양육을 도와줍니다.</dd>
+                     <dd class="list_hash">
+                        <span>#보호·돌봄</span>
+                        <span>#보육</span>
+                        <span>#영유아</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>통합공공임대</dt>
+                     <dd class="list_desc">국가나 지방자치단체의 재정이나 주택도시기금의 자금을 지원받아 최저소득 계층, 저소득, 서민, 젊은 층 및 장애인 · 국가유공자 등 사회 취약 ...</dd>
+                     <dd class="list_hash">
+                        <span>#서민금융</span>
+                        <span>#주거</span>
+                        <span>#한부모·조손</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>재외국민긴급지원비</dt>
+                     <dd class="list_desc">해외에서 사건·사고에 처한 재외국민이 본인의 무자력 등으로 인하여 비용을 부담하기 어렵고 연고자가 없는 경우 등 영사조력 과정에서 생명 ...</dd>
+                     <dd class="list_hash">
+                        <span>#안전·위기</span>
+                        <span>#생활지원</span>
+                        <span>#보호·돌봄</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>청년월세 한시 특별지원</dt>
+                     <dd class="list_desc">코로나19 장기화로 경제적 어려움을 겪는 청년층의 주거비 부담 경감을 위해 청년월세를 한시적으로 지원합니다.</dd>
+                     <dd class="list_hash">
+                        <span>#주거</span>
+                        <span>#서민금융</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+            </ul>
+         </section>
+         <section class="list list--ai">
+            <p>3개의 AI의 유사 서비스 추천 정보가 있습니다.</p>
+            <ul>
+               <li>
+                  <dl>
+                     <dt>산모·신생아 건강관리 지원</dt>
+                     <dd class="list_desc">전문교육을 받은 산모·신생아 건강관리사가 출산 가정을 방문해 산모의 건강회복을 돕고, 신생아를 보살펴 출산 가정의 경제적 부담을 덜어 ...</dd>
+                     <dd class="list_hash">
+                        <span>#신체건강</span>
+                        <span>#임신·출산</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>버팀목전세자금대출</dt>
+                     <dd class="list_desc">무주택세대주의 주책전세자금 융자를 통해 주거안정을 지원합니다.</dd>
+                     <dd class="list_hash">
+                        <span>#안전·위기</span>
+                        <span>#생활지원</span>
+                        <span>#보호·돌봄</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>결혼이민자 통번역 서비스</dt>
+                     <dd class="list_desc">입국초기의 결혼이민자와 다문화가족이 생활 속에서 의사소통에 불편함이 없도록 통역과 번역 서비스를 지원하며 통·번역 인력채용 등으로 자 ...</dd>
+                     <dd class="list_hash">
+                        <span>#생활지원</span>
+                        <span>#다문화·탈북민</span>
+                        <span>#중장년</span>
+                     </dd>
+                  </dl>
+                  <div class="flex_center">
+                     <a class="exception" href="#">제외</a>
+                     <a class="apply" href="#">신청</a>
+                  </div>
+               </li>
+            </ul>
+            <div class="ai_bg"></div>
+         </section>
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert">
+         <div class="alert_txt">
+            <p>AI 추천을 받으시려면 개인정보를 입력해 주셔야 받으실 수 있습니다.</p>
+            <p>AI 추천 정보를 받으시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button type="button">삭제</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

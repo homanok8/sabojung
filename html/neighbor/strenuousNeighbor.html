@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>이웃이 힘들어요</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script>
+      $(function() {
+         $('.help_slide_btn').click(function(e) {
+            e.preventDefault();
+            $(this).next().stop().slideToggle();
+            $(this).next().css('display', 'flex');
+            $(this).stop().toggleClass('open');
+         });
+
+         $('.label_btn').keydown(function(e) {
+            if (e.keyCode == 13) {
+               $(this).trigger('click');
+            }
+         });
+      });
+
+      function fileUpload(){
+         var fileInput = $("#fileUpload");
+
+         for( var i=0; i<fileInput.length; i++ ){
+            if( fileInput[i].files.length > 0 ){
+               for( var j = 0; j < fileInput[i].files.length; j++ ){
+                  console.log(fileInput[i].files[j].name); // 파일명 출력
+                  $('#fileName').attr('value', fileInput[i].files[j].name);
+               }
+            }
+         }
+
+      }
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>당근 이웃</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">당근이웃</a>
+            </li>
+            <li>
+               <a href="#" class="focus">이웃이 힘들어요</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>이웃이 힘들어요</h2>
+            <p>내 주변에 힘들고 어려운 이웃이 있다면 대신 신청해주세요.</p>
+         </div>
+         <section class="procedure">
+            <p>소득 감소, 실직, 휴·폐업 등 생계곤란 가구, 쪽방, 고시원, 여인숙 등에 거주하는 주거취약 가구, 중대한 질병, 장애 등의 건강 문제로 도움이 필요한 가구, 혼자사는 도움이 필요한 가구, 코로나19로 인해 어려움을 겪고있는 가구 등의 분들이 받을 수 있는 복지제도가 있다는 것을 모르거나 상담, 신청 절차를 모르는 경우 또는 공적지원에 대한 거부감으로 신청하지않는 분들을 도와드릴 수 있습니다.</p>
+            <p>현재 처한 상황을 자세하게 작성해 주시면 담당자가 확인 후 진행사항에 대해서 문자메시지, 이메일, 홈페이지에서 처리 상황을 통보 받으실 수 있습니다. 해당 내용은 담당 직원 외에는 볼 수 없으므로 개인정보 또는 사생활 침해를 걱정하지 않으셔도 됩니다. 자세하게 작성해 주세요.</p>
+            
+            <div class="help_checkbox">
+               <a class="help_slide_btn" href="#">
+                  <input type="checkbox" id="agreeCheck">
+                  <label for="agreeCheck">
+                     <span>
+                        <img src="../../images/icons/check_icon.png" alt="">
+                     </span>
+                     도움요청을 위한 개인정보 수집 및 이용 동의
+                  </label>
+                  <img src="../../images/icons/down_icon.png" alt="">
+               </a>
+               <div class="help_slide">
+                  <p>“도움이 필요해요”를 위하여 아래의 개인정보 수집‧이용에 대한 내용을 자세히 읽어보신 후 동의 여부를 결정하여 주시기 바랍니다.</p>
+                  <p>「당근행복」는 「개인정보보호법」을 준수하며, 개인정보 활용에 대한 고지를 통하여 국민 여러분께서 입력하시는 소중한 개인정보의 용도와 활용 방식, 개인정보보호를 위한 조치내용을 사전에 안내하고자 합니다.</p>
+                  <br><br>
+                  <strong>1. 개인정보의 수집•이용 목적</strong>
+                  <p>- 도움요청 민원사무 처리 목적으로 개인정보를 수집하며, 민원접수기관과 처리기관에서 이용합니다.</p>
+                  <p>* 개인정보보호법 제15조(개인정보의 수집‧이용) 제 1항 3, 5호에 따라 법정대리인의 동의 없이도 14세 미만 요청인의 개인정보를 수집할 수 있습니다.</p>
+                  <strong>2. 수집하는 개인정보의 항목</strong>
+                  <p>- 수집항목(필수) : 작성자 정보[이름, 주소, 연락처(휴대폰 혹은 전화번호), 전화번호 입력 시 이메일]</p>
+                  <strong>3. 개인정보의 보유기간 : 5년</strong>
+                  <p>- 보유 근거 : 사회보장급여의 이용·제공 및 수급권자 발굴에 관한 법률 25조(대국민포털 구축 등), 사회복지사업법 제6조의 2(사회복지시설 업무의 전자화), 공공기록물 관리에 관한 법률 시행령 제26조(보존기간)</p>
+                  <strong>4. 동의를 거부할 권리가 있다는 사실과 동의 거부에 따른 불이익 내용</strong>
+                  <p>- 이용자는 「당근행복」에서 수집하는 개인정보에 대해 동의를 거부할 권리가 있으며 동의 거부 시에는 도움요청 서비스가 제한됩니다.</p>
+               </div>
+            </div>
+         </section>
+         <section class="contract">
+            <article class="contract_item">
+               <h3>
+                  <span>도움이 필요한 사연 쓰기</span>
+               </h3>
+               <table>
+                  <caption class="blind">도움이 필요한 사연 입력<span>도움이 필요한 사연 입력 테이블로 도움이 필요한 주제, 요청사연을 입력한다.</span></caption>
+                  <tbody>
+                     <tr>
+                        <th scope="row">도움이 필요한 주제</th>
+                        <td colspan="3">
+                           <div class="contract_inputbox">
+                              <div class="contract_select">
+                                 <select name="" id="" title="도움이 필요한 주제">
+                                    <option value="">선택하세요</option>
+                                    <option value="">선택하세요</option>
+                                    <option value="">선택하세요</option>
+                                    <option value="">선택하세요</option>
+                                    <option value="">선택하세요</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th scope="row">요청사연</th>
+                        <td colspan="3">
+                           <div class="contract_inputbox contract_inputbox--auto">
+                              <label class="blind" for="requestStory">요청사연 입력창</label>
+                              <textarea name="" id="requestStory" cols="" rows="" placeholder="이곳에 사연을 써주세요.&#13;&#10;담당자가 확인 후 진행사항에 대해서 문자메시지, 이메일, 홈페이지에서 처리 상황을 통보 받으실 수 있습니다."></textarea>
+                              <p class="limit_text"><span>0</span>글자입니다. (최대 1,000자 까지 입력할 수 있습니다.)</p>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </article>
+            <article class="contract_item">
+               <h3>
+                  <span>도움이 필요한 이웃 정보</span>
+                  <strong>
+                     <i>•</i>항목은 필수 입력 사항입니다.
+                  </strong>
+               </h3>
+               <table>
+                  <caption class="blind">도움이 필요한 이웃 정보<span>도움이 필요한 이웃 정보 입력 테이블로 이름, 연락처, 주소, 첨부파일을 입력한다.</span></caption>
+                  <tbody>
+                     <tr>
+                        <th scope="row"><i>•</i>이름</th>
+                        <td colspan="4">
+                           <div class="contract_inputbox">
+                              <label class="blind" for="helpName">이름</label>
+                              <input type="text" id="helpName" placeholder="이름을 입력하세요">
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th scope="row" rowspan="2"><i>•</i>주소</th>
+                        <td colspan="4">
+                           <div class="contract_inputbox">
+                              <label class="blind" for="helpAddress">주소</label>
+                              <input id="helpAddress" type="text" placeholder="도로명, 지번, 건물명을 검색해주세요." readonly>
+                              <button type="button">주소검색</button>
+                           </div>
+                           <span class="contract_warning">※ 주소를 모르실 경우 알고있는 근처 주소를 입력해주세요</span>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td colspan="4">
+                           <div class="contract_inputbox">
+                              <label class="blind" for="helpAddressDetail">상세주소</label>
+                              <input id="helpAddressDetail" class="wd100" type="text" placeholder="나머지 주소를 입력해 주세요.">
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th scope="row" class="mobile_hide">연락처</th>
+                        <th class="sub_th" scope="row">휴대폰</th>
+                        <td>
+                           <div class="contract_inputbox">
+                              <select name="" id="" title="연락처 첫번째 세자리">
+                                 <option value="">010</option>
+                                 <option value="">011</option>
+                                 <option value="">017</option>
+                              </select>
+                              <input type="text" title="연락처 두번째 네자리">
+                              <input type="text" title="연락처 세번째 네자리">
+                           </div>
+                           <span class="contract_warning">※ 알고있는 휴대폰 번호가 있으면 입력해주세요</span>
+                        </td>
+                        <th class="sub_th" scope="row">전화번호</th>
+                        <td>
+                           <div class="contract_inputbox">
+                              <select name="" id="" title="연락처 첫번째 세자리">
+                                 <option value="">010</option>
+                                 <option value="">011</option>
+                                 <option value="">017</option>
+                              </select>
+                              <input type="text" title="연락처 두번째 네자리">
+                              <input type="text" title="연락처 세번째 네자리">
+                           </div>
+                           <span class="contract_warning">※ 알고있는 전화번호가 있으면 입력해주세요</span>
+                        </td>
+                     </tr>
+                     <tr class="notice_file_add">
+                        <th scope="row">첨부파일</th>
+                        <td colspan="4">
+                           <div class="contract_inputbox">
+                              <input id="fileName" class="wd100" type="text" readonly>
+                              <label class="label_btn" for="fileUpload" tabindex="0">찾아보기</label>
+                              <input id="fileUpload" type="file" onchange="fileUpload()" accept=".hwp, .doc, .ppt, .xls, .pdf, .jpg, .gif, .png">
+                              <button class="upload_btn" type="button">
+                                 <img src="../../images/icons/more_icon.png" alt="첨부파일 추가하기">
+                              </button>
+                           </div>
+                           <span class="contract_warning">※ 첨부파일은 100MB 이하의 파일만 3개까지 등록할 수 있습니다.</span>
+                           <span class="contract_warning">※ 등록 가능 파일 : hwp, doc, ppt, xls, pdf, jpg, gif, png</span>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </article>
+            <article class="contract_item">
+               <h3>
+                  <span>작성자 정보</span>
+                  <strong>
+                     <i>•</i>항목은 필수 입력 사항입니다.
+                  </strong>
+               </h3>
+               <table class="border_table">
+                  <caption class="blind">작성자 정보<span>작성자 정보 입력 테이블로 이름, 연락처, 주소, 비밀번호, 비밀번호 확인, 진행상황통보를 입력한다.</span></caption>
+                  <tbody>
+                     <tr>
+                        <th scope="row"><i>•</i>이름</th>
+                        <td>
+                           <div class="contract_inputbox">
+                              <label class="blind" for="writerName">이름</label>
+                              <input type="text" id="writerName" placeholder="이름을 입력하세요">
+                           </div>
+                        </td>
+                        <th scope="row">연락처</th>
+                        <td>
+                           <div class="contract_inputbox">
+                              <select name="" id="" title="연락처 첫번째 세자리">
+                                 <option value="">010</option>
+                                 <option value="">011</option>
+                                 <option value="">017</option>
+                              </select>
+                              <input type="text" title="연락처 두번째 네자리">
+                              <input type="text" title="연락처 세번째 네자리">
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th scope="row" rowspan="2"><i>•</i>주소</th>
+                        <td colspan="3">
+                           <div class="contract_inputbox">
+                              <label class="blind" for="address">주소</label>
+                              <input id="address" type="text" placeholder="도로명, 지번, 건물명을 검색해주세요." readonly>
+                              <button type="button">주소검색</button>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td colspan="3">
+                           <div class="contract_inputbox">
+                              <label class="blind" for="addressDetail">상세주소</label>
+                              <input id="addressDetail" class="wd100" type="text" placeholder="나머지 주소를 입력해 주세요.">
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th scope="row"><i>•</i>비밀번호</th>
+                        <td>
+                           <div class="contract_inputbox">
+                              <label class="blind" for="password">비밀번호</label>
+                              <input id="password" type="password" autocomplete="new-password">
+                           </div>
+                        </td>
+                        <th scope="row">비밀번호 확인</th>
+                        <td>
+                           <div class="contract_inputbox">
+                              <label class="blind" for="passwordCheck">비밀번호 확인</label>
+                              <input id="passwordCheck" type="password" autocomplete="new-password">
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th scope="row"><i>•</i>진행상황 통보</th>
+                        <td colspan="3">
+                           <div class="contract_inputbox">
+                              <label class="blind" for="progress">진행상황 통보 선택</label>
+                              <select class="contract_select" name="" id="progress">
+                                 <option value="">선택하세요</option>
+                                 <option value="">이메일</option>
+                                 <option value="">휴대전화</option>
+                                 <option value="">이메일·휴대전화</option>
+                              </select>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </article>
+            <div class="contract_btnbox">
+               <a class="contract_btn no" href="#">작성취소</a>
+               <a class="contract_btn yes" href="#">도움요청</a>
+            </div>
+         </section>
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert">
+         <div class="alert_txt">
+            <p>AI 추천을 받으시려면 개인정보를 입력해 주셔야 받으실 수 있습니다.</p>
+            <p>AI 추천 정보를 받으시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button type="button">삭제</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

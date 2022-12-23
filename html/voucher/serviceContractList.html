@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>서비스 계약 목록</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script src="../../js/lib/jquery/jquery-ui.min.js"></script>
+   <link rel="stylesheet" href="../../js/lib/jquery/jquery-ui.min.css" type="text/css">
+   <script>
+      $.datepicker.setDefaults({
+         dateFormat: 'yy.mm.dd',
+         prevText: '이전 달',
+         nextText: '다음 달',
+         monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+         monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+         dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+         dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+         dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+         showMonthAfterYear: true,
+         yearSuffix: '년',
+         showButtonPanel: true,
+         showOn: 'button',
+         buttonImage: '../../images/icons/calendar_icon.png',
+         buttonImageOnly: false,
+         changeMonth: true,
+         changeYear: true,
+         closeText: '닫기',
+         yearRange: 'c-50:c+50'
+      });
+
+      $(function() {
+         $('.dateStart').datepicker({
+            onSelect: function(date) {
+               $('.dateEnd').datepicker('option', 'minDate', date);
+               $(this).focus();
+            },
+            onClose: function() {
+               $(this).focus();
+            }
+         });
+         $('.dateEnd').datepicker({
+            onSelect: function(date) {
+               $('.dateStart').datepicker('option', 'maxDate', date);
+               $(this).focus();
+            },
+            onClose: function() {
+               $(this).focus();
+            }
+         });
+
+         $('.ui-datepicker-trigger').click(function(e) {
+            $('.ui-datepicker-year').focus();
+         });
+         $('.ui-datepicker-trigger img').attr('alt', '달력 열기');
+         $('.ui-datepicker-trigger img').attr('title', '달력 열기');
+      });
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>온라인 계약</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">바우처 서비스</a>
+            </li>
+            <li>
+               <a href="#" class="focus">서비스 계약 목록</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>서비스 계약 목록</h2>
+         </div>
+         
+         <section class="ai_list">
+            <form action="">
+               <article class="search">
+                  <div class="search_box">
+                     <div class="search_item">
+                        <span>서비스 추천 기간</span>
+                        <div class="search_cover">
+                           <input class="dateStart" type="text" placeholder="yyyy.mm.dd">
+                        </div>
+                        <i>~</i>
+                        <div class="search_cover">
+                           <input class="dateEnd" type="text" placeholder="yyyy.mm.dd">
+                        </div>
+                     </div>
+                     <div class="search_item">
+                        <span>분류</span>
+                        <div class="search_cover">
+                           <select name="" id="">
+                              <option value="">전체</option>
+                              <option value="">전체</option>
+                              <option value="">전체</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="search_box">
+                     <div class="search_item">
+                        <span>서비스명</span>
+                        <div class="search_cover search_cover--wd458">
+                           <input type="text">
+                        </div>
+                        <button type="button" class="search_btn">검색</button>
+                     </div>
+                  </div>
+               </article>
+            </form>
+            <article class="matching">
+               
+               <table>
+                  <caption class="blind">서비스 계약 목록<span>서비스 계약 목록으로 번호, 서비스, 서비스기관, 서비스 제공일, 계약상태를 보여준다.</span></caption>
+                  <thead>
+                     <tr>
+                        <th>번호</th>
+                        <th>서비스</th>
+                        <th>서비스기관</th>
+                        <th>서비스 제공일</th>
+                        <th>계약상태</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>6</td>
+                        <td>장애인활동 서비스(외출동행)</td>
+                        <td>군자장애인가족지원 센터</td>
+                        <td>2022.08.23</td>
+                        <td>계약전</td>
+                     </tr>
+                     <tr>
+                        <td>5</td>
+                        <td>장애인활동서비스(세탁)</td>
+                        <td>광진장애인가족지원 센터</td>
+                        <td>2022.07.22</td>
+                        <td><a href="#">계약서 보기</a></td>
+                     </tr>
+                     <tr>
+                        <td>4</td>
+                        <td>장애인활동서비스(목욕도움)</td>
+                        <td>광진장애인가족지원 센터</td>
+                        <td>2022.06.30</td>
+                        <td><a href="#">계약서 보기</a></td>
+                     </tr>
+                     <tr>
+                        <td>3</td>
+                        <td>장애인활동서비스(식사지원)</td>
+                        <td>군자장애인가족지원 센터</td>
+                        <td>2022.05.12</td>
+                        <td><a href="#">계약서 보기</a></td>
+                     </tr>
+                     <tr>
+                        <td>2</td>
+                        <td>장애인활동서비스(목욕도움)</td>
+                        <td>광진장애인가족지원 센터</td>
+                        <td>2022.03.05</td>
+                        <td><a href="#">계약서 보기</a></td>
+                     </tr>
+                     <tr>
+                        <td>1</td>
+                        <td>장애인활동서비스(구강관리)</td>
+                        <td>광진장애인가족지원 센터</td>
+                        <td>2022.01.23</td>
+                        <td><a href="#">계약서 보기</a></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </article>
+            <div class="paging">
+               <ul>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/first_icon.png" alt="첫 페이지로 이동">
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/prev_icon.png" alt="이전 페이지로 이동">
+                     </a>
+                  </li>
+                  <li>
+                     <p>1</p>
+                  </li>
+                  <li>
+                     <a href="#">2</a>
+                  </li>
+                  <li>
+                     <a href="#">3</a>
+                  </li>
+                  <li>
+                     <a href="#">4</a>
+                  </li>
+                  <li>
+                     <a href="#">5</a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/next_icon.png" alt="다음 페이지로 이동">
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/last_icon.png" alt="마지막 페이지로 이동">
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </section>
+         
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert">
+         <div class="alert_txt">
+            <p>AI 추천을 받으시려면 개인정보를 입력해 주셔야 받으실 수 있습니다.</p>
+            <p>AI 추천 정보를 받으시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button type="button">삭제</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

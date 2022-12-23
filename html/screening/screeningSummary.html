@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>발달장애 스크리닝</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>발달장애 스크리닝</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">발달장애 스크리닝</a>
+            </li>
+            <li>
+               <a href="#" class="focus">발달장애 스크리닝이란?</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>발달장애 스크리닝</h2>
+            <p>발달장애 스크리닝으로 전문가 진단 평가를 받아보세요</p>
+         </div>
+         <article class="summary">
+            <figure>
+               <img src="../../images/summar_bg.png" alt="">
+               <figcaption>
+                  <strong>자녀의 발달장애가 걱정되세요?</strong>
+                  <span>
+                     영유아 발달장애 자가진단은 진단 대상자 정보를 확인 후 참여가 가능합니다.<br><br>
+                     발달장애는 지능, 언어, 사회성, 운동, 감각 등의 발달 지연 혹은 불균형을 보이며, 상동행동과 같은 독특한 행동 증상이 동반될 수 있다는 진단적 특징을 지니고 있습니다. 발달장애는 다양한 증상을 보이는 ‘스펙트럼’을 아우르는 진단으로, 개개의 환자들은 모두 서로 다른 증상과 특징을 보입니다.<br>
+                     발달장애가 한 가지 증상을 보이지 않는 것처럼 원인 또한 복합적이고 다양하며, 관련 연구가 활발히 진행되고 있으나 아직까지 임상 검사로 확진할 수 없는 실정입니다. 따라서 발달장애를 진단하는 과정은 전문가에 의한 면담 및 관찰, 심리평가, 신체검사 및 신경학적 검사 등을 실시한 소견을 종합하여 진행됩니다.
+                  </span>
+               </figcaption>
+            </figure>
+         </article>
+         <form action="">
+            <article class="info_inputbox">
+               <p>
+                  자가검진을 받기 위해 최소한의 검진자 정보가 필요합니다.<br>
+                  입력하신 정보는 자가검진 결과를 위해 사용하며, 각 정보는 수집하지 않습니다.
+               </p>
+               <ul>
+                  <li>
+                     <label for="userName">이름</label>
+                     <input id="userName" name="userName" type="text" placeholder="이름을 입력하세요">
+                  </li>
+                  <li>
+                     <fieldset>
+                        <legend class="blind">성별 선택</legend>
+                        <div>
+                           <input type="radio" name="gender" id="man">
+                           <label for="man">
+                              <span>
+                                 <img src="../../images/icons/check_icon.png" alt="">
+                              </span>
+                              남자
+                           </label>
+                        </div>
+                        <div>
+                           <input type="radio" name="gender" id="woman">
+                           <label for="woman">
+                              <span>
+                                 <img src="../../images/icons/check_icon.png" alt="">
+                              </span>
+                              여자
+                           </label>
+                        </div>
+                     </fieldset>
+                  </li>
+                  <li>
+                     <label for="age">나이</label>
+                     <select name="" id="age">
+                        <option value="">만 0세</option>
+                        <option value="">만 1세</option>
+                        <option value="">만 2세</option>
+                        <option value="">만 3세</option>
+                     </select>
+                  </li>
+               </ul>
+               <div class="warning">
+                  <img src="../../images/icons/mark_icon.png" alt="">
+                  <span>입력하신 정보는 자가검진 결과를 위해 사용되며, 각 정보는 수집되지 않습니다.</span>
+               </div>
+               <div class="info_inputbox_btn">
+                  <button type="button">발달장애 자가진단 시작</button>
+               </div>
+            </article>
+         </form>
+         
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert">
+         <div class="alert_txt">
+            <p>AI 추천을 받으시려면 개인정보를 입력해 주셔야 받으실 수 있습니다.</p>
+            <p>AI 추천 정보를 받으시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button type="button">삭제</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

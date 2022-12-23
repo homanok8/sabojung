@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>서비스제공 매칭정보 결과</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>바우처서비스</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">바우처 서비스</a>
+            </li>
+            <li>
+               <a href="#" class="focus">서비스제공 매칭정보 조회</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>서비스제공 매칭 정보 조회</h2>
+            <p class="mobile_hide">욕구정보를 더 정확하게 입력할수록, 나에게 꼭 맞는 서비스를 찾을 확율이 높아집니다.</p>
+         </div>
+         <form action="">
+            <article class="matching_search">
+               <ul class="matching_con">
+                  <li>
+                     <label for="targetName">대상자 명</label>
+                     <input id="targetName" type="text">
+                  </li>
+               </ul>
+               <ul class="matching_phone">
+                  <li>
+                     <label for="phone">전화번호</label>
+                     <select name="" id="phone" title="전화번호 첫번째자리">
+                        <option value="">010</option>
+                     </select>
+                     -<input type="text" title="전화번호 두번째자리">
+                     -<input type="text" title="전화번호 세번째자리">
+                  </li>
+               </ul>
+               <ul class="matching_con">
+                  <li>
+                     <label for="supplyStatus">서비스제공 상태</label>
+                     <select name="" id="supplyStatus">
+                        <option value="">선택하세요</option>
+                     </select>
+                  </li>
+                  <li>
+                     <label for="married">결혼유무</label>
+                     <select name="" id="married">
+                        <option value="">선택하세요</option>
+                     </select>
+                  </li>
+                  <li>
+                     <label for="driving">운전가능여부</label>
+                     <select name="" id="driving">
+                        <option value="">선택하세요</option>
+                     </select>
+                  </li>
+                  <li>
+                     <label for="gender">성별</label>
+                     <select name="" id="gender">
+                        <option value="">선택하세요</option>
+                     </select>
+                  </li>
+                  <li>
+                     <label for="religion">지원가능종교</label>
+                     <select name="" id="religion">
+                        <option value="">선택하세요</option>
+                     </select>
+                  </li>
+                  <li>
+                     <label for="health">건강상태</label>
+                     <select name="" id="health">
+                        <option value="">선택하세요</option>
+                     </select>
+                  </li>
+               </ul>
+               <ul class="matching_address">
+                  <li>
+                     <label for="matchAddress">주소</label>
+                     <input id="matchAddress" type="text" placeholder="도로명, 지번, 건물명을 검색해주세요." readonly>
+                     <button type="button">주소검색</button>
+                     <input id="detailAddress" type="text" placeholder="나머지 주소를 입력해 주세요." title="상세주소 입력">
+                  </li>
+               </ul>
+               <button class="matching_detail_btn" type="button">
+                  <img src="../../images/icons/search_white_icon.png" alt="">
+                  적합도 조회 상세
+               </button>
+               <div class="matching_date">
+                  <div class="matching_date_result">
+                     <h3><i>•</i>서비스제공 요청시간</h3>
+                     <table>
+                        <caption class="blind">서비스제공 요청시간<span>서비스제공 요청시간 리스트로 날짜, 요일, 시간을 보여준다.</span></caption>
+                        <thead>
+                           <tr>
+                              <th></th>
+                              <th scope="col">날짜</th>
+                              <th scope="col">요일</th>
+                              <th scope="col">시간</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>
+                                 <span class="result_mark">매일</span>
+                              </td>
+                              <td>11월 2일</td>
+                              <td>-</td>
+                              <td>6시 ~ 8시</td>
+                           </tr>
+                           <tr>
+                              <td>
+                                 <span class="result_mark week">매주</span>
+                              </td>
+                              <td>10월 31일</td>
+                              <td>월요일</td>
+                              <td>14시 ~ 16시</td>
+                           </tr>
+                           <tr>
+                              <td></td>
+                              <td>10월 27일</td>
+                              <td>목요일</td>
+                              <td>18시 ~ 20시</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="matching_date_right">
+                     <h3><i>•</i>서비스 분야</h3>
+                     <ul>
+                        <li>
+                           <div class="admin_check">
+                              <input id="hygiene" type="checkbox">
+                              <label for="hygiene">
+                                 <img src="../../images/icons/check_icon.png" alt="개인위생관리 선택">
+                              </label>
+                           </div>
+                           <span>개인위생관리</span>
+                        </li>
+                        <li>
+                           <div class="admin_check">
+                              <input id="helpMeEat" type="checkbox">
+                              <label for="helpMeEat">
+                                 <img src="../../images/icons/check_icon.png" alt="개인위생관리 선택">
+                              </label>
+                           </div>
+                           <span>식사도움</span>
+                        </li>
+                        <li>
+                           <div class="admin_check">
+                              <input id="cleaning" type="checkbox">
+                              <label for="cleaning">
+                                 <img src="../../images/icons/check_icon.png" alt="개인위생관리 선택">
+                              </label>
+                           </div>
+                           <span>청소</span>
+                        </li>
+                        <li>
+                           <div class="admin_check">
+                              <input id="washing" type="checkbox">
+                              <label for="washing">
+                                 <img src="../../images/icons/check_icon.png" alt="개인위생관리 선택">
+                              </label>
+                           </div>
+                           <span>세탁</span>
+                        </li>
+                        <li>
+                           <div class="admin_check">
+                              <input id="cooking" type="checkbox">
+                              <label for="cooking">
+                                 <img src="../../images/icons/check_icon.png" alt="개인위생관리 선택">
+                              </label>
+                           </div>
+                           <span>취사</span>
+                        </li>
+                        <li>
+                           <div class="admin_check">
+                              <input id="leaveWork" type="checkbox">
+                              <label for="leaveWork">
+                                 <img src="../../images/icons/check_icon.png" alt="개인위생관리 선택">
+                              </label>
+                           </div>
+                           <span>등하교및출퇴근도움</span>
+                        </li>
+                        <li>
+                           <div class="admin_check">
+                              <input id="goingOutWith" type="checkbox">
+                              <label for="goingOutWith">
+                                 <img src="../../images/icons/check_icon.png" alt="개인위생관리 선택">
+                              </label>
+                           </div>
+                           <span>외출동행</span>
+                        </li>
+                        <li>
+                           <div class="admin_check">
+                              <input id="moveIndoors" type="checkbox">
+                              <label for="moveIndoors">
+                                 <img src="../../images/icons/check_icon.png" alt="개인위생관리 선택">
+                              </label>
+                           </div>
+                           <span>실내이동도움</span>
+                        </li>
+                        <li>
+                           <div class="admin_check">
+                              <input id="physical" type="checkbox">
+                              <label for="physical">
+                                 <img src="../../images/icons/check_icon.png" alt="개인위생관리 선택">
+                              </label>
+                           </div>
+                           <span>신체기능유지</span>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="basic_btnbox">
+                  <button>조회</button>
+               </div>
+            </article>
+         </form>
+
+         <section class="list">
+            <p>총 <strong>3,214</strong>건의 복지서비스가 있습니다.</p>
+            <ul>
+               <li>
+                  <dl>
+                     <dt>청소년특별지원</dt>
+                     <dd class="list_desc">보호자가 없거나, 실질적 보호자의 보호를 받지 못하는 사회, 경제적으로 어려움이 있는 위기 청소년이 올바르게 성장하고 안정된 생활...</dd>
+                     <dd class="list_hash">
+                        <span>#서민금융</span>
+                        <span>#신체건강</span>
+                        <span>#청년</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>38</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>상병수당 시범사업</dt>
+                     <dd class="list_desc">근로자가 업무 외 질병·부상으로 경제활동이 어려운 경우 치료에 집중할 수 있도록 소득을 보전하는 제도 입니다.</dd>
+                     <dd class="list_hash">
+                        <span>#안전·위기</span>
+                        <span>#생활지원</span>
+                        <span>#중장년</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn heart" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>237</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>청년월세 한시 특별지원</dt>
+                     <dd class="list_desc">코로나19 장기화로 경제적 어려움을 겪는 청년층의 주거비 부담 경감을 위해 청년월세를 한시적으로 지원합니다.</dd>
+                     <dd class="list_hash">
+                        <span>#주거</span>
+                        <span>#서민금융</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn heart" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>169</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>아이돌봄 서비스</dt>
+                     <dd class="list_desc">맞벌이를 하거나 갑자기 아이를 돌볼 수 없는 일이 생겼을 때 육아 도우미가 방문하여 만12세 이하 자녀의 양육을 도와줍니다.</dd>
+                     <dd class="list_hash">
+                        <span>#보호·돌봄</span>
+                        <span>#보육</span>
+                        <span>#영유아</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>38</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>통합공공임대</dt>
+                     <dd class="list_desc">국가나 지방자치단체의 재정이나 주택도시기금의 자금을 지원받아 최저소득 계층, 저소득, 서민, 젊은 층 및 장애인 · 국가유공자 등 사회 취약 ...</dd>
+                     <dd class="list_hash">
+                        <span>#서민금융</span>
+                        <span>#주거</span>
+                        <span>#한부모·조손</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>89</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>재외국민긴급지원비</dt>
+                     <dd class="list_desc">해외에서 사건·사고에 처한 재외국민이 본인의 무자력 등으로 인하여 비용을 부담하기 어렵고 연고자가 없는 경우 등 영사조력 과정에서 생명 ...</dd>
+                     <dd class="list_hash">
+                        <span>#안전·위기</span>
+                        <span>#생활지원</span>
+                        <span>#보호·돌봄</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>136</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>청년월세 한시 특별지원</dt>
+                     <dd class="list_desc">코로나19 장기화로 경제적 어려움을 겪는 청년층의 주거비 부담 경감을 위해 청년월세를 한시적으로 지원합니다.</dd>
+                     <dd class="list_hash">
+                        <span>#주거</span>
+                        <span>#서민금융</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>169</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>직업훈련생계비대부</dt>
+                     <dd class="list_desc">근로 취약계층이 생계비에 대한 부담 없이 장기간 체계적인 훈련을 받고 더 나은 일자리로 취업할 수 있도록 지원합니다. * ‘22.1.1 ...</dd>
+                     <dd class="list_hash">
+                        <span>#일자리</span>
+                        <span>#교육</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>104</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>산모·신생아 건강관리 지원</dt>
+                     <dd class="list_desc">전문교육을 받은 산모·신생아 건강관리사가 출산 가정을 방문해 산모의 건강회복을 돕고, 신생아를 보살펴 출산 가정의 경제적 부담을 덜어 ...</dd>
+                     <dd class="list_hash">
+                        <span>#신체건강</span>
+                        <span>#임신·출산</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>309</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>버팀목전세자금대출</dt>
+                     <dd class="list_desc">무주택세대주의 주책전세자금 융자를 통해 주거안정을 지원합니다.</dd>
+                     <dd class="list_hash">
+                        <span>#안전·위기</span>
+                        <span>#생활지원</span>
+                        <span>#보호·돌봄</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>27</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>결혼이민자 통번역 서비스</dt>
+                     <dd class="list_desc">입국초기의 결혼이민자와 다문화가족이 생활 속에서 의사소통에 불편함이 없도록 통역과 번역 서비스를 지원하며 통·번역 인력채용 등으로 자 ...</dd>
+                     <dd class="list_hash">
+                        <span>#생활지원</span>
+                        <span>#다문화·탈북민</span>
+                        <span>#중장년</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>202</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>청년내일저축계좌</dt>
+                     <dd class="list_desc">일하는 중간계층 청년이 사회에 안착할 수 있도록 자산형성 지원 및 자립을 돕습니다.</dd>
+                     <dd class="list_hash">
+                        <span>#서민금융</span>
+                        <span>#일자리</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn heart" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>172</span>
+                     </span>
+                  </div>
+               </li>
+            </ul>
+         </section>
+         <div class="paging">
+            <ul>
+               <li>
+                  <a href="#">
+                     <img src="../../images/icons/first_icon.png" alt="첫 페이지로 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="../../images/icons/prev_icon.png" alt="이전 페이지로 이동">
+                  </a>
+               </li>
+               <li>
+                  <p>1</p>
+               </li>
+               <li>
+                  <a href="#">2</a>
+               </li>
+               <li>
+                  <a href="#">3</a>
+               </li>
+               <li>
+                  <a href="#">4</a>
+               </li>
+               <li>
+                  <a href="#">5</a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="../../images/icons/next_icon.png" alt="다음 페이지로 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="../../images/icons/last_icon.png" alt="마지막 페이지로 이동">
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert">
+         <div class="alert_txt">
+            <p>AI 추천을 받으시려면 개인정보를 입력해 주셔야 받으실 수 있습니다.</p>
+            <p>AI 추천 정보를 받으시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button type="button">삭제</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

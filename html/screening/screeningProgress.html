@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>발달장애 스크리닝 자가진단</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script>
+    $(function() {
+        $('.progress__btn--step01').click(function() {
+            if($('input[name=step01]').is(':checked') == false) {
+                alert('1번 문항에 해당 사항을 선택해주세요');
+                $('#el01').focus();
+            } else if ($('input[name=step02]').is(':checked') == false) {
+                alert('2번 문항에 해당 사항을 선택해주세요');
+                $('#el04').focus();
+            } else if ($('input[name=step03]').is(':checked') == false) {
+                alert('3번 문항에 해당 사항을 선택해주세요');
+                $('#el07').focus();
+            } else if ($('input[name=step04]').is(':checked') == false) {
+                alert('4번 문항에 해당 사항을 선택해주세요');
+                $('#el10').focus();
+            } else if ($('input[name=step05]').is(':checked') == false) {
+                alert('5번 문항에 해당 사항을 선택해주세요');
+                $('#el13').focus();
+            } else {
+                $(this).parents('.progress__step').stop().fadeOut();
+                $(this).parents('.progress__step').next().stop().fadeIn();
+                $('.progress__bar').stop().animate({'width': '25%'});
+                $('.progress__state-txt').text('25%');
+            }
+        });
+        $('.progress__btn--step02').click(function() {
+            if($('input[name=step06]').is(':checked') == false) {
+                alert('6번 문항에 해당 사항을 선택해주세요');
+                $('#el16').focus();
+            } else if ($('input[name=step07]').is(':checked') == false) {
+                alert('7번 문항에 해당 사항을 선택해주세요');
+                $('#el19').focus();
+            } else if ($('input[name=step08]').is(':checked') == false) {
+                alert('8번 문항에 해당 사항을 선택해주세요');
+                $('#el22').focus();
+            } else if ($('input[name=step09]').is(':checked') == false) {
+                alert('9번 문항에 해당 사항을 선택해주세요');
+                $('#el25').focus();
+            } else if ($('input[name=step10]').is(':checked') == false) {
+                alert('10번 문항에 해당 사항을 선택해주세요');
+                $('#el28').focus();
+            } else {
+                $(this).parents('.progress__step').stop().fadeOut();
+                $(this).parents('.progress__step').next().stop().fadeIn();
+                $('.progress__bar').stop().animate({'width': '50%'});
+                $('.progress__state-txt').text('50%');
+            }
+        });
+        $('.progress__btn--step03').click(function() {
+            if($('input[name=step11]').is(':checked') == false) {
+                alert('1번 문항에 해당 사항을 선택해주세요');
+                $('#el31').focus();
+            } else if ($('input[name=step12]').is(':checked') == false) {
+                alert('2번 문항에 해당 사항을 선택해주세요');
+                $('#el34').focus();
+            } else if ($('input[name=step13]').is(':checked') == false) {
+                alert('3번 문항에 해당 사항을 선택해주세요');
+                $('#el37').focus();
+            } else if ($('input[name=step14]').is(':checked') == false) {
+                alert('4번 문항에 해당 사항을 선택해주세요');
+                $('#el40').focus();
+            } else if ($('input[name=step15]').is(':checked') == false) {
+                alert('5번 문항에 해당 사항을 선택해주세요');
+                $('#el43').focus();
+            } else {
+                $(this).parents('.progress__step').stop().fadeOut();
+                $(this).parents('.progress__step').next().stop().fadeIn();
+                $('.progress__bar').stop().animate({'width': '75%'});
+                $('.progress__state-txt').text('75%');
+            }
+        });
+        $('.progress__btn--complete').click(function() {
+            if($('input[name=step16]').is(':checked') == false) {
+                alert('6번 문항에 해당 사항을 선택해주세요');
+                $('#el46').focus();
+            } else if ($('input[name=step17]').is(':checked') == false) {
+                alert('7번 문항에 해당 사항을 선택해주세요');
+                $('#el49').focus();
+            } else if ($('input[name=step18]').is(':checked') == false) {
+                alert('8번 문항에 해당 사항을 선택해주세요');
+                $('#el52').focus();
+            } else if ($('input[name=step19]').is(':checked') == false) {
+                alert('9번 문항에 해당 사항을 선택해주세요');
+                $('#el55').focus();
+            } else if ($('input[name=step20]').is(':checked') == false) {
+                alert('10번 문항에 해당 사항을 선택해주세요');
+                $('#el58').focus();
+            } else {
+                $('.progress__bar').stop().animate({'width': '100%'});
+                $('.progress__state-txt').text('100%');
+            }
+        });
+    });
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>발달장애 스크리닝</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">발달장애 스크리닝</a>
+            </li>
+            <li>
+               <a href="#" class="focus">발달장애 스크리닝</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>발달장애 스크리닝</h2>
+            <p>발달장애 스크리닝으로 전문가 진단 평가를 받아보세요</p>
+         </div>
+         <div class="progress__desc">
+            <p>본 질문지는 발달장애를 선별하기 위한 질문지로 인지, 사회성, 언어, 대소근육 검사 수행을 위한 위험 영역 선별을 목표로 하는 검진입니다. 그러나 선별검사는 진단적으로 활용할 수 없으며, 스크리닝 결과에 따라서 정확히 진단을 위하여는 반드시 소아청소년 정신건강의학과 전문의에게 진료를 보고 정확한 진단을 받는 것이 필수적입니다. 발달장애는 다른 장애와 같이 조기 진단과 조기 치료가 무엇 보다 중요하며 아동의 발달 이상을 가급적 빨리 찾아내서 초기에 치료하는 것이 바람직합니다.</p>
+         </div>
+         <form action="">
+            <section class="progress">
+                <div class="progress__status">
+                    <div class="progress__bar">
+                        <figure class="progress__state">
+                            <img class="progress__icon" src="../../images/icons/state_icon.png" alt="">
+                            <figcaption class="progress__state-txt">0%</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                
+                <div class="pregress__box">
+                    <article class="progress__step open">
+                        <p class="progress__ps">다음 문항을 읽고 해당 사항을 선택하여 주시기 바랍니다.</p>
+                        <ul class="progress__list">
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>1.</i>
+                                    소리가 나는 쪽으로 고개를 돌리거나 쳐다본다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step01" id="el01">
+                                            <label class="progress__label" for="el01">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step01" id="el02">
+                                            <label class="progress__label" for="el02">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step01" id="el03">
+                                            <label class="progress__label" for="el03">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>2.</i>
+                                    부모(또는 양육자)의 목소리가 들릴 때 쳐다본다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step02" id="el04">
+                                            <label class="progress__label" for="el04">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step02" id="el05">
+                                            <label class="progress__label" for="el05">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step02" id="el06">
+                                            <label class="progress__label" for="el06">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>3.</i>
+                                    부모(또는 양육자)가 주의를 끄는 제스처를 할 때 쳐다본다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step03" id="el07">
+                                            <label class="progress__label" for="el07">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step03" id="el08">
+                                            <label class="progress__label" for="el08">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step03" id="el09">
+                                            <label class="progress__label" for="el09">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>4.</i>
+                                    이름을 불렀을 때 반응을 보인다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step04" id="el10">
+                                            <label class="progress__label" for="el10">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step04" id="el11">
+                                            <label class="progress__label" for="el11">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step04" id="el12">
+                                            <label class="progress__label" for="el12">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>5.</i>
+                                    최소 세 개의 기초 제스처를 이해한다. (예. 도리도리, 잼잼, 짝짜꿍 등)
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step05" id="el13">
+                                            <label class="progress__label" for="el13">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step05" id="el14">
+                                            <label class="progress__label" for="el14">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step05" id="el15">
+                                            <label class="progress__label" for="el15">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                        </ul>
+                        <div class="progress__btnbox">
+                            <button class="progress__btn progress__btn--step01" type="button">계속하기</button>
+                        </div>
+                    </article>
+
+                    <article class="progress__step">
+                        <p class="progress__ps">다음 문항을 읽고 해당 사항을 선택하여 주시기 바랍니다.</p>
+                        <ul class="progress__list">
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>6.</i>
+                                    부모(양육자/교사)의 시선이나 포인팅을 따라간다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step06" id="el16">
+                                            <label class="progress__label" for="el16">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step06" id="el17">
+                                            <label class="progress__label" for="el17">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step06" id="el18">
+                                            <label class="progress__label" for="el18">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>7.</i>
+                                    말의 어조(톤)에 반응한다. (높은 어조, 낮은 어조)
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step07" id="el19">
+                                            <label class="progress__label" for="el19">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step07" id="el20">
+                                            <label class="progress__label" for="el20">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step07" id="el21">
+                                            <label class="progress__label" for="el21">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>8.</i>
+                                    적어도 10개의 단어를 이해한다. (예. 까까, 기저귀, 신발, 가자)
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step08" id="el22">
+                                            <label class="progress__label" for="el22">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step08" id="el23">
+                                            <label class="progress__label" for="el23">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step08" id="el24">
+                                            <label class="progress__label" for="el24">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>9.</i>
+                                    한가지 행동을 요구하는 지시를 따른다. (예. 곤지곤지, 잼잼, 짝짜꿍, 만세, 박수, 하이파이브, 빠빠이, 줘 등)
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step09" id="el25">
+                                            <label class="progress__label" for="el25">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step09" id="el26">
+                                            <label class="progress__label" for="el26">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step09" id="el27">
+                                            <label class="progress__label" for="el27">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>10.</i>
+                                    예/아니요' 질문을 이해하여 제스처로 반응한다. (질문의 예. 맘마 줘? 까까 줘? 나갈까? 등)
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step10" id="el28">
+                                            <label class="progress__label" for="el28">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step10" id="el29">
+                                            <label class="progress__label" for="el29">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step10" id="el30">
+                                            <label class="progress__label" for="el30">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                        </ul>
+                        <div class="progress__btnbox">
+                            <button class="progress__btn progress__btn--step02" type="button">계속하기</button>
+                        </div>
+                    </article>
+
+                    <article class="progress__step">
+                        <p class="progress_com">
+                            <span>공통</span>
+                        </p>
+                        <ul class="progress__list">
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>1.</i>
+                                    물체 또는 물체의 일부에 집착한다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step11" id="el31">
+                                            <label class="progress__label" for="el31">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step11" id="el32">
+                                            <label class="progress__label" for="el32">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step11" id="el33">
+                                            <label class="progress__label" for="el33">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>2.</i>
+                                    이상하거나 반복적인 말을 사용한다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step12" id="el34">
+                                            <label class="progress__label" for="el34">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step12" id="el35">
+                                            <label class="progress__label" for="el35">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step12" id="el36">
+                                            <label class="progress__label" for="el36">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>3.</i>
+                                    신체적인 움직임을 계속해서 반복한다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step13" id="el37">
+                                            <label class="progress__label" for="el37">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step13" id="el38">
+                                            <label class="progress__label" for="el38">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step13" id="el39">
+                                            <label class="progress__label" for="el39">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>4.</i>
+                                    강박적인 행동을 한다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step14" id="el40">
+                                            <label class="progress__label" for="el40">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step14" id="el41">
+                                            <label class="progress__label" for="el41">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step14" id="el42">
+                                            <label class="progress__label" for="el42">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>5.</i>
+                                    바람직하지 않은 방식으로 사람에게 집착한다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step15" id="el43">
+                                            <label class="progress__label" for="el43">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step15" id="el44">
+                                            <label class="progress__label" for="el44">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step15" id="el45">
+                                            <label class="progress__label" for="el45">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                        </ul>
+                        <div class="progress__btnbox">
+                            <button class="progress__btn progress__btn--step03" type="button">계속하기</button>
+                        </div>
+                    </article>
+
+                    <article class="progress__step">
+                        <p class="progress_com">
+                            <span>공통</span>
+                        </p>
+                        <ul class="progress__list">
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>6.</i>
+                                    심한 편식이 있다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step16" id="el46">
+                                            <label class="progress__label" for="el46">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step16" id="el47">
+                                            <label class="progress__label" for="el47">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step16" id="el48">
+                                            <label class="progress__label" for="el48">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>7.</i>
+                                    음식을 입에 오래 물고 있다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step17" id="el49">
+                                            <label class="progress__label" for="el49">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step17" id="el50">
+                                            <label class="progress__label" for="el50">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step17" id="el51">
+                                            <label class="progress__label" for="el51">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>8.</i>
+                                    상처를 뜯는다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step18" id="el52">
+                                            <label class="progress__label" for="el52">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step18" id="el53">
+                                            <label class="progress__label" for="el53">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step18" id="el54">
+                                            <label class="progress__label" for="el54">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>9.</i>
+                                    머리카락이나 털을 뜯는다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step19" id="el55">
+                                            <label class="progress__label" for="el55">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step19" id="el56">
+                                            <label class="progress__label" for="el56">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step19" id="el57">
+                                            <label class="progress__label" for="el57">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                            <li class="progress__item">
+                                <span class="progress__qs">
+                                    <i>10.</i>
+                                    심한 과식을 한다.
+                                </span>
+                                <fieldset>
+                                    <legend class="blind">해당사항을 선택해주세요.</legend>
+                                    <ul class="progress__sublist">
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step20" id="el58">
+                                            <label class="progress__label" for="el58">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                전혀 못한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step20" id="el59">
+                                            <label class="progress__label" for="el59">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                가끔 or 부분적으로 한다
+                                            </label>
+                                        </li>
+                                        <li class="progress__subitem">
+                                            <input class="progress__radio" type="radio" name="step20" id="el60">
+                                            <label class="progress__label" for="el60">
+                                                <span>
+                                                    <img src="../../images/icons/check_icon.png" alt="">
+                                                </span>
+                                                대체로 한다
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </li>
+                        </ul>
+                        <div class="progress__btnbox">
+                            <button class="progress__btn progress__btn--complete" type="button">결과보기</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+         </form>
+         
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert">
+         <div class="alert_txt">
+            <p>AI 추천을 받으시려면 개인정보를 입력해 주셔야 받으실 수 있습니다.</p>
+            <p>AI 추천 정보를 받으시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button type="button">삭제</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>차세대 사회보장정보시스템 개통에 따른 당근행복 안정화 작업 안내</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script>
+      $(function() {
+         $('.delete_btn').click(function(e) {
+            e.preventDefault();
+            $('.pop').stop().show();
+            $('.delete_pop').stop().show();
+            $('.delete_pop .alert_close').focus();
+         });
+         $('.notice_download_btn').click(function(e) {
+            e.preventDefault();
+            $('.pop').stop().show();
+            $('.download_pop').stop().show();
+            $('.download_pop .alert_close').focus();
+         });
+         $('.download_pop .alert_close').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+            $('.notice_download_btn').focus();
+         });
+         $('.delete_pop .alert_close').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+            $('.delete_btn').focus();
+         });
+         $('.pop').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+         });
+         $('.alert').click(function(e) {
+            e.stopPropagation();
+         });
+         $('.alert_confirm').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $(this).prev().focus();
+            }
+         });
+         $('.alert_close').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $(this).next().focus();
+            }
+         });
+      })
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>당근 행복</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">당근행복</a>
+            </li>
+            <li>
+               <a href="#" class="focus">공지사항</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>공지사항</h2>
+            <p>당근행복의 업데이트 정보 등 다양한 소식을 알려드립니다.</p>
+         </div>
+         <section class="board">
+            <article class="notice_detail">
+               <h3>차세대 사회보장정보시스템 개통에 따른 당근행복 안정화 작업 안내</h3>
+               <p>작성일 : 2022.10.14</p>
+               <div class="notice_con">
+                  22.9.6.(월) 09시 차세대 사회보장정보시스템 개통에 따라<br>
+                  안정화 기간 동안 관련 서비스가 불안정할 수 있으니 서비스 이용에 참고하시기 바랍니다<br><br>
+                  ○ 관련 서비스<br>
+                  &nbsp;&nbsp;- 복지급여 온라인 신청에 대한 주민센터 전송 및 접수 지연<br>
+                  &nbsp;&nbsp;- 증명서 발급 및 증빙서류 제출에 대한 속도 저하 등<br><br>
+                  ※ 변동사항이 있을 경우 공지사항을 통해 안내해 드리겠습니다.<br><br>
+                  감사합니다.
+               </div>
+               <div class="notice_download">
+                  <span>첨부파일:</span>
+                  <img class="attach_icon" src="../../images/icons/word_icon.png" alt="">
+                  <span>(22.5.10.)당근행복 뉴스레터 구독 이벤트 당첨자 명단.xlsx (16KB)</span>
+                  <a class="notice_download_btn" href="#">
+                     <img class="download_icon" src="../../images/icons/download_icon.png" alt="">
+                     다운로드
+                  </a>
+               </div>
+            </article>
+            <div class="notice_btn">
+               <div class="admin_btn admin_btn--pd0">
+                  <button class="delete_btn" type="button">삭제</button>
+                  <button class="write_btn" type="button">글쓰기</button>
+               </div>
+               <a href="#">목록</a>
+            </div>
+            <ul class="notice_list">
+               <li>
+                  <a href="#">
+                     <strong>다음글</strong>
+                     <span>당근행복 '청년월세지원' 모의계산 오픈</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <strong>이전글</strong>
+                     <span>시스템 일시 장애로 인한 공동인증서 로그인 중지</span>
+                  </a>
+               </li>
+            </ul>
+         </section>
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert delete_pop">
+         <div class="alert_txt">
+            <p>공지사항 내용을 삭제 하시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button class="alert_confirm" type="button">삭제</button>
+         </div>
+      </section>
+      <section class="alert download_pop">
+         <div class="alert_txt">
+            <p>파일 다운로드 하시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button class="alert_confirm" type="button">다운로드</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

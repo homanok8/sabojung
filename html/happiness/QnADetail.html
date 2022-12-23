@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>주변에 도움을 주고 싶은 분은 어떻게 해야 도움을 받게 해드릴 수 있는 건가요?</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script>
+      $(function() {
+         $('.delete_btn').click(function(e) {
+            e.preventDefault();
+            $('.pop').stop().show();
+            $('.delete_pop').stop().show();
+            $('.delete_pop .alert_close').focus();
+         });
+         $('.notice_download_btn').click(function(e) {
+            e.preventDefault();
+            $('.pop').stop().show();
+            $('.download_pop').stop().show();
+            $('.download_pop .alert_close').focus();
+         });
+         $('.download_pop .alert_close').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+            $('.notice_download_btn').focus();
+         });
+         $('.delete_pop .alert_close').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+            $('.delete_btn').focus();
+         });
+         $('.pop').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+         });
+         $('.alert').click(function(e) {
+            e.stopPropagation();
+         });
+         $('.alert_confirm').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $('.alert_close').focus();
+            }
+         });
+         $('.alert_close').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $('.alert_confirm').focus();
+            }
+         });
+      })
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>당근 행복</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">당근행복</a>
+            </li>
+            <li>
+               <a href="#" class="focus">Q&A</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>Q&A</h2>
+            <p>당근행복에 궁금한점을 물어보세요.</p>
+         </div>
+         <section class="board">
+            <form action="">
+               <article class="notice_detail">
+                  <h3>주변에 도움을 주고 싶은 분은 어떻게 해야 도움을 받게 해드릴 수 있는 건가요?</h3>
+                  <p>작성일 : 2022.10.14</p>
+                  <div class="notice_con">
+                     주변에 도움을 주고 싶은 분은 어떻게 해야 도움을 받게 해드릴 수 있는 건가요?<br>
+                     주변에 도움을 주고 싶은 분은 어떻게 해야 도움을 받게 해드릴 수 있는 건가요?<br><br>
+                     주변에 도움을 주고 싶은 분은 어떻게 해야 도움을 받게 해드릴 수 있는 건가요?<br>
+                     주변에 도움을 주고 싶은 분은 어떻게 해야 도움을 받게 해드릴 수 있는 건가요?<br>
+                     주변에 도움을 주고 싶은 분은 어떻게 해야 도움을 받게 해드릴 수 있는 건가요?<br><br>
+                     주변에 도움을 주고 싶은 분은 어떻게 해야 도움을 받게 해드릴 수 있는 건가요?<br><br>
+                     주변에 도움을 주고 싶은 분은 어떻게 해야 도움을 받게 해드릴 수 있는 건가요?
+                  </div>
+                  <div class="answer_input">
+                     <textarea name="" id="" cols="" rows=""></textarea>
+                  </div>
+               </article>
+               <div class="notice_btn">
+                  <div class="admin_btn admin_btn--pd0">
+                     <button class="cancel_btn" type="button">취소</button>
+                     <button class="delete_btn" type="button">삭제</button>
+                  </div>
+                  <a href="#">답변등록</a>
+                  <a href="#">목록</a>
+               </div>
+            </form>
+            <ul class="notice_list">
+               <li>
+                  <a href="#">
+                     <strong>다음글</strong>
+                     <span>당근행복 '청년월세지원' 모의계산 오픈</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <strong>이전글</strong>
+                     <span>시스템 일시 장애로 인한 공동인증서 로그인 중지</span>
+                  </a>
+               </li>
+            </ul>
+         </section>
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert delete_pop">
+         <div class="alert_txt">
+            <p>공지사항 내용을 삭제 하시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button class="alert_confirm" type="button">삭제</button>
+         </div>
+      </section>
+      <section class="alert download_pop">
+         <div class="alert_txt">
+            <p>파일 다운로드 하시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button class="alert_confirm" type="button">다운로드</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

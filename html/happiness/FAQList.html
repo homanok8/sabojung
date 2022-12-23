@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>FAQ</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script>
+      $(function() {
+         $('.delete_btn').click(function() {
+            $('.pop').stop().show();
+            $('.alert').stop().show();
+            $('.alert_close').focus();
+         });
+         $('.alert_close').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+            $('.delete_btn').focus();
+         });
+         $('.pop').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+         });
+         $('.alert').click(function(e) {
+            e.stopPropagation();
+         });
+
+         $('.alert_confirm').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $('.alert_close').focus();
+            }
+         });
+         $('.alert_close').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $('.alert_confirm').focus();
+            }
+         });
+
+         $('.faq_answer_btn').click(function() {
+            $(this).parent().next().stop().slideToggle();
+            $(this).parent().next().css({'display': 'flex'});
+            $(this).parent().stop().toggleClass('open');
+         })
+      })
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>당근 행복</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">당근행복</a>
+            </li>
+            <li>
+               <a href="#" class="focus">FAQ</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>FAQ</h2>
+            <p>당근행복에 자주 묻는 질문들은 여기서 찾아보세요.</p>
+         </div>
+         <section class="board">
+            <form action="">
+               <article class="board_search">
+                  <span>총 137건</span>
+                  <div class="board_searchbox">
+                     <select name="" id="" title="검색 구분 선택">
+                        <option value="">전체</option>
+                        <option value="">제목</option>
+                        <option value="">작성일</option>
+                     </select>
+                     <input type="text" title="검색어 입력" placeholder="검색어를 입력하세요">
+                     <button>검색</button>
+                  </div>
+               </article>
+            </form>
+            <article class="faq_list">
+               <ul>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="137" type="checkbox">
+                           <label for="137">
+                              <img src="../../images/icons/check_icon.png" alt="137번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>당근이웃은 무엇인가요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="136" type="checkbox">
+                           <label for="136">
+                              <img src="../../images/icons/check_icon.png" alt="136번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>동일인에 대해 여러 번 도움 요청을 할 수 있나요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="135" type="checkbox">
+                           <label for="135">
+                              <img src="../../images/icons/check_icon.png" alt="135번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>복지급여 신청 시, 무료 임차 중인 경우, 첨부서류는 어떻게 등록 하여야 하나요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="134" type="checkbox">
+                           <label for="134">
+                              <img src="../../images/icons/check_icon.png" alt="134번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>승인완료된 민간 복지서비스는 어떻게 수정하나요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="133" type="checkbox">
+                           <label for="133">
+                              <img src="../../images/icons/check_icon.png" alt="133번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>직접 등록하지 않은 복지서비스가 조회되고 있어요. 어떻게 등록된건가요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="132" type="checkbox">
+                           <label for="132">
+                              <img src="../../images/icons/check_icon.png" alt="132번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>발달장애 자가진단은 유료인가요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="131" type="checkbox">
+                           <label for="131">
+                              <img src="../../images/icons/check_icon.png" alt="131번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>발달장애 자가진단 진단 시간은 얼마나 걸리나요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="130" type="checkbox">
+                           <label for="130">
+                              <img src="../../images/icons/check_icon.png" alt="130번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>같은 복지서비스를 두 번 이상 받을 수 없나요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="129" type="checkbox">
+                           <label for="129">
+                              <img src="../../images/icons/check_icon.png" alt="129번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>민간 복지서비스 등록은 어떻게 하나요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="faq_q">
+                        <div class="admin_check">
+                           <input id="128" type="checkbox">
+                           <label for="128">
+                              <img src="../../images/icons/check_icon.png" alt="128번 FAQ 선택">
+                           </label>
+                        </div>
+                        <i>Q</i>
+                        <span>한부모가족 서비스 신청 시, 자녀가 신청 하여도 되나요?</span>
+                        <button class="faq_answer_btn" type="button">
+                           <img src="../../images/icons/down_icon.png" alt="답변보기 버튼">
+                        </button>
+                     </div>
+                     <div class="faq_a">
+                        <i>A</i>
+                        <span>
+                           사업자 번호 입력 후 조회된 복지서비스 목록 중 수정할 복지서비스를 클릭하여 등록 당시 설정하셨던 비밀번호를 입력하시면 수정 가능합니다.<br>
+                           초기에 등록하신 비밀번호를 잊으셨을 경우 비밀번호 초기화를 클릭하시면 복지서비스 등록 당시 입력하셨던 이메일 주소로 새 비밀번호를 발송해드립니다.<br>
+                           수정된 복지서비스는 재 승인요청을 해주셔야 하며, 승인요청된 복지서비스는 복지로 관리자 검토 후 승인처리 됩니다.
+                        </span>
+                     </div>
+                  </li>
+               </ul>
+            </article>
+            <div class="paging">
+               <ul>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/first_icon.png" alt="첫 페이지로 이동">
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/prev_icon.png" alt="이전 페이지로 이동">
+                     </a>
+                  </li>
+                  <li>
+                     <p>1</p>
+                  </li>
+                  <li>
+                     <a href="#">2</a>
+                  </li>
+                  <li>
+                     <a href="#">3</a>
+                  </li>
+                  <li>
+                     <a href="#">4</a>
+                  </li>
+                  <li>
+                     <a href="#">5</a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/next_icon.png" alt="다음 페이지로 이동">
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/last_icon.png" alt="마지막 페이지로 이동">
+                     </a>
+                  </li>
+               </ul>
+            </div>
+            <div class="admin_btn">
+               <button class="delete_btn" type="button">삭제</button>
+               <button class="modify_btn" type="button">수정</button>
+               <button class="write_btn" type="button">등록</button>
+            </div>
+         </section>
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert">
+         <div class="alert_txt">
+            <p>선택한 FAQ를 삭제하시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button class="alert_confirm" type="button">삭제</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>스크리닝 버전 관리</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/board.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script src="../../js/lib/jquery/jquery-ui.min.js"></script>
+   <link rel="stylesheet" href="../../js/lib/jquery/jquery-ui.min.css" type="text/css">
+   <script>
+      $.datepicker.setDefaults({
+         dateFormat: 'yy.mm.dd',
+         prevText: '이전 달',
+         nextText: '다음 달',
+         monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+         monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+         dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+         dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+         dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+         showMonthAfterYear: true,
+         yearSuffix: '년',
+         showButtonPanel: true,
+         showOn: 'button',
+         buttonImage: '../../images/icons/calendar_icon.png',
+         buttonImageOnly: false,
+         changeMonth: true,
+         changeYear: true,
+         closeText: '닫기',
+         yearRange: 'c-50:c+50'
+      });
+
+      $(function() {
+         $('.dateStart').datepicker({
+            onSelect: function(date) {
+               $('.dateEnd').datepicker('option', 'minDate', date);
+               $(this).focus();
+            },
+            onClose: function() {
+               $(this).focus();
+            }
+         });
+         $('.dateEnd').datepicker({
+            onSelect: function(date) {
+               $('.dateStart').datepicker('option', 'maxDate', date);
+               $(this).focus();
+            },
+            onClose: function() {
+               $(this).focus();
+            }
+         });
+
+         $('.ui-datepicker-trigger').click(function(e) {
+            $('.ui-datepicker-year').focus();
+         });
+         $('.ui-datepicker-trigger img').attr('alt', '달력 열기');
+         $('.ui-datepicker-trigger img').attr('title', '달력 열기');
+
+         $('#registerBtn').click(function() {
+            $('.popup').stop().show();
+         });
+         $('#popupClose').click(function() {
+            $('.popup').stop().hide();
+         });
+         $('.versionModify').click(function(e) {
+            e.preventDefault();
+            $('.popup').stop().show();
+         });
+      });
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>AI 추천서비스</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   
+   <main class="main" id="main">
+      <div class="manage">
+        <aside class="aside">
+            <ul class="aside__list">
+                <li class="aside__item">
+                    <a class="aside__link" href="#">전문가 관리</a>
+                </li>
+                <li class="aside__item">
+                    <a class="aside__link" href="#">스크리닝 요청 관리</a>
+                </li>
+                <li class="aside__item">
+                    <a class="aside__link" href="#">전문가 소견 관리</a>
+                </li>
+                <li class="aside__item">
+                    <a class="aside__link" href="#">발달장애 추천 서비스 관리</a>
+                </li>
+                <li class="aside__item">
+                    <a class="aside__link" href="#">스크리닝 관리</a>
+                </li>
+            </ul>
+        </aside>
+        <div class="board">
+            <nav class="board__nav">
+                <ul class="board__list">
+                    <li class="board__item">
+                        <a href="#" class="board__link focused">스크리닝 버전 관리</a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#" class="board__link">설문 문항 목록</a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#" class="board__link">전문가 추천</a>
+                    </li>
+                    <li class="board__item">
+                        <a href="#" class="board__link">설문 결과 관리</a>
+                    </li>
+                </ul>
+            </nav>
+            <section class="version">
+                <div class="version__inner">
+                    <h3 class="version__tit">스크리닝 버전 관리</h3>
+                    <article class="version__search">
+                        <div class="version__search_box">
+                           <div class="version__search_item">
+                              <span>등록일</span>
+                              <div class="version__search_cover">
+                                 <input class="dateStart" type="text" placeholder="yyyy.mm.dd">
+                              </div>
+                              <i>~</i>
+                              <div class="version__search_cover">
+                                 <input class="dateEnd" type="text" placeholder="yyyy.mm.dd">
+                              </div>
+                           </div>
+                           <div class="version__search_item">
+                              <div class="version__search_cover">
+                                 <select name="" id="">
+                                    <option value="">전체</option>
+                                    <option value="">전체</option>
+                                    <option value="">전체</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="version__search_box">
+                           <div class="version__search_item">
+                              <div class="version__search_cover version__search_cover--wd100">
+                                 <input type="text">
+                              </div>
+                              <button type="button" class="version__search_btn">검색</button>
+                           </div>
+                        </div>
+                     </article>
+                    <article class="notice">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="check_table" scope="col">선택</th>
+                                    <th scope="col">번호</th>
+                                    <th scope="col">파일명</th>
+                                    <th scope="col">버전명</th>
+                                    <th scope="col">등록일</th>
+                                    <th scope="col">작성일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="check_table">
+                                        <div class="admin_check">
+                                            <input id="137" type="checkbox">
+                                            <label for="137">
+                                                <img src="../../images/icons/check_icon.png" alt="137번 Q&amp;A 선택">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>doBrainScreeningVer1.0.1</td>
+                                    <td><a class="versionModify" href="#">두브레인 발달장애 스크리닝 01</a></td>
+                                    <td>2022.08.23</td>
+                                    <td>김담당</td>
+                                </tr>
+                                <tr>
+                                    <td class="check_table">
+                                        <div class="admin_check">
+                                            <input id="136" type="checkbox">
+                                            <label for="136">
+                                                <img src="../../images/icons/check_icon.png" alt="137번 Q&amp;A 선택">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>doBrainScreeningVer1.0.1</td>
+                                    <td><a class="versionModify" href="#">두브레인 발달장애 스크리닝 01</a></td>
+                                    <td>2022.08.23</td>
+                                    <td>김담당</td>
+                                </tr>
+                                <tr>
+                                    <td class="check_table">
+                                        <div class="admin_check">
+                                            <input id="135" type="checkbox">
+                                            <label for="135">
+                                                <img src="../../images/icons/check_icon.png" alt="137번 Q&amp;A 선택">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>doBrainScreeningVer1.0.1</td>
+                                    <td><a class="versionModify" href="#">두브레인 발달장애 스크리닝 01</a></td>
+                                    <td>2022.08.23</td>
+                                    <td>김담당</td>
+                                </tr>
+                                <tr>
+                                    <td class="check_table">
+                                        <div class="admin_check">
+                                            <input id="134" type="checkbox">
+                                            <label for="134">
+                                                <img src="../../images/icons/check_icon.png" alt="137번 Q&amp;A 선택">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>doBrainScreeningVer1.0.1</td>
+                                    <td><a class="versionModify" href="#">두브레인 발달장애 스크리닝 01</a></td>
+                                    <td>2022.08.23</td>
+                                    <td>김담당</td>
+                                </tr>
+                                <tr>
+                                    <td class="check_table">
+                                        <div class="admin_check">
+                                            <input id="133" type="checkbox">
+                                            <label for="133">
+                                                <img src="../../images/icons/check_icon.png" alt="137번 Q&amp;A 선택">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>doBrainScreeningVer1.0.1</td>
+                                    <td><a class="versionModify" href="#">두브레인 발달장애 스크리닝 01</a></td>
+                                    <td>2022.08.23</td>
+                                    <td>김담당</td>
+                                </tr>
+                                <tr>
+                                    <td class="check_table">
+                                        <div class="admin_check">
+                                            <input id="132" type="checkbox">
+                                            <label for="132">
+                                                <img src="../../images/icons/check_icon.png" alt="137번 Q&amp;A 선택">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>1</td>
+                                    <td>doBrainScreeningVer1.0.1</td>
+                                    <td><a class="versionModify" href="#">두브레인 발달장애 스크리닝 01</a></td>
+                                    <td>2022.08.23</td>
+                                    <td>김담당</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </article>
+                    <div class="paging">
+                        <ul>
+                           <li>
+                              <a href="#">
+                                 <img src="../../images/icons/first_icon.png" alt="첫 페이지로 이동">
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                                 <img src="../../images/icons/prev_icon.png" alt="이전 페이지로 이동">
+                              </a>
+                           </li>
+                           <li>
+                              <p>1</p>
+                           </li>
+                           <li>
+                              <a href="#">2</a>
+                           </li>
+                           <li>
+                              <a href="#">3</a>
+                           </li>
+                           <li>
+                              <a href="#">4</a>
+                           </li>
+                           <li>
+                              <a href="#">5</a>
+                           </li>
+                           <li>
+                              <a href="#">
+                                 <img src="../../images/icons/next_icon.png" alt="다음 페이지로 이동">
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#">
+                                 <img src="../../images/icons/last_icon.png" alt="마지막 페이지로 이동">
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="version__btnbox">
+                        <button class="version__btn version__btn--gray" type="button">삭제</button>
+                        <a class="version__btn" id="registerBtn" href="#">등록</a>
+                     </div>
+                </div>
+            </section>
+        </div>
+      </div>
+   </main>
+
+   <div class="popup">
+      <section class="ver-pop">
+         <h3 class="ver-pop__tit">버전 관리</h3>
+         <table class="ver-pop__table">
+            <tbody>
+               <tr>
+                  <th scope="row"><label for="version">신규 버전</label></th>
+                  <td>
+                     <div class="popup__input">
+                        <input type="text" id="version">
+                     </div>
+                  </td>
+                  <th colspan="row"><label for="useYn">사용여부</label></th>
+                  <td>
+                     <div class="popup__input">
+                        <select name="" id="useYn">
+                           <option value="">사용</option>
+                           <option value="">미사용</option>
+                        </select>
+                     </div>
+                  </td>
+               </tr>
+               <tr>
+                  <th scope="row"><label for="verName">설문 버전명</label></th>
+                  <td colspan="3">
+                     <div class="popup__input">
+                        <input type="text" id="verName">
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <div class="popup__btnbox">
+            <button class="popup__btn popup__btn--gray" id="popupClose" type="button">취소</button>
+            <button class="popup__btn" type="button">저장</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>공지사항</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script>
+      $(function() {
+         $('.delete_btn').click(function() {
+            $('.pop').stop().show();
+            $('.alert').stop().show();
+            $('.alert_close').focus();
+         });
+         $('.alert_close').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+            $('.delete_btn').focus();
+         });
+         $('.pop').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+         });
+         $('.alert').click(function(e) {
+            e.stopPropagation();
+         });
+
+         $('.alert_confirm').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $('.alert_close').focus();
+            }
+         });
+         $('.alert_close').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $('.alert_confirm').focus();
+            }
+         });
+      })
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>당근 행복</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">당근행복</a>
+            </li>
+            <li>
+               <a href="#" class="focus">공지사항</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>공지사항</h2>
+            <p>당근행복의 업데이트 정보 등 다양한 소식을 알려드립니다.</p>
+         </div>
+         <section class="board">
+            <form action="">
+               <article class="board_search">
+                  <span>총 1234건</span>
+                  <div class="board_searchbox">
+                     <select name="" id="" title="검색 구분 선택">
+                        <option value="">전체</option>
+                        <option value="">제목</option>
+                        <option value="">작성일</option>
+                     </select>
+                     <input type="text" title="검색어 입력" placeholder="검색어를 입력하세요">
+                     <button>검색</button>
+                  </div>
+               </article>
+            </form>
+            <article class="notice">
+               <table>
+                  <caption class="blind">공지사항<span>공지사항으로 번호, 제목, 첨부파일, 작성일, 조회수를 제공한다.</span></caption>
+                  <thead>
+                     <tr>
+                        <th class="check_table" scope="col">선택</th>
+                        <th scope="col">번호</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">첨부파일</th>
+                        <th scope="col">작성일</th>
+                        <th scope="col">조회수</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1989" type="checkbox">
+                              <label for="1989">
+                                 <img src="../../images/icons/check_icon.png" alt="1989번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td><span class="notice_fix">공지</span></td>
+                        <td class="text_left">
+                           <a href="#">차세대 사회보장정보시스템 개통에 따른 당근행복 안정화 작업 안내</a></td>
+                        <td></td>
+                        <td>2022.10.14</td>
+                        <td>111</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1988" type="checkbox">
+                              <label for="1988">
+                                 <img src="../../images/icons/check_icon.png" alt="1988번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1988</td>
+                        <td class="text_left">
+                           <a href="#">사회보장통계(179종) 개선 의견수렴 이벤트</a>
+                        </td>
+                        <td><img class="file_icon" src="../../images/icons/pdf_icon.png" alt="pdf파일 첨부 아이콘"></td>
+                        <td>2022.10.14</td>
+                        <td>22</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1987" type="checkbox">
+                              <label for="1987">
+                                 <img src="../../images/icons/check_icon.png" alt="1987번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1987</td>
+                        <td class="text_left">
+                           <a href="#">당근행복 시스템 일시중단 안내(PC, 모바일)</a>
+                        </td>
+                        <td></td>
+                        <td>2022.10.13</td>
+                        <td>33</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1986" type="checkbox">
+                              <label for="1986">
+                                 <img src="../../images/icons/check_icon.png" alt="1986번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1986</td>
+                        <td class="text_left">
+                           <a href="#">청년월세 한시 특별지원 신청 안내</a>
+                        </td>
+                        <td></td>
+                        <td>2022.10.12</td>
+                        <td>123</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1985" type="checkbox">
+                              <label for="1985">
+                                 <img src="../../images/icons/check_icon.png" alt="1985번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1985</td>
+                        <td class="text_left">
+                           <a href="#">청년내일저축계좌 신청 안내</a>
+                        </td>
+                        <td></td>
+                        <td>2022.10.12</td>
+                        <td>125</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1984" type="checkbox">
+                              <label for="1984">
+                                 <img src="../../images/icons/check_icon.png" alt="1984번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1984</td>
+                        <td class="text_left">
+                           <a href="#">당근행복 시스템 일시 중단 안내(PC, 모바일)</a>
+                        </td>
+                        <td><img class="file_icon" src="../../images/icons/file_icon.png" alt="파일첨부 아이콘"></td>
+                        <td>2022.10.12</td>
+                        <td>107</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1983" type="checkbox">
+                              <label for="1983">
+                                 <img src="../../images/icons/check_icon.png" alt="1983번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1983</td>
+                        <td class="text_left">
+                           <a href="#">당근행복 서비스신청(PC, 모바일) 중단 안내</a>
+                        </td>
+                        <td><img class="file_icon" src="../../images/icons/hwp_icon.png" alt="한글파일첨부 아이콘"></td>
+                        <td>2022.10.11</td>
+                        <td>89</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1982" type="checkbox">
+                              <label for="1982">
+                                 <img src="../../images/icons/check_icon.png" alt="1982번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1982</td>
+                        <td class="text_left">
+                           <a href="#">당근행복이 금융인증서로 더욱 편리해졌습니다.</a>
+                        </td>
+                        <td></td>
+                        <td>2022.10.10</td>
+                        <td>97</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1981" type="checkbox">
+                              <label for="1981">
+                                 <img src="../../images/icons/check_icon.png" alt="1981번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1981</td>
+                        <td class="text_left">
+                           <a href="#">당근행복 '청년월세지원' 모의계산 오픈</a>
+                        </td>
+                        <td></td>
+                        <td>2022.10.08</td>
+                        <td>63</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1980" type="checkbox">
+                              <label for="1980">
+                                 <img src="../../images/icons/check_icon.png" alt="1980번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1980</td>
+                        <td class="text_left">
+                           <a href="#">당근행복 뉴스레터 구독 이벤트 당첨자 발표</a>
+                        </td>
+                        <td><img class="file_icon" src="../../images/icons/word_icon.png" alt="워드파일첨부 아이콘"></td>
+                        <td>2022.10.06</td>
+                        <td>81</td>
+                     </tr>
+                     <tr>
+                        <td class="check_table">
+                           <div class="admin_check">
+                              <input id="1979" type="checkbox">
+                              <label for="1979">
+                                 <img src="../../images/icons/check_icon.png" alt="1979번 공지사항 선택">
+                              </label>
+                           </div>
+                        </td>
+                        <td>1979</td>
+                        <td class="text_left">
+                           <a href="#">시스템 일시 장애로 인한 공동인증서 로그인 중지</a>
+                        </td>
+                        <td></td>
+                        <td>2022.10.03</td>
+                        <td>156</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </article>
+            <div class="paging">
+               <ul>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/first_icon.png" alt="첫 페이지로 이동">
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/prev_icon.png" alt="이전 페이지로 이동">
+                     </a>
+                  </li>
+                  <li>
+                     <p>1</p>
+                  </li>
+                  <li>
+                     <a href="#">2</a>
+                  </li>
+                  <li>
+                     <a href="#">3</a>
+                  </li>
+                  <li>
+                     <a href="#">4</a>
+                  </li>
+                  <li>
+                     <a href="#">5</a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/next_icon.png" alt="다음 페이지로 이동">
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        <img src="../../images/icons/last_icon.png" alt="마지막 페이지로 이동">
+                     </a>
+                  </li>
+               </ul>
+            </div>
+            <div class="admin_btn">
+               <button class="delete_btn" type="button">삭제</button>
+               <button class="write_btn" type="button">글쓰기</button>
+            </div>
+         </section>
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert">
+         <div class="alert_txt">
+            <p>선택한 공지사항을 삭제하시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button class="alert_confirm" type="button">삭제</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>

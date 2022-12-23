@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>내게 맞는 행복 추천 받기</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script>
+      $(function() {
+         var count = 0;
+         $('.next_step').click(function() {
+            count++;
+            if (count == 1) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step02').stop().fadeIn();
+               $('.con_step02').css({'display': 'grid'});
+               $('.allstep_btn').addClass('down');
+               $('.con_step02 ul li').eq(0).find('input').focus();
+               return;
+            } else if (count == 2) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step03').stop().fadeIn();
+               $('.con_step03').css({'display': 'grid'});
+               $('.con_step03 ul li').eq(0).find('input').focus();
+               return;
+            } else if (count == 3) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step04').stop().fadeIn();
+               $('.con_step04').css({'display': 'grid'});
+               $('.con_step04 ul li').eq(0).find('input').focus();
+               return;
+            } else if (count == 4) {
+               $('.con').stop().hide();
+               $('.con_result').stop().fadeIn();
+               $('.con_result').css({'display': 'grid'});
+               $('.btnbox').stop().fadeIn();
+               $('.btnbox').css({'display': 'flex'});
+               $('.contents_inner').addClass('result');
+               $('.next_step').stop().hide();
+               $('.allstep_btn').stop().hide();
+               $('.bg_darkgreen').focus();
+            }
+         });
+         $('.next_step_mobile').click(function() {
+            count++;
+            if (count == 1) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step02').stop().fadeIn();
+               $('.con_step02').css({'display': 'grid'});
+               $('.con_step02 ul li').eq(0).find('input').focus();
+               return;
+            } else if (count == 2) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step03').stop().fadeIn();
+               $('.con_step03').css({'display': 'grid'});
+               $('.con_step03 ul li').eq(0).find('input').focus();
+               return;
+            } else if (count == 3) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step04').stop().fadeIn();
+               $('.con_step04').css({'display': 'grid'});
+               $('.con_step04 ul li').eq(0).find('input').focus();
+               return;
+            } else if (count == 4) {
+               $(this).stop().hide();
+               $('.con').stop().hide();
+               $('.con_result').stop().fadeIn();
+               $('.con_result').css({'display': 'grid'});
+               $('.btnbox').stop().fadeIn();
+               $('.btnbox').css({'display': 'flex'});
+               $('.contents_inner').addClass('result');
+               $('.next_step').stop().hide();
+               $('.allstep_btn').stop().hide();
+               $('.bg_darkgreen').focus();
+            }
+         });
+
+         $('.allstep_btn').click(function() {
+            var windowWidth = $(window).width();
+            if ( windowWidth > 768) {
+               $('.con_step01').stop().slideDown();
+               $('.con_step02').css({'display': 'grid'});
+               $('.con_step03').css({'display': 'grid'});
+               $('.con_step04').css({'display': 'grid'});
+               $('.slidebox').css({'display': 'none'});
+               $('.con').addClass('all');
+               $('.other_info').addClass('slide');
+               $('.contents_inner').addClass('result');
+               $('.next_step').stop().hide();
+               $('.allstep_btn').stop().hide();
+               $('.slidebox').stop().slideDown();
+               $('.btnbox').stop().fadeIn();
+               $('.btnbox').css({'display': 'flex'});
+               $('.first_tit').css({'opacity': 1});
+            } else {
+               $('.con_step01').stop().slideDown();
+               $('.con_step02').css({'display': 'grid'});
+               $('.con_step03').css({'display': 'grid'});
+               $('.con_step04').css({'display': 'grid'});
+               $('.slidebox').css({'display': 'none'});
+               $('.con').addClass('all');
+               $('.other_info').addClass('slide');
+               $('.contents_inner').addClass('result');
+               $('.next_step').stop().hide();
+               $('.allstep_btn').stop().hide();
+               $('.slidebox').stop().slideDown();
+               $('.btnbox').stop().fadeIn();
+               $('.btnbox').css({'display': 'flex'});
+               $('.first_tit').css({'display': 'block'});
+               $('.first_tit').css({'opacity': 1});
+               $('.next_step_mobile').stop().hide();
+            }
+            
+         });
+
+         $('.interest_btn').click(function() {
+            $(this).toggleClass('heart');
+         });
+
+         $('.info_desc button').click(function() {
+            var p = $(this).offset();
+            var t = $(window).scrollTop();
+
+            $(this).next().css({'display': 'block', 'top': p.top + 32 - t + 'px', 'left': p.left - 110 + 'px'});
+            $(this).next().focus();
+         });
+         $('.info_desc ul').blur(function() {
+            $(this).css('display', 'none');
+         });
+         $(window).scroll(function() {
+            $('.info_desc ul').css('display', 'none');
+         });
+         $('.other_info').scroll(function() {
+            $('.info_desc ul').css('display', 'none');
+         });
+
+         $('.ai_recommend').click(function() {
+            $('.pop').stop().show();
+            $('.alert').stop().show();
+            $('.alert_close').focus();
+         });
+         $('.alert_close').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+            $('.ai_recommend').focus();
+         });
+         $('.pop').click(function() {
+            $('.pop').stop().hide();
+            $('.alert').stop().hide();
+         });
+         $('.alert').click(function(e) {
+            e.stopPropagation();
+         });
+         $('.alert_close').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $('.alert_delete').focus();
+            }
+         });
+         $('.alert_delete').keydown(function(e) {
+            if (e.keyCode == 9) {
+               e.preventDefault();
+               $('.alert_close').focus();
+            }
+         });
+      });
+   </script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>AI 추천서비스</h2>
+         <nav>
+            <ul>
+               <li>
+                  <a href="#">AI추천서비스</a>
+               </li>
+               <li>
+                  <a href="#">바우처 서비스</a>
+               </li>
+               <li>
+                  <a href="#">발달장애 스크리닝</a>
+               </li>
+               <li>
+                  <a href="#">당근이웃</a>
+               </li>
+               <li>
+                  <a href="#">당근행복</a>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#" class="focus">어려워요</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>내게 맞는 행복 추천 받기</h2>
+            <p class="mobile_hide">내 상황에 맞는, 내가 원하는 복지서비스를 추천 받을 수 있습니다.</p>
+         </div>
+         <div class="mobile_warning">
+            <img src="../../images/icons/mark_icon.png" alt="">
+            <span>내게 꼭 맞는 복지서비스 추천을 위하여 당근행복 이용정보수집을 실시하오니 이용자 정보를 알맞게 선택하여 주시기 바랍니다.</span>
+         </div>
+         <form action="">
+            <div class="container">
+               <section class="contents">
+                  <p>내게 곡 맞는 복지서비스 추천을 위하여 당근행복 이용정보 수집을 실시하오니 이용자 정보를 알맞게 선택하여 주시기 바랍니다.</p>
+                  <div class="contents_inner">
+                     <button class="allstep_btn" type="button">분류체계 전체보기</button>
+                     <article class="con con_step01">
+                        <h3 class="first_tit">기본정보</h3>
+                        <div class="basics_info">
+                           <dl>
+                              <dt>위치</dt>
+                              <dd>
+                                 <label class="blind" for="city">도/특별시/광역시 선택</label>
+                                 <select name="city" id="city">
+                                    <option value="">전체</option>
+                                    <option value="">서울특별시</option>
+                                    <option value="">경기도</option>
+                                    <option value="">인천광역시</option>
+                                 </select>
+                                 <label class="blind" for="town">시/군/구 선택</label>
+                                 <select name="town" id="town">
+                                    <option value="">전체</option>
+                                    <option value="">영등포구</option>
+                                    <option value="">금천구</option>
+                                 </select>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt>성별</dt>
+                              <dd>
+                                 <fieldset>
+                                    <legend class="blind">성별 선택</legend>
+                                    <div>
+                                       <input type="radio" name="gender" id="man">
+                                       <label for="man">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          남자
+                                       </label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="gender" id="woman">
+                                       <label for="woman">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          여자
+                                       </label>
+                                    </div>
+                                 </fieldset>
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt>나이</dt>
+                              <dd>
+                                 <label class="blind" for="age">나이</label>
+                                 <input type="text" id="age">
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt>생애<i><br></i>주기</dt>
+                              <dd>
+                                 <fieldset>
+                                    <legend class="blind">생애주기 선택</legend>
+                                    <div>
+                                       <input type="radio" name="lifeCycle" id="pregnancy">
+                                       <label for="pregnancy">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          임신·출산
+                                       </label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="lifeCycle" id="infant">
+                                       <label for="infant">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          영유아
+                                       </label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="lifeCycle" id="child">
+                                       <label for="child">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          아동·청소년
+                                       </label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="lifeCycle" id="youth">
+                                       <label for="youth">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          청년
+                                       </label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="lifeCycle" id="middle">
+                                       <label for="middle">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          중장년
+                                       </label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="lifeCycle" id="old">
+                                       <label for="old">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          노년층
+                                       </label>
+                                    </div>
+                                 </fieldset>
+                              </dd>
+                           </dl>
+                        </div>
+                     </article>
+                     <div class="slidebox">
+                        <article class="con con_step02">
+                           <h3>
+                              <strong>관심주제 선택</strong>
+                              <span>선택은 5개 까지 가능합니다</span>
+                           </h3>
+                           <div class="other_info">
+                              <fieldset>
+                                 <legend class="blind">관심주제 선택</legend>
+                                 <ul>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="prepare">
+                                       <label for="prepare">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          임신준비
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="pregnancyChildbirth">
+                                       <label for="pregnancyChildbirth">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          임신출산
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="childbirthSupport">
+                                       <label for="childbirthSupport">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          출산비지원
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="childbirth">
+                                       <label for="childbirth">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          출산
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="afterChildbirth">
+                                       <label for="afterChildbirth">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          출산이후
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="childcare">
+                                       <label for="childcare">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          보육
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="nurture">
+                                       <label for="nurture">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          양육
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="adoption">
+                                       <label for="adoption">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          입양
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="chidCareExpenses">
+                                       <label for="chidCareExpenses">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          보육지원비
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="chidCare">
+                                       <label for="chidCare">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          돌봄(안전·활동지원)
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="employment">
+                                       <label for="employment">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          고용
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="employmentSafety">
+                                       <label for="employmentSafety">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          고용안전
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="employmentSupport">
+                                       <label for="employmentSupport">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          고용지원
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="education">
+                                       <label for="education">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          교육
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="educationCapability">
+                                       <label for="educationCapability">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          교육 역량강화
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="educationLoan">
+                                       <label for="educationLoan">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          교육 대출
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="selfReliance">
+                                       <label for="selfReliance">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          자립
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="participation">
+                                       <label for="participation">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          사회참여
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="health">
+                                       <label for="health">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          건강
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="house">
+                                       <label for="house">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          주거
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="houseImprovement">
+                                       <label for="houseImprovement">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          주거 환경개선
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="houseLoan">
+                                       <label for="houseLoan">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          주거 대출
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="livingSupport">
+                                       <label for="livingSupport">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          생활지원
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="livingFund">
+                                       <label for="livingFund">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          생계자금
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="housingFund">
+                                       <label for="housingFund">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          주거자금
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="protection">
+                                       <label for="protection">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          보호
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="psychological">
+                                       <label for="psychological">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          심리지원
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="financial">
+                                       <label for="financial">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          금융지원
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="business">
+                                       <label for="business">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          사업자금
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="studentFund">
+                                       <label for="studentFund">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          학자금
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="theDisabled">
+                                       <label for="theDisabled">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          장애인
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="singleParent">
+                                       <label for="singleParent">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          한부모
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="singlePerson">
+                                       <label for="singlePerson">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          1인가구
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="lowIncome">
+                                       <label for="lowIncome">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          저소득층
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="interest" id="multiculturalism">
+                                       <label for="multiculturalism">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          다문화·북한이탈주민
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </fieldset>
+                           </div>
+                        </article>
+                        <article class="con con_step03">
+                           <h3>
+                              <strong>서민금융 / 법률복지 선택</strong>
+                              <span>선택은 5개 까지 가능합니다</span>
+                           </h3>
+                           <div class="other_info">
+                              <fieldset>
+                                 <legend class="blind">서민금융 / 법률복지 선택</legend>
+                                 <ul class="list_gubun col4">
+                                    <li>
+                                       <input type="checkbox" name="finance" id="debtAdjustment">
+                                       <label for="debtAdjustment">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          채무조정
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="insurance">
+                                       <label for="insurance">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          보험
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="consulting">
+                                       <label for="consulting">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          교육/컨설팅
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="nationalMerit">
+                                       <label for="nationalMerit">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          보훈대상자·국가유공자
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="taxSupport">
+                                       <label for="taxSupport">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          세무지원
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="legalEducation">
+                                       <label for="legalEducation">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          법률 교육
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="legalCounseling">
+                                       <label for="legalCounseling">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          법률 상담
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="legalAid">
+                                       <label for="legalAid">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          법률 지원(조정·중재·소송지원)
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                 </ul>
+                                 <ul class="col4">
+                                    <li>
+                                       <input type="checkbox" name="finance" id="discharged">
+                                       <label for="discharged">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          제대군인
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="suspectedCase">
+                                       <label for="suspectedCase">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          의사상자
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="sakhalin">
+                                       <label for="sakhalin">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          사할린한인
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="finance" id="atomicBomb">
+                                       <label for="atomicBomb">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          원폭피해자
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </fieldset>
+                           </div>
+                        </article>
+                        <article class="con con_step04">
+                           <h3>
+                              <strong>위기별 / 상황별 지원</strong>
+                              <span>선택은 5개 까지 가능합니다.</span>
+                           </h3>
+                           <div class="other_info">
+                              <fieldset>
+                                 <legend class="blind">위기별 / 상황별 지원 선택</legend>
+                                 <ul class="col4">
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="comfortWomen">
+                                       <label for="comfortWomen">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          위안부
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="familyCrisis">
+                                       <label for="familyCrisis">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          위기가족
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="industrialAccident">
+                                       <label for="industrialAccident">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          산재
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="familyViolence">
+                                       <label for="familyViolence">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          가정폭력·성폭력 피해자
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="farmer">
+                                       <label for="farmer">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          농어업인·도서민
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="assumption">
+                                       <label for="assumption">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          입양
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="homeless">
+                                       <label for="homeless">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          노숙인
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="leavePrison">
+                                       <label for="leavePrison">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          법무보호대상자(출소자)
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="foreigner">
+                                       <label for="foreigner">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          외국인
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="tuberculosis">
+                                       <label for="tuberculosis">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          결핵
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="pneumoconiosis">
+                                       <label for="pneumoconiosis">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          진폐
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="seriousIllness">
+                                       <label for="seriousIllness">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          중증질환·희귀질환자
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="hansen">
+                                       <label for="hansen">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          한센
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="storm">
+                                       <label for="storm">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          풍수해
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="alcoholism">
+                                       <label for="alcoholism">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          알코올 등 중독
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="limited">
+                                       <label for="limited">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          개발제한구역
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li>
+                                       <input type="checkbox" name="crisis" id="victimCcrime">
+                                       <label for="victimCcrime">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          범죄피해자
+                                       </label>
+                                       <div class="info_desc">
+                                          <button type="button">
+                                             <img src="../../images/icons/info_icon.png" alt="관심주제 정보 보기 버튼">
+                                          </button>
+                                          <ul tabindex="0">
+                                             <li class="info_icon">
+                                                <img src="../../images/icons/comment_icon.png" alt="">
+                                             </li>
+                                             <li><i>•</i> 진료 및 이에 따라 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 영유아의 진료 및 처방된 약제·치료재료 구입에 대한 본인부담금(급여·비급여비용)결제</li>
+                                             <li><i>•</i> 임신 1회당 60만원(다태아 임신부의 경우 100만원)</li>
+                                             <li class="emphasis"><i>※</i> 분만취약지의 경우 20만원 추가지원, 매년변동 될 수 있음.</li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </fieldset>
+                           </div>
+                        </article>
+                     </div>
+                     <article class="con con_result">
+                        <h3>내가 선택한 행복 조건</h3>
+                        <div class="result_info">
+                           <ul>
+                              <li>경기도</li>
+                              <li>용인시 수지구</li>
+                              <li>남자</li>
+                              <li>50세</li>
+                              <li>중장년</li>
+                              <li>고용</li>
+                              <li>자립</li>
+                              <li>사회참여</li>
+                              <li>건강</li>
+                              <li>주거 환경개선</li>
+                              <li>세무지원</li>
+                              <li>법률지원(조정·중재·소송지원)</li>
+                              <li>위기가족</li>
+                              <li>중증질환·희귀질환자</li>
+                              <li>알코올 등 중독</li>
+                              <li>범죄피해자</li>
+                           </ul>
+                        </div>
+                     </article>
+                     <div class="btnbox">
+                        <button class="bg_darkgreen" type="button">조건 수정</button>
+                        <button class="bg_green ai_recommend" type="button">AI 추천 받기</button>
+                     </div>
+                     <button class="next_step" type="button">
+                        <span>다음 정보선택 보기 버튼</span>
+                     </button>
+                     <button class="next_step_mobile" type="button">다음</button>
+                  </div>
+               </section>
+            </div>
+         </form>
+
+         <section class="list">
+            <p>총 <strong>3,214</strong>건의 복지서비스가 있습니다.</p>
+            <ul>
+               <li>
+                  <dl>
+                     <dt>청소년특별지원</dt>
+                     <dd class="list_desc">보호자가 없거나, 실질적 보호자의 보호를 받지 못하는 사회, 경제적으로 어려움이 있는 위기 청소년이 올바르게 성장하고 안정된 생활...</dd>
+                     <dd class="list_hash">
+                        <span>#서민금융</span>
+                        <span>#신체건강</span>
+                        <span>#청년</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>38</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>상병수당 시범사업</dt>
+                     <dd class="list_desc">근로자가 업무 외 질병·부상으로 경제활동이 어려운 경우 치료에 집중할 수 있도록 소득을 보전하는 제도 입니다.</dd>
+                     <dd class="list_hash">
+                        <span>#안전·위기</span>
+                        <span>#생활지원</span>
+                        <span>#중장년</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn heart" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>237</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>청년월세 한시 특별지원</dt>
+                     <dd class="list_desc">코로나19 장기화로 경제적 어려움을 겪는 청년층의 주거비 부담 경감을 위해 청년월세를 한시적으로 지원합니다.</dd>
+                     <dd class="list_hash">
+                        <span>#주거</span>
+                        <span>#서민금융</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn heart" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>169</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>아이돌봄 서비스</dt>
+                     <dd class="list_desc">맞벌이를 하거나 갑자기 아이를 돌볼 수 없는 일이 생겼을 때 육아 도우미가 방문하여 만12세 이하 자녀의 양육을 도와줍니다.</dd>
+                     <dd class="list_hash">
+                        <span>#보호·돌봄</span>
+                        <span>#보육</span>
+                        <span>#영유아</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>38</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>통합공공임대</dt>
+                     <dd class="list_desc">국가나 지방자치단체의 재정이나 주택도시기금의 자금을 지원받아 최저소득 계층, 저소득, 서민, 젊은 층 및 장애인 · 국가유공자 등 사회 취약 ...</dd>
+                     <dd class="list_hash">
+                        <span>#서민금융</span>
+                        <span>#주거</span>
+                        <span>#한부모·조손</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>89</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>재외국민긴급지원비</dt>
+                     <dd class="list_desc">해외에서 사건·사고에 처한 재외국민이 본인의 무자력 등으로 인하여 비용을 부담하기 어렵고 연고자가 없는 경우 등 영사조력 과정에서 생명 ...</dd>
+                     <dd class="list_hash">
+                        <span>#안전·위기</span>
+                        <span>#생활지원</span>
+                        <span>#보호·돌봄</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>136</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>청년월세 한시 특별지원</dt>
+                     <dd class="list_desc">코로나19 장기화로 경제적 어려움을 겪는 청년층의 주거비 부담 경감을 위해 청년월세를 한시적으로 지원합니다.</dd>
+                     <dd class="list_hash">
+                        <span>#주거</span>
+                        <span>#서민금융</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>169</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>직업훈련생계비대부</dt>
+                     <dd class="list_desc">근로 취약계층이 생계비에 대한 부담 없이 장기간 체계적인 훈련을 받고 더 나은 일자리로 취업할 수 있도록 지원합니다. * ‘22.1.1 ...</dd>
+                     <dd class="list_hash">
+                        <span>#일자리</span>
+                        <span>#교육</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>104</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>산모·신생아 건강관리 지원</dt>
+                     <dd class="list_desc">전문교육을 받은 산모·신생아 건강관리사가 출산 가정을 방문해 산모의 건강회복을 돕고, 신생아를 보살펴 출산 가정의 경제적 부담을 덜어 ...</dd>
+                     <dd class="list_hash">
+                        <span>#신체건강</span>
+                        <span>#임신·출산</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>309</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>버팀목전세자금대출</dt>
+                     <dd class="list_desc">무주택세대주의 주책전세자금 융자를 통해 주거안정을 지원합니다.</dd>
+                     <dd class="list_hash">
+                        <span>#안전·위기</span>
+                        <span>#생활지원</span>
+                        <span>#보호·돌봄</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>27</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>결혼이민자 통번역 서비스</dt>
+                     <dd class="list_desc">입국초기의 결혼이민자와 다문화가족이 생활 속에서 의사소통에 불편함이 없도록 통역과 번역 서비스를 지원하며 통·번역 인력채용 등으로 자 ...</dd>
+                     <dd class="list_hash">
+                        <span>#생활지원</span>
+                        <span>#다문화·탈북민</span>
+                        <span>#중장년</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>202</span>
+                     </span>
+                  </div>
+               </li>
+               <li>
+                  <dl>
+                     <dt>청년내일저축계좌</dt>
+                     <dd class="list_desc">일하는 중간계층 청년이 사회에 안착할 수 있도록 자산형성 지원 및 자립을 돕습니다.</dd>
+                     <dd class="list_hash">
+                        <span>#서민금융</span>
+                        <span>#일자리</span>
+                        <span>#저소득</span>
+                     </dd>
+                  </dl>
+                  <div>
+                     <a href="#">자세히 보기</a>
+                     <span>
+                        <button class="interest_btn heart" type="button">
+                           <img class="heart_off" src="../../images/icons/heart_off_icon.png" alt="회색 하트모양 아이콘 관심서비스 추천">
+                           <img class="heart_on" src="../../images/icons/heart_on_icon.png" alt="초록색 하트모양 아이콘 관심서비스 추천 해제">
+                        </button>
+                        <span class="blind">해당 서비스의 관심 수</span>
+                        <span>172</span>
+                     </span>
+                  </div>
+               </li>
+            </ul>
+         </section>
+         <div class="paging">
+            <ul>
+               <li>
+                  <a href="#">
+                     <img src="../../images/icons/first_icon.png" alt="첫 페이지로 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="../../images/icons/prev_icon.png" alt="이전 페이지로 이동">
+                  </a>
+               </li>
+               <li>
+                  <p>1</p>
+               </li>
+               <li>
+                  <a href="#">2</a>
+               </li>
+               <li>
+                  <a href="#">3</a>
+               </li>
+               <li>
+                  <a href="#">4</a>
+               </li>
+               <li>
+                  <a href="#">5</a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="../../images/icons/next_icon.png" alt="다음 페이지로 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="../../images/icons/last_icon.png" alt="마지막 페이지로 이동">
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+   <div class="pop" id="pop">
+      <section class="alert">
+         <div class="alert_txt">
+            <p>AI 추천을 받으시려면 개인정보를 입력해 주셔야 받으실 수 있습니다.</p>
+            <p>AI 추천 정보를 받으시겠습니까?</p>
+         </div>
+         <div class="alert_btn">
+            <button class="alert_close" type="button">취소</button>
+            <button class="alert_delete" type="button">삭제</button>
+         </div>
+      </section>
+   </div>
+</body>
+</html>
