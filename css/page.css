@@ -142,12 +142,12 @@
 
 .chart_tit { font-size: 22px; font-weight: 600; margin-bottom: 20px; }
 .major { margin-bottom: 60px; }
-.major ul { display: flex; align-items: flex-end; gap: 60px; }
-.major ul li { width: 100%; border: 1px solid #eeeeee; }
+.major > ul { display: flex; align-items: flex-end; gap: 60px; }
+.major > ul > li { width: 100%; }
 .major_grap { height: 435px; }
-.major ul li.major_table { height: 435px; border: 0; }
+.major > ul > li.major_table { height: 435px; border: 0; }
 .age_area { margin-bottom: 60px; }
-.age_area_grap { width: 100%; height: 260px; border: 1px solid #eee; }
+.age_area_grap { width: 100%; height: 260px; border: 1px solid #eee; overflow-y: auto; }
 .achieve { margin-bottom: 60px; }
 .achieve table { width: 100%; }
 .achieve table thead th { font-size: 12px; color: #333; padding: 4px; }
@@ -172,13 +172,47 @@
 
 .target_sheet > h4 { font-size: 20px; margin-bottom: 20px; }
 .target_sheet .table_head th { font-size: 11px; padding: 3px 6px; color: #333; }
-.target_sheet .scrollbox { height: 355px; overflow-y: auto; border-top: 1px solid #CBCBCB; }
+.target_sheet .scrollbox { height: 322px; overflow-y: auto; border-top: 1px solid #CBCBCB; }
 .target_sheet .table_body {  width: 100%; }
 .target_sheet .table_body th { font-size: 12px; padding: 3px 6px; color: #333; border-bottom: 1px solid #CBCBCB; }
 .target_sheet .table_body td { font-size: 12px; padding: 3px 6px; color: #666; border-bottom: 1px solid #CBCBCB; }
 .target_sheet .table_body td:last-child { color: #333; border-left: 1px solid #CBCBCB; }
 .target_sheet .table_body td:last-child span { display: inline-block; max-width: 145px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .target_sheet .table_body tbody tr:nth-child(2n) td:nth-last-child(2), .target_sheet .table_body tbody tr:nth-child(2n) td:last-child { background-color: #F5F5F5; }
+
+.sheet__list { display: flex; width: 100%; overflow-x: auto; margin-bottom: 30px; }
+.sheet__item { display: block; min-width: 100px; width: 100%; height: 20px; padding: 2px 0; border: 1px solid #CBCBCB;}
+.sheet__link { width: 100%; height: 100%;  display: flex; justify-content: flex-end; align-items: center; background-color: #0AA340; color: #FFFFFF; font-size: 12px; padding: 0 3px; }
+
+.grap { display: flex; height: 100%; }
+.grap__grid { display: grid; grid-template-columns: auto auto auto auto; width: 100%; padding-top: 20px; position: relative; border-left: 1px solid #CBCBCB; border-right: 1px solid #CBCBCB; overflow-x: auto; }
+.grap__name { width: 100%; height: 20px; position: absolute; top: 0; left: 0; font-size: 12px; text-align: center; display:-webkit-box; word-wrap:break-word; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis; }
+.grap__con { display: flex; flex-direction: column; }
+.grap__tit { width: 100%; font-size: 12px; text-align: center; color: #666666; border-left: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; display:-webkit-box; word-wrap:break-word; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis; }
+.grap__list { flex: 1; display: flex; align-items: flex-end; justify-content: space-between; gap: 9px; padding: 10px 4px 80px 4px; border-left: 1px solid #CBCBCB; position: relative; }
+.grap__list::before { content: ''; display: block; width: 100%; height: 1px; background-color: #F2F2F2; position: absolute; top: 10px; left: 0; }
+.grap__list::after { content: ''; display: block; width: 100%; height: 1px; background-color: #CBCBCB; position: absolute; bottom: 80px; left: 0; }
+.grap__con:nth-of-type(1) .grap__tit { border-left: 0; }
+.grap__con:nth-of-type(1) .grap__list { border-left: 0; }
+.grap__item { display: block; width: 27px; height: 0; background-color: #0AA340; position: relative; }
+.grap__item:hover { background-color: #0b8b38; }
+.grap__item span { display: block; position: absolute; bottom: 100%; font-size: 9px; color: #2F2F2F; }
+.grap__item strong { display: block; width: 75px; font-size: 12px; color: #666666; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%) rotate(-90deg); text-align: right; z-index: -1; }
+
+.grap__per { width: 80px; min-width: 80px; display: flex; flex-direction: column; }
+.grap__empty-top { height: 35.5px; border-bottom: 1px solid #CBCBCB; }
+.grap__score { width: 20px; font-size: 12px; writing-mode: vertical-rl; text-orientation: mixed; text-align: center; transform: rotate(180deg); }
+.grap__empty-bottom { height: 81px; border-top: 1px solid #CBCBCB; }
+.grap__mid { flex: 1; position: relative; display: flex; justify-content: flex-end; }
+.grap__mid ul { width: 60px; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; padding-top: 10px; padding-right: 5px; position: relative; font-size: 11px; color: #777777; }
+.grap__dl { display: none; position: absolute; top: 0; left: 0; background-color: rgba(0,0,0,0.8); color: #FFFFFF; padding: 5px 10px; border-radius: 5px; font-size: 12px; line-height: 1.5; font-weight: 400; transition: all 0.1s; z-index: 3; white-space: nowrap; }
+
+.age-table { width: 100%; }
+.age-table th { font-size: 12px; color: #333333; padding: 5px; height: 20px; }
+.age-table td { height: 20px; }
+.age-grap { display: flex; width: 100%; min-height: 19px; height: 100%; justify-content: flex-end; align-items: center; font-size: 10px; color: #FFFFFF; background: rgba(15,82,14,1); padding: 5px; font-weight: 400; position: relative; }
+.age-grap.blk { color: #000000; }
+.age-grap__dl { display: none; position: absolute; top: 0; left: 0; background-color: rgba(0,0,0,0.8); color: #FFFFFF; padding: 5px 10px; border-radius: 5px; font-size: 12px; line-height: 1.5; font-weight: 400; transition: all 0.1s; z-index: 3; white-space: nowrap; }
 
 .ai_list { display: flex; flex-direction: column; gap: 22px; }
 .ai_item { display: flex; min-height: 323px; padding: 30px 40px; border: 1px solid #C5C5C5; border-radius: 10px; }
@@ -618,7 +652,7 @@
    .warning { font-size: 15px; padding: 10px; align-items: flex-start; line-height: 1.2; }
    .info_inputbox_btn button { font-size: 26px; width: 100%; height: 50px; }
 
-   .major ul { flex-direction: column; }
+   .major > ul { flex-direction: column; }
    .board_search { flex-direction: column-reverse; align-items: flex-start; gap: 30px; margin-bottom: 10px; }
    .board_searchbox select { width: 40%; max-width: 96px; }
    .board_searchbox input { width: 60%; max-width: 168px; }

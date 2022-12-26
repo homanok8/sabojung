@@ -112,3 +112,37 @@
 .instit__fig { display: flex; align-items: center; gap: 10px; }
 .instit__fig img { display: block; width: 19px; height: 19px; object-fit: contain; }
 .instit__fig figcaption { font-size: 18px; color: #333333; }
+
+.result-grap { margin-bottom: 40px; }
+
+.result-grap__tit { font-size: 20px; margin-bottom: 9px; font-weight: bold; }
+.grap { display: flex; height: 612px; padding: 30px; border-radius: 10px; border: 1px solid #C5C5C5; }
+.grap__grid { display: grid; grid-template-columns: auto auto auto auto; width: 100%; padding-top: 20px; position: relative; border-left: 1px solid #CBCBCB; border-right: 1px solid #CBCBCB; overflow-x: auto; }
+.grap__name { width: 100%; height: 20px; position: absolute; top: 0; left: 0; font-size: 16px; text-align: center; display:-webkit-box; word-wrap:break-word; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis; }
+.grap__con { display: flex; flex-direction: column; }
+.grap__tit { width: 100%; font-size: 16px; text-align: center; color: #555555; border-left: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; display:-webkit-box; word-wrap:break-word; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis; }
+.grap__list { flex: 1; display: flex; align-items: flex-end; justify-content: center; gap: 20px; padding: 10px 4px 80px 4px; border-left: 1px solid #CBCBCB; position: relative; }
+.grap__list::before { content: ''; display: block; width: 100%; height: 1px; background-color: #F2F2F2; position: absolute; top: 10px; left: 0; }
+.grap__list::after { content: ''; display: block; width: 100%; height: 1px; background-color: #CBCBCB; position: absolute; bottom: 80px; left: 0; }
+.grap__con:nth-of-type(1) .grap__tit { border-left: 0; }
+.grap__con:nth-of-type(1) .grap__list { border-left: 0; }
+.grap__item { display: block; width: 50px; height: 0; background-color: #65BA89; position: relative; }
+.grap__item:hover { background-color: #0b8b38; }
+.grap__item span { display: block; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); font-size: 18px; font-weight: 600; color: #2F2F2F; }
+.grap__item strong { display: block; width: 75px; font-size: 16px; color: #555555; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%) rotate(-90deg); text-align: right;  }
+
+.grap__per { width: 80px; min-width: 80px; display: flex; flex-direction: column; }
+.grap__empty-top { height: 40.5px; border-bottom: 1px solid #CBCBCB; }
+.grap__score { width: 20px; font-size: 12px; writing-mode: vertical-rl; text-orientation: mixed; text-align: center; transform: rotate(180deg); }
+.grap__empty-bottom { height: 81px; border-top: 1px solid #CBCBCB; }
+.grap__mid { flex: 1; position: relative; display: flex; justify-content: flex-end; }
+.grap__mid ul { width: 60px; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; padding-top: 10px; padding-right: 5px; position: relative; font-size: 11px; color: #777777; }
+.grap__dl { display: none; position: absolute; top: 0; left: 0; background-color: rgba(0,0,0,0.8); color: #FFFFFF; padding: 5px 10px; border-radius: 5px; font-size: 12px; line-height: 1.5; font-weight: 400; transition: all 0.1s; z-index: 3; white-space: nowrap; }
+
+.age_area_grap { width: 100%; min-height: 260px; border: 1px solid #C5C5C5; border-radius: 10px; }
+.age-table { width: 100%; }
+.age-table th { font-size: 12px; color: #333333; padding: 5px; height: 20px; }
+.age-table td { height: 40px; }
+.age-grap { display: flex; width: 100%; min-height: 19px; height: 100%; justify-content: flex-end; align-items: center; font-size: 10px; color: #FFFFFF; background: rgba(15,82,14,1); padding: 5px; font-weight: 400; position: relative; }
+.age-grap.blk { color: #000000; }
+.age-grap__dl { display: none; position: absolute; top: 0; left: 0; background-color: rgba(0,0,0,0.8); color: #FFFFFF; padding: 5px 10px; border-radius: 5px; font-size: 12px; line-height: 1.5; font-weight: 400; transition: all 0.1s; z-index: 3; white-space: nowrap; }
