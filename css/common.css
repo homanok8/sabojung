@@ -129,7 +129,7 @@ body, input, textarea, button, select {
 	.header_inner h1 { display: none; }
 	.header_inner p { display: block; }
 	.header_inner h2 { display: block; }
-	.header_inner nav { position: absolute; top: 0; right: -100%; width: 100%; height: auto; min-height: 100vh; z-index: 99; background-color: #FFFFFF; }
+	.header_inner nav { position: fixed; top: 0; right: -100%; width: 100%; height: auto; min-height: 100vh; z-index: 99; background-color: #FFFFFF; }
 	.header_inner nav > ul { flex-direction: column; height: auto; }
 	.header_inner nav > ul > li { height: auto; width: 100%; }
 	.header_inner nav > ul > li:hover .sublnb { height: auto; overflow: visible; padding: 20px; border-top: 0; }

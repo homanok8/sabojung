@@ -19,7 +19,8 @@
                $('.slidebox').css({'display': 'block'});
                $('.con_step02').stop().fadeIn();
                $('.con_step02').css({'display': 'grid'});
-               $('.allstep_btn').addClass('down');
+               $('.allstep_btn--slide').addClass('down');
+               $('.prev_step').stop().show();
                $('.con_step02 ul li').eq(0).find('input').focus();
                return;
             } else if (count == 2) {
@@ -44,10 +45,43 @@
                $('.btnbox').css({'display': 'flex'});
                $('.contents_inner').addClass('result');
                $('.next_step').stop().hide();
-               $('.allstep_btn').stop().hide();
+               $('.allstep_btn--slide').stop().hide();
                $('.bg_darkgreen').focus();
             }
          });
+         $('.prev_step').click(function() {
+            count--;
+            if (count == 3) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step04').stop().fadeIn();
+               $('.con_step04').css({'display': 'grid'});
+               $('.con_step04 ul li').eq(0).find('input').focus();
+               $('.btnbox').stop().hide();
+               $('.next_step').stop().fadeIn();
+               $('.allstep_btn--slide').stop().fadeIn();
+               $('.contents_inner').removeClass('result');
+            } else if (count == 2) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step03').stop().fadeIn();
+               $('.con_step03').css({'display': 'grid'});
+               $('.con_step03 ul li').eq(0).find('input').focus();
+            } else if (count == 1) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step02').stop().fadeIn();
+               $('.con_step02').css({'display': 'grid'});
+               $('.con_step02 ul li').eq(0).find('input').focus();
+            } else if (count == 0) {
+               $('.con').stop().hide();
+               $('.con_step01').stop().fadeIn();
+               $('.con_step01').css({'display': 'grid'});
+               $('.allstep_btn--slide').removeClass('down');
+               $('.prev_step').stop().hide();
+               $('.con_step01 ul li').eq(0).find('input').focus();
+            }
+         })
          $('.next_step_mobile').click(function() {
             count++;
             if (count == 1) {
@@ -56,6 +90,7 @@
                $('.con_step02').stop().fadeIn();
                $('.con_step02').css({'display': 'grid'});
                $('.con_step02 ul li').eq(0).find('input').focus();
+               $('.prev_step_mobile').css({'display': 'flex'});
                return;
             } else if (count == 2) {
                $('.con').stop().hide();
@@ -84,8 +119,44 @@
                $('.bg_darkgreen').focus();
             }
          });
+         $('.prev_step_mobile').click(function() {
+            count--;
+            if (count == 3) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step04').stop().fadeIn();
+               $('.con_step04').css({'display': 'grid'});
+               $('.con_step04 ul li').eq(0).find('input').focus();
+               $('.btnbox').stop().hide();
+               $('.contents_inner').removeClass('result');
+               $('.next_step_mobile').stop().show();
+               $('.allstep_btn--slide').stop().show();
+               return;
+            } else if (count == 2) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step03').stop().fadeIn();
+               $('.con_step03').css({'display': 'grid'});
+               $('.con_step03 ul li').eq(0).find('input').focus();
+               return;
+            } else if (count == 1) {
+               $('.con').stop().hide();
+               $('.slidebox').css({'display': 'block'});
+               $('.con_step02').stop().fadeIn();
+               $('.con_step02').css({'display': 'grid'});
+               $('.con_step02 ul li').eq(0).find('input').focus();
+               return;
+            } else if (count == 0) {
+               $(this).stop().hide();
+               $('.con').stop().hide();
+               $('.con_step01').stop().fadeIn();
+               $('.con_step01').css({'display': 'grid'});
+               $('.allstep_btn--slide').removeClass('down');
+               $('.con_step01 ul li').eq(0).find('input').focus();
+            }
+         });
 
-         $('.allstep_btn').click(function() {
+         $('.allstep_btn--slide').click(function() {
             var windowWidth = $(window).width();
             if ( windowWidth > 768) {
                $('.con_step01').stop().slideDown();
@@ -97,11 +168,14 @@
                $('.other_info').addClass('slide');
                $('.contents_inner').addClass('result');
                $('.next_step').stop().hide();
-               $('.allstep_btn').stop().hide();
+               $('.prev_step').stop().hide();
+               $('.allstep_btn--slide').stop().hide();
+               $('.allstep_btn--close').stop().show();
                $('.slidebox').stop().slideDown();
                $('.btnbox').stop().fadeIn();
                $('.btnbox').css({'display': 'flex'});
                $('.first_tit').css({'opacity': 1});
+               count = 0;
             } else {
                $('.con_step01').stop().slideDown();
                $('.con_step02').css({'display': 'grid'});
@@ -112,15 +186,51 @@
                $('.other_info').addClass('slide');
                $('.contents_inner').addClass('result');
                $('.next_step').stop().hide();
-               $('.allstep_btn').stop().hide();
+               $('.prev_step').stop().hide();
+               $('.allstep_btn--slide').stop().hide();
+               $('.allstep_btn--close').stop().show();
                $('.slidebox').stop().slideDown();
                $('.btnbox').stop().fadeIn();
+               $('.btnbox').addClass('porela');
                $('.btnbox').css({'display': 'flex'});
                $('.first_tit').css({'display': 'block'});
                $('.first_tit').css({'opacity': 1});
                $('.next_step_mobile').stop().hide();
+               count = 0;
             }
-            
+         });
+         $('.allstep_btn--close').click(function() {
+            var windowWidth = $(window).width();
+            if ( windowWidth > 768) {
+               $('.con_step01').stop().show();
+               $('.con').removeClass('all');
+               $('.other_info').removeClass('slide');
+               $('.contents_inner').removeClass('result');
+               $('.next_step').stop().show();
+               $('.prev_step').stop().hide();
+               $('.allstep_btn--slide').stop().show();
+               $('.allstep_btn--slide').removeClass('down');
+               $('.allstep_btn--close').stop().hide();
+               $('.slidebox').stop().slideUp();
+               $('.btnbox').stop().hide();
+               $('.first_tit').css({'opacity': 0});
+            } else {
+               $('.con_step01').stop().show();
+               $('.con').removeClass('all');
+               $('.other_info').removeClass('slide');
+               $('.contents_inner').removeClass('result');
+               $('.next_step').stop().hide();
+               $('.prev_step').stop().hide();
+               $('.allstep_btn--slide').stop().show();
+               $('.allstep_btn--slide').removeClass('down');
+               $('.allstep_btn--close').stop().hide();
+               $('.slidebox').stop().slideUp();
+               $('.btnbox').stop().hide();
+               $('.btnbox').removeClass('porela');
+               $('.first_tit').css({'display': 'block'});
+               $('.first_tit').css({'opacity': 1});
+               $('.next_step_mobile').stop().show();
+            }
          });
 
          $('.interest_btn').click(function() {
@@ -366,10 +476,55 @@
                <section class="contents">
                   <p>내게 곡 맞는 복지서비스 추천을 위하여 당근행복 이용정보 수집을 실시하오니 이용자 정보를 알맞게 선택하여 주시기 바랍니다.</p>
                   <div class="contents_inner">
-                     <button class="allstep_btn" type="button">분류체계 전체보기</button>
+                     <button class="allstep_btn allstep_btn--slide" type="button">분류체계 전체보기</button>
                      <article class="con con_step01">
                         <h3 class="first_tit">기본정보</h3>
                         <div class="basics_info">
+                           <dl>
+                              <dt>이름</dt>
+                              <dd>
+                                 <label class="blind" for="userName">이름</label>
+                                 <input type="text" id="userName">
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt>전화번호</dt>
+                              <dd>
+                                 <select name="" title="전화번호 첫번째 자리">
+                                    <option value="">010</option>
+                                    <option value="">011</option>
+                                    <option value="">017</option>
+                                 </select>
+                                 <input type="text" title="전화번호 두번째 자리">
+                                 <input type="text" title="전화번호 세번째 자리">
+                              </dd>
+                           </dl>
+                           <dl>
+                              <dt>본인여부</dt>
+                              <dd>
+                                 <fieldset>
+                                    <legend class="blind">본인여부 선택</legend>
+                                    <div>
+                                       <input type="radio" name="selfAt" id="selfAtYes">
+                                       <label for="selfAtYes">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          예
+                                       </label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="selfAt" id="selfAtNo">
+                                       <label for="selfAtNo">
+                                          <span>
+                                             <img src="../../images/icons/check_icon.png" alt="">
+                                          </span>
+                                          아니오
+                                       </label>
+                                    </div>
+                                 </fieldset>
+                              </dd>
+                           </dl>
                            <dl>
                               <dt>위치</dt>
                               <dd>
@@ -2023,14 +2178,21 @@
                            </ul>
                         </div>
                      </article>
+                     <button class="allstep_btn allstep_btn--close" type="button">분류체계 전체보기 접기</button>
                      <div class="btnbox">
                         <button class="bg_darkgreen" type="button">조건 수정</button>
                         <button class="bg_green ai_recommend" type="button">AI 추천 받기</button>
                      </div>
+                     <button class="prev_step" type="button">
+                        <span>이전 정보선택 보기 버튼</span>
+                     </button>
                      <button class="next_step" type="button">
                         <span>다음 정보선택 보기 버튼</span>
                      </button>
-                     <button class="next_step_mobile" type="button">다음</button>
+                     <div class="mobile-btnbox">
+                        <button class="prev_step_mobile" type="button">이전</button>
+                        <button class="next_step_mobile" type="button">다음</button>
+                     </div>
                   </div>
                </section>
             </div>
