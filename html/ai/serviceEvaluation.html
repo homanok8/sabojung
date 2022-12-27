@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>서비스 종료</title>
+   <title>서비스 평가</title>
    <link rel="stylesheet" href="../../css/common.css" type="text/css">
    <link rel="stylesheet" href="../../css/page.css" type="text/css">
    <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
    <script src="../../js/pub.js"></script>
+   <script>
+      $(function() {
+         $('.evl__starbox button').click(function() {
+            $(this).parent().children('button').removeClass('evl__btn--fill');
+            $(this).addClass('evl__btn--fill').prevAll('button').addClass('evl__btn--fill');
+         })
+      });
+   </script>
 </head>
+
 <body>
    <div id="skipMenu">
       <a href="#main">본문 바로가기</a>
@@ -183,39 +193,95 @@
                <a href="#">AI추천서비스</a>
             </li>
             <li>
-               <a href="#" class="focus">서비스 종료</a>
+               <a href="#" class="focus">서비스 평가</a>
             </li>
          </ul>
       </div>
    </nav>
    <main class="main" id="main">
       <div class="main_inner">
-        <div class="main_top">
-            <h2>서비스 종료</h2>
-        </div>
-        <form action="">
-            <section class="svc-end">
-                <article class="svc-end__inner">
-                    <h3 class="svc-end__tit">서비스를 그만할까요?</h3>
-                    <div class="svc-end__box">
-                        <label for="stpgeReason">왜 그만 하나요?</label>
-                        <select name="" id="stpgeReason">
-                            <option value="">다른 서비스를 받게 되었어요</option>
-                            <option value="">다른 서비스를 받게 되었어요</option>
-                            <option value="">다른 서비스를 받게 되었어요</option>
-                            <option value="">다른 서비스를 받게 되었어요</option>
-                        </select>
-                    </div>
-                    <div class="svc-end__box svc-end__box--col">
-                        <label for="demandMatter">하고 싶은 말을 적어 주세요</label>
-                        <textarea name="" id="demandMatter" cols="" rows=""></textarea>
-                    </div>
-                     <div class="svc-detail__btnbox">
-                        <a class="svc-detail__btn svc-detail__btn--wd100" href="#">서비스를 그만 할래요!</a>
-                     </div>
-                </article>
+         <div class="main_top">
+            <h2>서비스 평가</h2>
+         </div>
+         <form action="">
+            <section class="evl">
+               <article class="evl__inner">
+                  <h3 class="evl__tit">서비스는 어떠셨나요?</h3>
+                  <div class="evl__block">
+                     <table class="evl__table">
+                        <caption class="blind">서비스 평가<span>서비스 평가 목록으로 해당 리스트 별로 매우나쁨, 나쁨, 보통, 좋음, 아주좋음을 평가한다.</span></caption>
+                        <thead>
+                           <tr>
+                              <th></th>
+                              <th scope="col">
+                                 <div class="evl__list">
+                                    <span>매우나쁨</span>
+                                    <span>나쁨</span>
+                                    <span>보통</span>
+                                    <span>좋음</span>
+                                    <span>아주좋음</span>
+                                 </div>
+                              </th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <th scope="row">친절하게 알려 줬어요!</th>
+                              <td>
+                                 <div class="evl__starbox">
+                                    <button class="evl__btn" type="button" value="1">★</button>
+                                    <button class="evl__btn" type="button" value="2">★</button>
+                                    <button class="evl__btn" type="button" value="3">★</button>
+                                    <button class="evl__btn" type="button" value="4">★</button>
+                                    <button class="evl__btn" type="button" value="5">★</button>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row">약속시간을 잘 지켜요!</th>
+                              <td>
+                                 <div class="evl__starbox">
+                                    <button class="evl__btn" type="button" value="1">★</button>
+                                    <button class="evl__btn" type="button" value="2">★</button>
+                                    <button class="evl__btn" type="button" value="3">★</button>
+                                    <button class="evl__btn" type="button" value="4">★</button>
+                                    <button class="evl__btn" type="button" value="5">★</button>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row">나쁜말을 하지 않았어요!</th>
+                              <td>
+                                 <div class="evl__starbox">
+                                    <button class="evl__btn" type="button" value="1">★</button>
+                                    <button class="evl__btn" type="button" value="2">★</button>
+                                    <button class="evl__btn" type="button" value="3">★</button>
+                                    <button class="evl__btn" type="button" value="4">★</button>
+                                    <button class="evl__btn" type="button" value="5">★</button>
+                                 </div>
+                              </td>
+                           </tr>
+                           <tr>
+                              <th scope="row">약속한 사람이 왔어요!</th>
+                              <td>
+                                 <div class="evl__starbox">
+                                    <button class="evl__btn" type="button" value="1">★</button>
+                                    <button class="evl__btn" type="button" value="2">★</button>
+                                    <button class="evl__btn" type="button" value="3">★</button>
+                                    <button class="evl__btn" type="button" value="4">★</button>
+                                    <button class="evl__btn" type="button" value="5">★</button>
+                                 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div class="svc-detail__btnbox">
+                     <a class="svc-detail__btn" href="#">저장하기</a>
+                  </div>
+               </article>
             </section>
-        </form>
+         </form>
       </div>
    </main>
    <footer class="footer" id="footer">
@@ -271,4 +337,5 @@
       </section>
    </div>
 </body>
+
 </html>
