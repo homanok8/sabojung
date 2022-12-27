@@ -8,6 +8,7 @@
    <link rel="stylesheet" href="../../css/common.css" type="text/css">
    <link rel="stylesheet" href="../../css/page.css" type="text/css">
    <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script src="../../js/pub.js"></script>
    <script>
       $(function() {
          $('.delete_btn').click(function() {
@@ -69,21 +70,133 @@
          </p>
          <h2>당근 행복</h2>
          <nav>
+            <div class="mob-close">
+               <button class="mob-close__btn" id="menuClose" type="button">
+                  <span class="blind">메뉴 닫기 버튼</span>
+                  <i></i>
+                  <i></i>
+               </button>
+            </div>
             <ul>
                <li>
-                  <a href="#">AI추천서비스</a>
+                  <a href="#">
+                     <span>메인</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">추천 서비스 신청</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">바우처 서비스 신청</a>
+                     </li>
+                  </ul>
                </li>
                <li>
-                  <a href="#">바우처 서비스</a>
+                  <a href="#">
+                     <span>서비스신청</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 신청 목록</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 추천 목록</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 추천 대상</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">바우처 서비스 대상</a>
+                     </li>
+                  </ul>
                </li>
                <li>
-                  <a href="#">발달장애 스크리닝</a>
+                  <a href="#">
+                     <span>서비스 제공</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 제공</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">온라인 계약</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 제공 관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">온라인 계약 관리</a>
+                     </li>
+                  </ul>
                </li>
                <li>
-                  <a href="#">당근이웃</a>
+                  <a href="#">
+                     <span>발달장애 자가진단</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">이용안내</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">자가진단</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">전문가 소견</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">발달장애 추천 서비스</a>
+                     </li>
+                  </ul>
                </li>
                <li>
-                  <a href="#">당근행복</a>
+                  <a href="#">
+                     <span>서비스 관리</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">기관정보관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">담당자 관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">계약서 관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">이의신청관리</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#">
+                     <span>당근 행복</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">당근 행복 소개</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">공지사항</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">Q&A</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">FAQ</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스개선요청</a>
+                     </li>
+                  </ul>
                </li>
             </ul>
          </nav>
@@ -92,7 +205,7 @@
                <span>로그인</span>
                <img src="../../images/icons/login_icon.png" alt="로그인 이동">
             </a>
-            <button class="menu_btn" type="button">
+            <button class="menu_btn" id="menuBtn" type="button">
                <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
             </button>
          </div>

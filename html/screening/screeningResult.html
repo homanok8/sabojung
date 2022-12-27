@@ -8,6 +8,7 @@
    <link rel="stylesheet" href="../../css/common.css" type="text/css">
    <link rel="stylesheet" href="../../css/page.css" type="text/css">
    <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script src="../../js/pub.js"></script>
    <script>
       $(function() {
          $('.grap__item').each(function() {
@@ -15,8 +16,8 @@
             $(this).stop().animate({'height': str + '%'});
 
             $(this).mousemove(function(e){    
-               $(this).find('.grap__dl').css("top", e.offsetY + 15);
-               $(this).find('.grap__dl').css("left", e.offsetX + 10);
+               $(this).find('.grap__dl').css("top", e.clientY + 15);
+               $(this).find('.grap__dl').css("left", e.clientX + 5);
                $(this).find('.grap__dl').stop().show();
             });
             $(this).find('strong').mousemove(function(e) {
@@ -39,28 +40,13 @@
             }
 
             $(this).mousemove(function(e){    
-               $(this).find('.age-grap__dl').css("top", e.offsetY + 15);
-               $(this).find('.age-grap__dl').css("left", e.offsetX + 10);
+               $(this).find('.age-grap__dl').css("top", e.clientY + 15);
+               $(this).find('.age-grap__dl').css("left", e.clientX + 10);
                $(this).find('.age-grap__dl').stop().show();
             });
             $(this).on("mouseleave", function(){
                $(this).find('.age-grap__dl').stop().hide();
             });
-         });
-
-         $('.sublinb__link').each(function() {
-            var liSize = $(this).parents('.sublnb').find('li').length;
-            var parentLi = $(this).parent();
-            var liIndex = parentLi.index() + 1;
-            
-            $(this).focus(function() {
-               $(this).parents('.sublnb').addClass('open');
-            });
-            if (liIndex == liSize) {
-               $(this).blur(function() {
-                  $(this).parents('.sublnb').removeClass('open');
-               })
-            }
          });
       });
    </script>
@@ -85,9 +71,19 @@
          </p>
          <h2>발달장애 스크리닝</h2>
          <nav>
+            <div class="mob-close">
+               <button class="mob-close__btn" id="menuClose" type="button">
+                  <span class="blind">메뉴 닫기 버튼</span>
+                  <i></i>
+                  <i></i>
+               </button>
+            </div>
             <ul>
                <li>
-                  <a href="#">메인</a>
+                  <a href="#">
+                     <span>메인</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
                   <ul class="sublnb">
                      <li class="sublnb__item">
                         <a class="sublinb__link" href="#">추천 서비스 신청</a>
@@ -98,7 +94,10 @@
                   </ul>
                </li>
                <li>
-                  <a href="#">서비스신청</a>
+                  <a href="#">
+                     <span>서비스신청</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
                   <ul class="sublnb">
                      <li class="sublnb__item">
                         <a class="sublinb__link" href="#">서비스 신청 목록</a>
@@ -115,7 +114,10 @@
                   </ul>
                </li>
                <li>
-                  <a href="#">서비스 제공</a>
+                  <a href="#">
+                     <span>서비스 제공</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
                   <ul class="sublnb">
                      <li class="sublnb__item">
                         <a class="sublinb__link" href="#">서비스 제공</a>
@@ -132,7 +134,10 @@
                   </ul>
                </li>
                <li>
-                  <a href="#">발달장애 자가진단</a>
+                  <a href="#">
+                     <span>발달장애 자가진단</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
                   <ul class="sublnb">
                      <li class="sublnb__item">
                         <a class="sublinb__link" href="#">이용안내</a>
@@ -149,7 +154,10 @@
                   </ul>
                </li>
                <li>
-                  <a href="#">서비스 관리</a>
+                  <a href="#">
+                     <span>서비스 관리</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
                   <ul class="sublnb">
                      <li class="sublnb__item">
                         <a class="sublinb__link" href="#">기관정보관리</a>
@@ -169,7 +177,10 @@
                   </ul>
                </li>
                <li>
-                  <a href="#">당근 행복</a>
+                  <a href="#">
+                     <span>당근 행복</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
                   <ul class="sublnb">
                      <li class="sublnb__item">
                         <a class="sublinb__link" href="#">당근 행복 소개</a>
@@ -195,7 +206,7 @@
                <span>로그인</span>
                <img src="../../images/icons/login_icon.png" alt="로그인 이동">
             </a>
-            <button class="menu_btn" type="button">
+            <button class="menu_btn" id="menuBtn" type="button">
                <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
             </button>
          </div>
@@ -652,6 +663,7 @@
                                     <dd class="age-grap__dd">Age : 2</dd>
                                     <dd class="age-grap__dd">100.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -662,6 +674,7 @@
                                     <dd class="age-grap__dd">Age : 3</dd>
                                     <dd class="age-grap__dd">62.50%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -672,6 +685,7 @@
                                     <dd class="age-grap__dd">Age : 4</dd>
                                     <dd class="age-grap__dd">50.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -682,6 +696,7 @@
                                     <dd class="age-grap__dd">Age : 5</dd>
                                     <dd class="age-grap__dd">8.33%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td></td>
@@ -696,6 +711,7 @@
                                     <dd class="age-grap__dd">Age : 0</dd>
                                     <dd class="age-grap__dd">100.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -706,6 +722,7 @@
                                     <dd class="age-grap__dd">Age : 1</dd>
                                     <dd class="age-grap__dd">91.18%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -716,6 +733,7 @@
                                     <dd class="age-grap__dd">Age : 2</dd>
                                     <dd class="age-grap__dd">78.57%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -726,6 +744,7 @@
                                     <dd class="age-grap__dd">Age : 3</dd>
                                     <dd class="age-grap__dd">88.24</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -736,6 +755,7 @@
                                     <dd class="age-grap__dd">Age : 4</dd>
                                     <dd class="age-grap__dd">28.57%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -746,6 +766,7 @@
                                     <dd class="age-grap__dd">Age : 5</dd>
                                     <dd class="age-grap__dd">20.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td></td>
@@ -760,6 +781,7 @@
                                     <dd class="age-grap__dd">Age : 0</dd>
                                     <dd class="age-grap__dd">100.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -770,6 +792,7 @@
                                     <dd class="age-grap__dd">Age : 1</dd>
                                     <dd class="age-grap__dd">45.83%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -780,6 +803,7 @@
                                     <dd class="age-grap__dd">Age : 2</dd>
                                     <dd class="age-grap__dd">10.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -790,6 +814,7 @@
                                     <dd class="age-grap__dd">Age : 3</dd>
                                     <dd class="age-grap__dd">10.00</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -800,6 +825,7 @@
                                     <dd class="age-grap__dd">Age : 4</dd>
                                     <dd class="age-grap__dd">25.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -810,6 +836,7 @@
                                     <dd class="age-grap__dd">Age : 5</dd>
                                     <dd class="age-grap__dd">0.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -820,6 +847,7 @@
                                     <dd class="age-grap__dd">Age : 6</dd>
                                     <dd class="age-grap__dd">0.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                         </tr>
@@ -833,6 +861,7 @@
                                     <dd class="age-grap__dd">Age : 0</dd>
                                     <dd class="age-grap__dd">100.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -843,6 +872,7 @@
                                     <dd class="age-grap__dd">Age : 1</dd>
                                     <dd class="age-grap__dd">93.75%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -853,6 +883,7 @@
                                     <dd class="age-grap__dd">Age : 2</dd>
                                     <dd class="age-grap__dd">95.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -863,6 +894,7 @@
                                     <dd class="age-grap__dd">Age : 3</dd>
                                     <dd class="age-grap__dd">100.00</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -873,6 +905,7 @@
                                     <dd class="age-grap__dd">Age : 4</dd>
                                     <dd class="age-grap__dd">87.50%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -883,6 +916,7 @@
                                     <dd class="age-grap__dd">Age : 5</dd>
                                     <dd class="age-grap__dd">100.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                            <td>
@@ -893,6 +927,7 @@
                                     <dd class="age-grap__dd">Age : 6</dd>
                                     <dd class="age-grap__dd">25.00%</dd>
                                  </dl>
+                                 <div class="age-grap__cover"></div>
                               </div>
                            </td>
                         </tr>
