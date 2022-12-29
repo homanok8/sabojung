@@ -12,10 +12,15 @@
    <script src="../../js/pub.js"></script>
    <script>
       $(function() {
-         $('.evl__starbox button').click(function() {
-            $(this).parent().children('button').removeClass('evl__btn--fill');
-            $(this).addClass('evl__btn--fill').prevAll('button').addClass('evl__btn--fill');
-         })
+         $('.evl__starbox div label').click(function() {
+            $(this).parents('.evl__starbox').children('div').find('label').removeClass('evl__btn--fill');
+            $(this).addClass('evl__btn--fill').parent().prevAll('div').find('label').addClass('evl__btn--fill');
+         });
+         $('.evl__starbox div label').keydown(function(e) {
+            if(e.keyCode == 13) {
+               $(this).trigger('click');
+            }
+         });
       });
    </script>
 </head>
@@ -228,49 +233,113 @@
                            <tr>
                               <th scope="row">친절하게 알려 줬어요!</th>
                               <td>
-                                 <div class="evl__starbox">
-                                    <button class="evl__btn" type="button" value="1">★</button>
-                                    <button class="evl__btn" type="button" value="2">★</button>
-                                    <button class="evl__btn" type="button" value="3">★</button>
-                                    <button class="evl__btn" type="button" value="4">★</button>
-                                    <button class="evl__btn" type="button" value="5">★</button>
-                                 </div>
+                                 <fieldset class="evl__starbox">
+                                    <legend class="blind">친절하게 알려 줬어요에 대한 평가 선택</legend>
+                                    <div>
+                                       <input type="radio" name="serviceEvl01" value="veryBad" id="veryBad01">
+                                       <label class="evl__btn" for="veryBad01" tabindex="0">★<span class="blind">매우나쁨</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl01" value="bad" id="bad01">
+                                       <label class="evl__btn" for="bad01" tabindex="0">★<span class="blind">나쁨</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl01" value="normal" id="normal01">
+                                       <label class="evl__btn" for="normal01" tabindex="0">★<span class="blind">보통</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl01" value="good" id="good01">
+                                       <label class="evl__btn" for="good01" tabindex="0">★<span class="blind">좋음</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl01" value="veryGood" id="veryGood01">
+                                       <label class="evl__btn" for="veryGood01" tabindex="0">★<span class="blind">아주좋음</span></label>
+                                    </div>
+                                 </fieldset>
                               </td>
                            </tr>
                            <tr>
                               <th scope="row">약속시간을 잘 지켜요!</th>
                               <td>
-                                 <div class="evl__starbox">
-                                    <button class="evl__btn" type="button" value="1">★</button>
-                                    <button class="evl__btn" type="button" value="2">★</button>
-                                    <button class="evl__btn" type="button" value="3">★</button>
-                                    <button class="evl__btn" type="button" value="4">★</button>
-                                    <button class="evl__btn" type="button" value="5">★</button>
-                                 </div>
+                                 <fieldset class="evl__starbox">
+                                    <legend class="blind">약속시간을 잘 지켜요에 대한 평가 선택</legend>
+                                    <div>
+                                       <input type="radio" name="serviceEvl02" value="veryBad" id="veryBad02">
+                                       <label class="evl__btn" for="veryBad02" tabindex="0">★<span class="blind">매우나쁨</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl02" value="bad" id="bad02">
+                                       <label class="evl__btn" for="bad02" tabindex="0">★<span class="blind">나쁨</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl02" value="normal" id="normal02">
+                                       <label class="evl__btn" for="normal02" tabindex="0">★<span class="blind">보통</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl02" value="good" id="good02">
+                                       <label class="evl__btn" for="good02" tabindex="0">★<span class="blind">좋음</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl02" value="veryGood" id="veryGood02">
+                                       <label class="evl__btn" for="veryGood02" tabindex="0">★<span class="blind">아주좋음</span></label>
+                                    </div>
+                                 </fieldset>
                               </td>
                            </tr>
                            <tr>
                               <th scope="row">나쁜말을 하지 않았어요!</th>
                               <td>
-                                 <div class="evl__starbox">
-                                    <button class="evl__btn" type="button" value="1">★</button>
-                                    <button class="evl__btn" type="button" value="2">★</button>
-                                    <button class="evl__btn" type="button" value="3">★</button>
-                                    <button class="evl__btn" type="button" value="4">★</button>
-                                    <button class="evl__btn" type="button" value="5">★</button>
-                                 </div>
+                                 <fieldset class="evl__starbox">
+                                    <legend class="blind">나쁜말을 하지 않았어요에 대한 평가 선택</legend>
+                                    <div>
+                                       <input type="radio" name="serviceEvl03" value="veryBad" id="veryBad03">
+                                       <label class="evl__btn" for="veryBad03" tabindex="0">★<span class="blind">매우나쁨</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl03" value="bad" id="bad03">
+                                       <label class="evl__btn" for="bad03" tabindex="0">★<span class="blind">나쁨</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl03" value="normal" id="normal03">
+                                       <label class="evl__btn" for="normal03" tabindex="0">★<span class="blind">보통</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl03" value="good" id="good03">
+                                       <label class="evl__btn" for="good03" tabindex="0">★<span class="blind">좋음</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl03" value="veryGood" id="veryGood03">
+                                       <label class="evl__btn" for="veryGood03" tabindex="0">★<span class="blind">아주좋음</span></label>
+                                    </div>
+                                 </fieldset>
                               </td>
                            </tr>
                            <tr>
                               <th scope="row">약속한 사람이 왔어요!</th>
                               <td>
-                                 <div class="evl__starbox">
-                                    <button class="evl__btn" type="button" value="1">★</button>
-                                    <button class="evl__btn" type="button" value="2">★</button>
-                                    <button class="evl__btn" type="button" value="3">★</button>
-                                    <button class="evl__btn" type="button" value="4">★</button>
-                                    <button class="evl__btn" type="button" value="5">★</button>
-                                 </div>
+                                 <fieldset class="evl__starbox">
+                                    <legend class="blind">약속한 사람이 왔어요에 대한 평가 선택</legend>
+                                    <div>
+                                       <input type="radio" name="serviceEvl04" value="veryBad" id="veryBad04">
+                                       <label class="evl__btn" for="veryBad04" tabindex="0">★<span class="blind">매우나쁨</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl04" value="bad" id="bad04">
+                                       <label class="evl__btn" for="bad04" tabindex="0">★<span class="blind">나쁨</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl04" value="normal" id="normal04">
+                                       <label class="evl__btn" for="normal04" tabindex="0">★<span class="blind">보통</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl04" value="good" id="good04">
+                                       <label class="evl__btn" for="good04" tabindex="0">★<span class="blind">좋음</span></label>
+                                    </div>
+                                    <div>
+                                       <input type="radio" name="serviceEvl04" value="veryGood" id="veryGood04">
+                                       <label class="evl__btn" for="veryGood04" tabindex="0">★<span class="blind">아주좋음</span></label>
+                                    </div>
+                                 </fieldset>
                               </td>
                            </tr>
                         </tbody>

@@ -589,6 +589,7 @@
 .evl__table td { padding: 10px; color: #aaa9a9; unicode-bidi: bidi-override; width: max-content; -webkit-text-fill-color: transparent; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: #888888; }
 .evl__list { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
 .evl__starbox { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; align-items: center; justify-items: center; }
+.evl__starbox div input { display: none; }
 .evl__btn { display: flex; justify-content: center; align-items: center; border: 0; padding: 0; background-color: transparent; cursor: pointer; font-size: 30px; }
 .evl__btn--fill { color: #fff58c; padding: 0; -webkit-text-fill-color: gold; }
 
