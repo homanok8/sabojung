@@ -48,6 +48,63 @@
                $(this).find('.age-grap__dl').stop().hide();
             });
          });
+
+         $('#grapSortBtn').click(function() {
+            $(this).toggleClass('on');
+         });
+         $('.grap__tit').focus(function() {
+            $('.grap__item').removeClass('blur');
+            $('.grap__item').removeClass('focus');
+            $('.grap__tit').removeClass('focus');
+            $('.grap__list').css({'opacity': '0.5'});
+            $(this).addClass('focus');
+            $(this).next().css({'opacity': 1});
+         });
+         $('.grap__tit').blur(function() {
+            $('.grap__item').removeClass('blur');
+            $('.grap__item').removeClass('focus');
+            $('.grap__tit').removeClass('focus');
+            $('.grap__list').css({'opacity': 1});
+         });
+         $('.grap__item').click(function(e) {
+            e.stopPropagation();
+            $('.grap__item').addClass('blur');
+            $(this).removeClass('blur');
+            $(this).addClass('focus');
+         });
+         $('.grap__list').click(function() {
+            $('.grap__item').removeClass('blur');
+            $('.grap__item').removeClass('focus');
+         });
+
+         $('.age_area_grap').click(function() {
+            $('.age-table td').removeClass('blur');
+            $('.age-grap__cover').removeClass('focus');
+         });
+         $('.age-sort__btn').click(function() {
+            $(this).toggleClass('on');
+         });
+         $('.th-sort').click(function(e) {
+            e.stopPropagation();
+            var num = $(this).parent().index() + 1;
+            $('.age-table td').addClass('blur');
+            $('.age-grap__cover').removeClass('focus');
+            $('.age-table tbody tr td:nth-child('+ num +')').removeClass('blur');
+         });
+         $('.tr-sort').click(function(e) {
+            e.stopPropagation();
+            $('.age-table td').addClass('blur');
+            $('.age-grap__cover').removeClass('focus');
+            $(this).parent().nextAll().removeClass('blur');
+         });
+         $('.age-grap').click(function(e) {
+            e.stopPropagation();
+            $('.age-table td').addClass('blur');
+            $('.age-grap__cover').removeClass('focus');
+            $(this).parent().removeClass('blur');
+            $(this).find('.age-grap__cover').addClass('focus');
+         });
+         
       });
    </script>
 </head>
@@ -245,7 +302,13 @@
                         <div class="grap__per">
                            <div class="grap__empty-top"></div>
                            <div class="grap__mid">
-                              <h3 class="grap__score">AreaScore</h3>
+                              <h3 class="grap__score">
+                                 AreaScore
+                                 <button class="grap__btn" id="grapSortBtn" type="button">
+                                    <img class="grap__icon grap__icon--seq" src="../../images/icons/sort_seq_icon.png" alt="">
+                                    <img class="grap__icon grap__icon--reverse" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </h3>
                               <ul>
                                  <li>100.0%</li>
                                  <li>80.0%</li>
@@ -260,109 +323,219 @@
                         <div class="grap__grid">
                            <h3 class="grap__name">Domain Name / Subdomain Name</h3>
                            <div class="grap__con">
-                              <h4 class="grap__tit">운동기술</h4>
+                              <button class="grap__tit" type="button">운동기술</button>
                               <ul class="grap__list">
                                  <li class="grap__item">
                                     <span>93.4%</span>
                                     <strong>대근육</strong>
                                     <dl class="grap__dl">
-                                       <dt>대근육</dt>
-                                       <dd>93.4%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>운동기술</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>대근육</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>93.4%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                                  <li class="grap__item">
                                     <span>82.2%</span>
                                     <strong>소근육</strong>
                                     <dl class="grap__dl">
-                                       <dt>소근육</dt>
-                                       <dd>82.2%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>운동기술</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>소근육</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>82.2%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                               </ul>
                            </div>
                            <div class="grap__con">
-                              <h4 class="grap__tit">생활기술</h4>
+                              <button class="grap__tit" type="button">생활기술</button>
                               <ul class="grap__list">
                                  <li class="grap__item">
                                     <span>77.9%</span>
                                     <strong>개인</strong>
                                     <dl class="grap__dl">
-                                       <dt>개인</dt>
-                                       <dd>77.9%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>생활기술</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>개인</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>77.9%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                                  <li class="grap__item">
                                     <span>52.5%</span>
                                     <strong>가정</strong>
                                     <dl class="grap__dl">
-                                       <dt>가정</dt>
-                                       <dd>52.5%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>생활기술</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>가정</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>52.5%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                                  <li class="grap__item">
                                     <span>27.8%</span>
                                     <strong>지역사회</strong>
                                     <dl class="grap__dl">
-                                       <dt>지역사회</dt>
-                                       <dd>27.8%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>생활기술</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>지역사회</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>27.8%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                               </ul>
                            </div>
                            <div class="grap__con">
-                              <h4 class="grap__tit">의사소통</h4>
+                              <button class="grap__tit" type="button">의사소통</button>
                               <ul class="grap__list">
                                  <li class="grap__item">
                                     <span>65.5%</span>
                                     <strong>수용</strong>
                                     <dl class="grap__dl">
-                                       <dt>수용</dt>
-                                       <dd>65.5%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>의사소통</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>수용</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>65.5%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                                  <li class="grap__item">
                                     <span>60.0%</span>
                                     <strong>읽기/쓰기</strong>
                                     <dl class="grap__dl">
-                                       <dt>읽기/쓰기</dt>
-                                       <dd>60.0%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>의사소통</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>읽기/쓰기</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>60.0%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                                  <li class="grap__item">
                                     <span>24.5%</span>
                                     <strong>표현</strong>
                                     <dl class="grap__dl">
-                                       <dt>표현</dt>
-                                       <dd>24.5%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>의사소통</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>표현</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>24.5%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                               </ul>
                            </div>
                            <div class="grap__con">
-                              <h4 class="grap__tit">사회성</h4>
+                              <button class="grap__tit" type="button">사회성</button>
                               <ul class="grap__list">
                                  <li class="grap__item">
                                     <span>46.2%</span>
                                     <strong>대인관계</strong>
                                     <dl class="grap__dl">
-                                       <dt>대인관계</dt>
-                                       <dd>46.2%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>사회성</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>대인관계</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>46.2%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                                  <li class="grap__item">
                                     <span>35.7%</span>
                                     <strong>대처기술</strong>
                                     <dl class="grap__dl">
-                                       <dt>대처기술</dt>
-                                       <dd>35.7%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>사회성</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>대처기술</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>35.7%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                                  <li class="grap__item">
                                     <span>34.7%</span>
                                     <strong>놀이 및 여가</strong>
                                     <dl class="grap__dl">
-                                       <dt>놀이 및 여가</dt>
-                                       <dd>34.7%</dd>
+                                       <div class="grap__flex">
+                                          <dt>Domain Name</dt>
+                                          <dd>사회성</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>Subdomain Name</dt>
+                                          <dd>놀이 및 여가</dd>
+                                       </div>
+                                       <div class="grap__flex">
+                                          <dt>AreaScore</dt>
+                                          <dd>34.7%</dd>
+                                       </div>
                                     </dl>
                                  </li>
                               </ul>
@@ -640,28 +813,101 @@
                            <th colspan="8" scope="col">Age</th>
                         </tr>
                         <tr>
-                           <th scope="col">Subdomain..</th>
-                           <th scope="col">0</th>
-                           <th scope="col">1</th>
-                           <th scope="col">2</th>
-                           <th scope="col">3</th>
-                           <th scope="col">4</th>
-                           <th scope="col">5</th>
-                           <th scope="col">6</th>
+                           <th scope="col">
+                              <div class="age-sort">
+                                 Subdomain..
+                                 <button class="age-sort__btn" type="button">
+                                    <img class="age-sort__icon age-sort__icon--seq" src="../../images/icons/text_seq_icon.png" alt="">
+                                    <img class="age-sort__icon age-sort__icon--reverse" src="../../images/icons/text_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
+                           <th scope="col">
+                              <div class="th-sort">
+                                 0
+                                 <button class="th-sort__btn" type="button">
+                                    <img class="th-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
+                           <th scope="col">
+                              <div class="th-sort">
+                                 1
+                                 <button class="th-sort__btn" type="button">
+                                    <img class="th-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
+                           <th scope="col">
+                              <div class="th-sort">
+                                 2
+                                 <button class="th-sort__btn" type="button">
+                                    <img class="th-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
+                           <th scope="col">
+                              <div class="th-sort">
+                                 3
+                                 <button class="th-sort__btn" type="button">
+                                    <img class="th-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
+                           <th scope="col">
+                              <div class="th-sort">
+                                 4
+                                 <button class="th-sort__btn" type="button">
+                                    <img class="th-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
+                           <th scope="col">
+                              <div class="th-sort">
+                                 5
+                                 <button class="th-sort__btn" type="button">
+                                    <img class="th-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
+                           <th scope="col">
+                              <div class="th-sort">
+                                 6
+                                 <button class="th-sort__btn" type="button">
+                                    <img class="th-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
                         </tr>
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">가정</th>
+                           <th scope="row">
+                              <div class="tr-sort">
+                                 가정
+                                 <button class="tr-sort__btn" type="button">
+                                    <img class="tr-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
                            <td></td>
                            <td></td>
                            <td>
                               <div class="age-grap">
                                  <span>100.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">가정</dt>
-                                    <dd class="age-grap__dd">Age : 2</dd>
-                                    <dd class="age-grap__dd">100.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">2</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">가정</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">100%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -670,9 +916,18 @@
                               <div class="age-grap">
                                  <span>62.50%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">가정</dt>
-                                    <dd class="age-grap__dd">Age : 3</dd>
-                                    <dd class="age-grap__dd">62.50%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">3</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">가정</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">62.50%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -681,9 +936,18 @@
                               <div class="age-grap">
                                  <span>50.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">가정</dt>
-                                    <dd class="age-grap__dd">Age : 4</dd>
-                                    <dd class="age-grap__dd">50.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">4</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">가정</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">50.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -692,9 +956,18 @@
                               <div class="age-grap">
                                  <span>8.33%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">가정</dt>
-                                    <dd class="age-grap__dd">Age : 5</dd>
-                                    <dd class="age-grap__dd">8.33%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">5</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">가정</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">8.33%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -702,14 +975,30 @@
                            <td></td>
                         </tr>
                         <tr>
-                           <th scope="row">개인</th>
+                           <th scope="row">
+                              <div class="tr-sort">
+                                 개인
+                                 <button class="tr-sort__btn" type="button">
+                                    <img class="tr-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
                            <td>
                               <div class="age-grap">
                                  <span>100.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">개인</dt>
-                                    <dd class="age-grap__dd">Age : 0</dd>
-                                    <dd class="age-grap__dd">100.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">0</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">개인</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">100.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -718,9 +1007,18 @@
                               <div class="age-grap">
                                  <span>91.18%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">개인</dt>
-                                    <dd class="age-grap__dd">Age : 1</dd>
-                                    <dd class="age-grap__dd">91.18%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">1</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">개인</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">91.18%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -729,9 +1027,18 @@
                               <div class="age-grap">
                                  <span>78.57%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">개인</dt>
-                                    <dd class="age-grap__dd">Age : 2</dd>
-                                    <dd class="age-grap__dd">78.57%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">2</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">개인</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">78.57%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -740,9 +1047,18 @@
                               <div class="age-grap">
                                  <span>88.24%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">개인</dt>
-                                    <dd class="age-grap__dd">Age : 3</dd>
-                                    <dd class="age-grap__dd">88.24</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">3</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">개인</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">88.24%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -751,9 +1067,18 @@
                               <div class="age-grap">
                                  <span>28.57%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">개인</dt>
-                                    <dd class="age-grap__dd">Age : 4</dd>
-                                    <dd class="age-grap__dd">28.57%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">4</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">개인</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">28.57%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -762,9 +1087,18 @@
                               <div class="age-grap">
                                  <span>20.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">개인</dt>
-                                    <dd class="age-grap__dd">Age : 5</dd>
-                                    <dd class="age-grap__dd">20.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">5</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">개인</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">20.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -772,14 +1106,30 @@
                            <td></td>
                         </tr>
                         <tr>
-                           <th scope="row">놀이 및 여가</th>
+                           <th scope="row">
+                              <div class="tr-sort">
+                                 놀이 및 여가
+                                 <button class="tr-sort__btn" type="button">
+                                    <img class="tr-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
                            <td>
                               <div class="age-grap">
                                  <span>100.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">놀이 및 여가</dt>
-                                    <dd class="age-grap__dd">Age : 0</dd>
-                                    <dd class="age-grap__dd">100.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">0</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">놀이 및 여가</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">100.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -788,9 +1138,18 @@
                               <div class="age-grap">
                                  <span>45.83%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">놀이 및 여가</dt>
-                                    <dd class="age-grap__dd">Age : 1</dd>
-                                    <dd class="age-grap__dd">45.83%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">1</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">놀이 및 여가</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">45.83%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -799,9 +1158,18 @@
                               <div class="age-grap">
                                  <span>10.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">놀이 및 여가</dt>
-                                    <dd class="age-grap__dd">Age : 2</dd>
-                                    <dd class="age-grap__dd">10.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">2</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">놀이 및 여가</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">10.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -810,9 +1178,18 @@
                               <div class="age-grap">
                                  <span>10.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">놀이 및 여가</dt>
-                                    <dd class="age-grap__dd">Age : 3</dd>
-                                    <dd class="age-grap__dd">10.00</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">3</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">놀이 및 여가</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">10.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -821,9 +1198,18 @@
                               <div class="age-grap">
                                  <span>25.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">놀이 및 여가</dt>
-                                    <dd class="age-grap__dd">Age : 4</dd>
-                                    <dd class="age-grap__dd">25.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">4</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">놀이 및 여가</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">25.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -832,9 +1218,18 @@
                               <div class="age-grap">
                                  <span>0.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">놀이 및 여가</dt>
-                                    <dd class="age-grap__dd">Age : 5</dd>
-                                    <dd class="age-grap__dd">0.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">5</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">놀이 및 여가</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">0.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -843,23 +1238,48 @@
                               <div class="age-grap">
                                  <span>0.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">놀이 및 여가</dt>
-                                    <dd class="age-grap__dd">Age : 6</dd>
-                                    <dd class="age-grap__dd">0.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">6</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">놀이 및 여가</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">0.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
                            </td>
                         </tr>
                         <tr>
-                           <th scope="row">대근육</th>
+                           <th scope="row">
+                              <div class="tr-sort">
+                                 대근육
+                                 <button class="tr-sort__btn" type="button">
+                                    <img class="tr-sort__icon" src="../../images/icons/sort_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
                            <td>
                               <div class="age-grap">
                                  <span>100.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">대근육</dt>
-                                    <dd class="age-grap__dd">Age : 0</dd>
-                                    <dd class="age-grap__dd">100.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">0</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">대근육</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">100.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -868,9 +1288,18 @@
                               <div class="age-grap">
                                  <span>93.75%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">대근육</dt>
-                                    <dd class="age-grap__dd">Age : 1</dd>
-                                    <dd class="age-grap__dd">93.75%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">1</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">대근육</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">93.75%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -879,9 +1308,18 @@
                               <div class="age-grap">
                                  <span>95.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">대근육</dt>
-                                    <dd class="age-grap__dd">Age : 2</dd>
-                                    <dd class="age-grap__dd">95.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">2</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">대근육</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">95.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -890,9 +1328,18 @@
                               <div class="age-grap">
                                  <span>100.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">대근육</dt>
-                                    <dd class="age-grap__dd">Age : 3</dd>
-                                    <dd class="age-grap__dd">100.00</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">3</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">대근육</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">100.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -901,9 +1348,18 @@
                               <div class="age-grap">
                                  <span>87.50%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">대근육</dt>
-                                    <dd class="age-grap__dd">Age : 4</dd>
-                                    <dd class="age-grap__dd">87.50%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">4</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">대근육</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">87.50%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -912,9 +1368,18 @@
                               <div class="age-grap">
                                  <span>100.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">대근육</dt>
-                                    <dd class="age-grap__dd">Age : 5</dd>
-                                    <dd class="age-grap__dd">100.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">5</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">대근육</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">100.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -923,9 +1388,18 @@
                               <div class="age-grap">
                                  <span>25.00%</span>
                                  <dl class="age-grap__dl">
-                                    <dt class="age-grap__dt">대근육</dt>
-                                    <dd class="age-grap__dd">Age : 6</dd>
-                                    <dd class="age-grap__dd">25.00%</dd>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Age</dt>
+                                       <dd class="age-grap__dd">6</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">Subdomain Name</dt>
+                                       <dd class="age-grap__dd">대근육</dd>
+                                    </div>
+                                    <div class="age-grap__flex">
+                                       <dt class="age-grap__dt">AreaScore</dt>
+                                       <dd class="age-grap__dd">25.00%</dd>
+                                    </div>
                                  </dl>
                                  <div class="age-grap__cover"></div>
                               </div>
@@ -946,9 +1420,33 @@
                            <th colspan="7">Age</th>
                         </tr>
                         <tr class="achieve_head">
-                           <th>Domain Na..</th>
-                           <th>Subdomain..</th>
-                           <th>Topic Name</th>
+                           <th>
+                              <div class="achi-sort">
+                                 Domain Na..
+                                 <button class="achi-sort__btn" type="button">
+                                    <img class="achi-sort__icon achi-sort__icon--seq" src="../../images/icons/text_seq_icon.png" alt="">
+                                    <img class="achi-sort__icon achi-sort__icon--reverse" src="../../images/icons/text_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
+                           <th>
+                              <div class="achi-sort">
+                                 Subdomain..
+                                 <button class="achi-sort__btn" type="button">
+                                    <img class="achi-sort__icon achi-sort__icon--seq" src="../../images/icons/text_seq_icon.png" alt="">
+                                    <img class="achi-sort__icon achi-sort__icon--reverse" src="../../images/icons/text_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
+                           <th>
+                              <div class="achi-sort">
+                                 Topic Name
+                                 <button class="achi-sort__btn" type="button">
+                                    <img class="achi-sort__icon achi-sort__icon--seq" src="../../images/icons/text_seq_icon.png" alt="">
+                                    <img class="achi-sort__icon achi-sort__icon--reverse" src="../../images/icons/text_reverse_icon.png" alt="">
+                                 </button>
+                              </div>
+                           </th>
                            <th>0</th>
                            <th>1</th>
                            <th>2</th>
