@@ -80,31 +80,113 @@
          $('.age_area_grap').click(function() {
             $('.age-table td').removeClass('blur');
             $('.age-grap__cover').removeClass('focus');
+            $('.age-table th').removeClass('focus');
          });
          $('.age-sort__btn').click(function() {
             $(this).toggleClass('on');
          });
-         $('.th-sort').click(function(e) {
+         $('.th-sortbox').click(function(e) {
             e.stopPropagation();
-            var num = $(this).parent().index() + 1;
+            var num = $(this).index() + 1;
             $('.age-table td').addClass('blur');
+            $('.age-table th').removeClass('focus');
             $('.age-grap__cover').removeClass('focus');
             $('.age-table tbody tr td:nth-child('+ num +')').removeClass('blur');
+            $(this).addClass('focus');
          });
-         $('.tr-sort').click(function(e) {
+         $('.tr-sortbox').click(function(e) {
             e.stopPropagation();
             $('.age-table td').addClass('blur');
+            $('.age-table th').removeClass('focus');
             $('.age-grap__cover').removeClass('focus');
-            $(this).parent().nextAll().removeClass('blur');
+            $(this).nextAll().removeClass('blur');
+            $(this).addClass('focus');
          });
          $('.age-grap').click(function(e) {
             e.stopPropagation();
             $('.age-table td').addClass('blur');
+            $('.age-table th').removeClass('focus');
             $('.age-grap__cover').removeClass('focus');
             $(this).parent().removeClass('blur');
             $(this).find('.age-grap__cover').addClass('focus');
          });
          
+
+         $('.point_grap span').mousemove(function(e){
+            var html = '';
+            html+='<dl class="achieve__dl">';
+            html+='<div class="achieve__div"><dt class="achieve__dt">Age</dt><dd class="achieve__dd">0</dd></div>';
+            html+='<div class="achieve__div"><dt class="achieve__dt">Question Boolean</dt><dd class="achieve__dd">0</dd></div>';
+            html+='<div class="achieve__div"><dt class="achieve__dt">Domain Name</dt><dd class="achieve__dd">의사소통</dd></div>';
+            html+='<div class="achieve__div"><dt class="achieve__dt">Question Content</dt><dd class="achieve__dd">최소 세 개의 기초 제스처를 이해한다.<br>(예. 도리도리, 잼잼, 짝짜꿍 등)</dd></div>';
+            html+='<div class="achieve__div"><dt class="achieve__dt">Question ID</dt><dd class="achieve__dd">17a4lshh</dd></div>';
+            html+='<div class="achieve__div"><dt class="achieve__dt">Subdomain Name</dt><dd class="achieve__dd">수용</dd></div>';
+            html+='<div class="achieve__div"><dt class="achieve__dt">Topic Name</dt><dd class="achieve__dd">수용</dd></div>';
+            html+='</dl>';
+            $('body').append(html);
+            $('.achieve__dl').css("top", e.clientY + 15);
+            $('.achieve__dl').css("left", e.clientX + 10);
+            $('.achieve__dl').stop().show();
+         });
+         $('.point_grap span').on("mouseleave", function(){
+            $('.achieve__dl').stop().hide();
+            $('.achieve__dl').remove();
+         });
+
+         $('.achieve').click(function() {
+            $('.point_grap span').removeClass('blur');
+            $('.point_grap span').removeClass('focus');
+            $('.achieve table td').removeClass('blur');
+            $('.achieve table th').removeClass('focus');
+         });
+         $('.achieve_domain').click(function(e) {
+            e.stopPropagation();
+            $('.point_grap span').removeClass('blur');
+            $('.point_grap span').removeClass('focus');
+            $('.achieve table th').removeClass('focus');
+            $('.achieve table td').addClass('blur');
+            $(this).parents('tr').find('td').removeClass('blur');
+            $(this).parents('tr').nextUntil('.achieve_group').find('td').removeClass('blur');
+            $(this).addClass('focus');
+         });
+         $('.achieve_subdomain').click(function(e) {
+            e.stopPropagation();
+            $('.point_grap span').removeClass('blur');
+            $('.point_grap span').removeClass('focus');
+            $('.achieve table th').removeClass('focus');
+            $('.achieve table td').addClass('blur');
+            $(this).parent().find('td').removeClass('blur');
+            $(this).parent().nextUntil('.achieve_subgroup').find('td').removeClass('blur');
+            $(this).addClass('focus');
+         });
+         $('.achieve_topic').click(function(e) {
+            e.stopPropagation();
+            $('.point_grap span').removeClass('blur');
+            $('.point_grap span').removeClass('focus');
+            $('.achieve table th').removeClass('focus');
+            $('.achieve table td').addClass('blur');
+            $(this).parent().find('td').removeClass('blur');
+            $(this).addClass('focus');
+         });
+         $('.point_grap span').click(function(e) {
+            e.stopPropagation();
+            $('.achieve table td').removeClass('blur');
+            $('.achieve table th').removeClass('focus');
+            $('.point_grap span').addClass('blur');
+            $('.point_grap span').removeClass('focus');
+            $(this).removeClass('blur');
+            $(this).addClass('focus');
+         });
+         $('.achieve_age').click(function(e) {
+            e.stopPropagation();
+            var num = $(this).index() + 1;
+            $('.point_grap span').removeClass('blur');
+            $('.point_grap span').removeClass('focus');
+            $('.achieve table th').removeClass('focus');
+            $('.achieve table td').addClass('blur');
+            $('.achieve table tbody tr td:nth-child(' + num + ')').removeClass('blur');
+            $(this).addClass('focus');
+         });
       });
    </script>
 </head>
@@ -822,7 +904,7 @@
                                  </button>
                               </div>
                            </th>
-                           <th scope="col">
+                           <th scope="col" class="th-sortbox">
                               <div class="th-sort">
                                  0
                                  <button class="th-sort__btn" type="button">
@@ -830,7 +912,7 @@
                                  </button>
                               </div>
                            </th>
-                           <th scope="col">
+                           <th scope="col" class="th-sortbox">
                               <div class="th-sort">
                                  1
                                  <button class="th-sort__btn" type="button">
@@ -838,7 +920,7 @@
                                  </button>
                               </div>
                            </th>
-                           <th scope="col">
+                           <th scope="col" class="th-sortbox">
                               <div class="th-sort">
                                  2
                                  <button class="th-sort__btn" type="button">
@@ -846,7 +928,7 @@
                                  </button>
                               </div>
                            </th>
-                           <th scope="col">
+                           <th scope="col" class="th-sortbox">
                               <div class="th-sort">
                                  3
                                  <button class="th-sort__btn" type="button">
@@ -854,7 +936,7 @@
                                  </button>
                               </div>
                            </th>
-                           <th scope="col">
+                           <th scope="col" class="th-sortbox">
                               <div class="th-sort">
                                  4
                                  <button class="th-sort__btn" type="button">
@@ -862,7 +944,7 @@
                                  </button>
                               </div>
                            </th>
-                           <th scope="col">
+                           <th scope="col" class="th-sortbox">
                               <div class="th-sort">
                                  5
                                  <button class="th-sort__btn" type="button">
@@ -870,7 +952,7 @@
                                  </button>
                               </div>
                            </th>
-                           <th scope="col">
+                           <th scope="col" class="th-sortbox">
                               <div class="th-sort">
                                  6
                                  <button class="th-sort__btn" type="button">
@@ -882,7 +964,7 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">
+                           <th scope="row" class="tr-sortbox">
                               <div class="tr-sort">
                                  가정
                                  <button class="tr-sort__btn" type="button">
@@ -975,7 +1057,7 @@
                            <td></td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <th scope="row" class="tr-sortbox">
                               <div class="tr-sort">
                                  개인
                                  <button class="tr-sort__btn" type="button">
@@ -1106,7 +1188,7 @@
                            <td></td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <th scope="row" class="tr-sortbox">
                               <div class="tr-sort">
                                  놀이 및 여가
                                  <button class="tr-sort__btn" type="button">
@@ -1256,7 +1338,7 @@
                            </td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <th scope="row" class="tr-sortbox">
                               <div class="tr-sort">
                                  대근육
                                  <button class="tr-sort__btn" type="button">
@@ -1447,20 +1529,20 @@
                                  </button>
                               </div>
                            </th>
-                           <th>0</th>
-                           <th>1</th>
-                           <th>2</th>
-                           <th>3</th>
-                           <th>4</th>
-                           <th>5</th>
-                           <th>6</th>
+                           <th class="achieve_age">0</th>
+                           <th class="achieve_age">1</th>
+                           <th class="achieve_age">2</th>
+                           <th class="achieve_age">3</th>
+                           <th class="achieve_age">4</th>
+                           <th class="achieve_age">5</th>
+                           <th class="achieve_age">6</th>
                         </tr>
                      </thead>
                      <tbody>
-                        <tr class="achieve_top">
-                           <th>의사소통</th>
-                           <th>수용</th>
-                           <th>수용</th>
+                        <tr class="achieve_top achieve_group achieve_subgroup">
+                           <th class="achieve_domain">의사소통</th>
+                           <th class="achieve_subdomain">수용</th>
+                           <th class="achieve_topic">수용</th>
                            <td>
                               <div class="point_grap">
                                  <span class="dark"></span>
@@ -1529,10 +1611,10 @@
                            </td>
                            <td></td>
                         </tr>
-                        <tr class="achieve_top">
+                        <tr class="achieve_top achieve_subgroup">
                            <th></th>
-                           <th>표현</th>
-                           <th>표현</th>
+                           <th class="achieve_subdomain">표현</th>
+                           <th class="achieve_topic">표현</th>
                            <td>
                               <div class="point_grap">
                                  <span class="dark"></span>
@@ -1617,10 +1699,10 @@
                               </div>
                            </td>
                         </tr>
-                        <tr class="achieve_bottom">
+                        <tr class="achieve_bottom achieve_subgroup">
                            <th></th>
-                           <th>읽기/쓰기</th>
-                           <th>읽기</th>
+                           <th class="achieve_subdomain">읽기/쓰기</th>
+                           <th class="achieve_topic">읽기</th>
                            <td>
                               <div class="point_grap">
                                  <span class="dark"></span>
@@ -1639,6 +1721,46 @@
                                  <span></span>
                               </div>
                            </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span></span>
+                              </div>
+                           </td>
+                           <td></td>
+                        </tr>
+                        <tr class="achieve_group achieve_subgroup">
+                           <th class="achieve_domain">생활기술</th>
+                           <th class="achieve_subdomain">개인</th>
+                           <th class="achieve_topic">(옷 등의)잠금장치 채우기(Fastenning Fasterne..</th>
+                           <td></td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <th></th>
+                           <th></th>
+                           <th class="achieve_topic">건강관리(Health care)</th>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
                            <td>
                               <div class="point_grap">
                                  <span></span>
@@ -1647,35 +1769,9 @@
                            <td></td>
                         </tr>
                         <tr>
-                           <th>생활기술</th>
-                           <th>개인</th>
-                           <th>(옷 등의)잠금장치 채우기(Fastenning Fasterne..</th>
-                           <td></td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr>
                            <th></th>
                            <th></th>
-                           <th>건강관리(Health care)</th>
-                           <td></td>
-                           <td></td>
+                           <th class="achieve_topic">날씨에 대비하기(Preparing for weather)</th>
                            <td></td>
                            <td></td>
                            <td></td>
@@ -1684,72 +1780,6 @@
                                  <span></span>
                               </div>
                            </td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th></th>
-                           <th>날씨에 대비하기(Preparing for weather)</th>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span></span>
-                              </div>
-                           </td>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th></th>
-                           <th>마시기 기초(Beginning to Drink)</th>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th></th>
-                           <th>먹기 기초(Beginning to eat)</th>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td></td>
                            <td>
                               <div class="point_grap">
                                  <span></span>
@@ -1761,7 +1791,59 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>목욕(Bathing)</th>
+                           <th class="achieve_topic">마시기 기초(Beginning to Drink)</th>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <th></th>
+                           <th></th>
+                           <th class="achieve_topic">먹기 기초(Beginning to eat)</th>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <th></th>
+                           <th></th>
+                           <th class="achieve_topic">목욕(Bathing)</th>
                            <td></td>
                            <td></td>
                            <td></td>
@@ -1786,28 +1868,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>손과 얼굴 씻기(Cleaning Hands & Face)</th>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th></th>
-                           <th>숟가락과 포크 사용하기(Using Spoon & Fork)</th>
+                           <th class="achieve_topic">손과 얼굴 씻기(Cleaning Hands & Face)</th>
                            <td></td>
                            <td>
                               <div class="point_grap">
@@ -1828,7 +1889,28 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>식사 및 운동 선택(Eating & Exercise Chices)</th>
+                           <th class="achieve_topic">숟가락과 포크 사용하기(Using Spoon & Fork)</th>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <th></th>
+                           <th></th>
+                           <th class="achieve_topic">식사 및 운동 선택(Eating & Exercise Chices)</th>
                            <td></td>
                            <td></td>
                            <td></td>
@@ -1853,7 +1935,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>식사할 때 도구 사용하기(Using Knives when eating)</th>
+                           <th class="achieve_topic">식사할 때 도구 사용하기(Using Knives when eating)</th>
                            <td></td>
                            <td></td>
                            <td></td>
@@ -1870,7 +1952,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>옷벗기(Removing Clothing)</th>
+                           <th class="achieve_topic">옷벗기(Removing Clothing)</th>
                            <td></td>
                            <td>
                               <div class="point_grap">
@@ -1899,7 +1981,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>옷입기 & 신발신기(Putting on Clothes & Shoes)</th>
+                           <th class="achieve_topic">옷입기 & 신발신기(Putting on Clothes & Shoes)</th>
                            <td></td>
                            <td>
                               <div class="point_grap">
@@ -1933,7 +2015,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>용변 교육(Toilet Training)</th>
+                           <th class="achieve_topic">용변 교육(Toilet Training)</th>
                            <td></td>
                            <td>
                               <div class="point_grap">
@@ -1956,7 +2038,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>위생(Hygiene)</th>
+                           <th class="achieve_topic">위생(Hygiene)</th>
                            <td></td>
                            <td>
                               <div class="point_grap">
@@ -1977,156 +2059,13 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>입기와 씻기에 협조하기(Cooperationg in D..</th>
+                           <th class="achieve_topic">입기와 씻기에 협조하기(Cooperationg in D..</th>
                            <td>
                               <div class="point_grap">
                                  <span class="dark"></span>
                                  <span class="dark"></span>
                               </div>
                            </td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr class="achieve_middle">
-                           <th></th>
-                           <th></th>
-                           <th>화장실 이용(Using the Bathroom)</th>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span></span>
-                              </div>
-                           </td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th>가정</th>
-                           <th>기본적인 식사 준비(Food Preparation Basics)</th>
-                           <td></td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span></span>
-                                 <span></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span></span>
-                                 <span></span>
-                                 <span></span>
-                                 <span></span>
-                              </div>
-                           </td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th></th>
-                           <th>기본적인 집안일(Basic Household Chores)</th>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th></th>
-                           <th>기초 가정 안전(Beginning Home Safety)</th>
-                           <td></td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th></th>
-                           <th>뒷정리하기(Cleaning Up After Self)</th>
-                           <td></td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span class="dark"></span>
-                                 <span class="dark"></span>
-                                 <span></span>
-                              </div>
-                           </td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th></th>
-                           <th>심화 가정 안전(Advanced Home Safety)</th>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td></td>
-                           <td>
-                              <div class="point_grap">
-                                 <span></span>
-                              </div>
-                           </td>
-                           <td>
-                              <div class="point_grap">
-                                 <span></span>
-                              </div>
-                           </td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <th></th>
-                           <th></th>
-                           <th>옷 등을 제자리에 두기(putting Clothes, etc)</th>
-                           <td></td>
                            <td></td>
                            <td>
                               <div class="point_grap">
@@ -2141,7 +2080,114 @@
                         <tr class="achieve_middle">
                            <th></th>
                            <th></th>
-                           <th>옷 등을 제자리에 두기(putting Clothes, etc Where They B..</th>
+                           <th class="achieve_topic">화장실 이용(Using the Bathroom)</th>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span></span>
+                              </div>
+                           </td>
+                           <td></td>
+                        </tr>
+                        <tr class="achieve_subgroup">
+                           <th></th>
+                           <th class="achieve_subdomain">가정</th>
+                           <th class="achieve_topic">기본적인 식사 준비(Food Preparation Basics)</th>
+                           <td></td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span></span>
+                                 <span></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span></span>
+                                 <span></span>
+                                 <span></span>
+                                 <span></span>
+                              </div>
+                           </td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <th></th>
+                           <th></th>
+                           <th class="achieve_topic">기본적인 집안일(Basic Household Chores)</th>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <th></th>
+                           <th></th>
+                           <th class="achieve_topic">기초 가정 안전(Beginning Home Safety)</th>
+                           <td></td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <th></th>
+                           <th></th>
+                           <th class="achieve_topic">뒷정리하기(Cleaning Up After Self)</th>
+                           <td></td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                                 <span class="dark"></span>
+                                 <span></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <th></th>
+                           <th></th>
+                           <th class="achieve_topic">심화 가정 안전(Advanced Home Safety)</th>
                            <td></td>
                            <td></td>
                            <td></td>
@@ -2160,8 +2206,44 @@
                         </tr>
                         <tr>
                            <th></th>
-                           <th>지역사회</th>
-                           <th>금전 관련 기본 기술</th>
+                           <th></th>
+                           <th class="achieve_topic">옷 등을 제자리에 두기(putting Clothes, etc)</th>
+                           <td></td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span class="dark"></span>
+                              </div>
+                           </td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr class="achieve_middle">
+                           <th></th>
+                           <th></th>
+                           <th class="achieve_topic">옷 등을 제자리에 두기(putting Clothes, etc Where They B..</th>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td>
+                              <div class="point_grap">
+                                 <span></span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="point_grap">
+                                 <span></span>
+                              </div>
+                           </td>
+                           <td></td>
+                        </tr>
+                        <tr class="achieve_subgroup">
+                           <th></th>
+                           <th class="achieve_subdomain">지역사회</th>
+                           <th class="achieve_topic">금전 관련 기본 기술</th>
                            <td></td>
                            <td></td>
                            <td>
@@ -2189,7 +2271,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>금전 사용(Using Money)</th>
+                           <th class="achieve_topic">금전 사용(Using Money)</th>
                            <td></td>
                            <td></td>
                            <td></td>
@@ -2214,7 +2296,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>기본 권리 및 책임(Basic Rights&Resposibilities)</th>
+                           <th class="achieve_topic">기본 권리 및 책임(Basic Rights&Resposibilities)</th>
                            <td></td>
                            <td></td>
                            <td></td>
@@ -2234,7 +2316,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>기술 사용(Using Technology)</th>
+                           <th class="achieve_topic">기술 사용(Using Technology)</th>
                            <td></td>
                            <td></td>
                            <td>
@@ -2250,7 +2332,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>달력(일정표) 이해 기초(Calendar Basics)</th>
+                           <th class="achieve_topic">달력(일정표) 이해 기초(Calendar Basics)</th>
                            <td></td>
                            <td></td>
                            <td></td>
@@ -2274,7 +2356,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>시간 말하기(Telling Time)</th>
+                           <th class="achieve_topic">시간 말하기(Telling Time)</th>
                            <td></td>
                            <td></td>
                            <td>
@@ -2294,7 +2376,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>외식하기(Eating Out)</th>
+                           <th class="achieve_topic">외식하기(Eating Out)</th>
                            <td></td>
                            <td></td>
                            <td></td>
@@ -2310,7 +2392,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>전화 사용(Telephone Use)</th>
+                           <th class="achieve_topic">전화 사용(Telephone Use)</th>
                            <td></td>
                            <td>
                               <div class="point_grap">
@@ -2334,7 +2416,7 @@
                         <tr>
                            <th></th>
                            <th></th>
-                           <th>집 밖에서의 기본 안전(Basic Safety Outside the Home)</th>
+                           <th class="achieve_topic">집 밖에서의 기본 안전(Basic Safety Outside the Home)</th>
                            <td></td>
                            <td>
                               <div class="point_grap">
@@ -2360,7 +2442,7 @@
                         <tr class="achieve_end">
                            <th></th>
                            <th></th>
-                           <th>집 밖에서의 안전(심화)(Advanced Sfet..</th>
+                           <th class="achieve_topic">집 밖에서의 안전(심화)(Advanced Sfet..</th>
                            <td></td>
                            <td></td>
                            <td></td>

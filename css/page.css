@@ -161,16 +161,21 @@
 .age_area_grap { width: 100%; height: 260px; border: 1px solid #eee; overflow-y: auto; }
 .achieve { margin-bottom: 60px; }
 .achieve table { width: 100%; }
-.achieve table thead th { font-size: 12px; color: #333; padding: 4px; }
+.achieve table thead th { font-size: 12px; color: #333; padding: 4px; cursor: pointer; }
 .achieve table thead th:hover { background-color: #F5F5F5; }
+.achieve table thead th.focus { background-color: #9cf3bb !important; }
 .achieve_head { border-bottom: 1px solid #CBCBCB; }
 .achieve_head th:nth-child(3) { border-right: 1px solid #CBCBCB; }
 .achieve table tbody th { font-size: 11px; color: #666666; text-align: left; vertical-align: middle; padding: 5px; }
-.achieve table tbody th:hover { background-color: #F5F5F5; }
+.achieve table tbody th.achieve_domain:hover { background-color: #F5F5F5; cursor: pointer; }
+.achieve table tbody th.achieve_subdomain:hover { background-color: #F5F5F5; cursor: pointer; }
+.achieve table tbody th.achieve_topic:hover { background-color: #F5F5F5; cursor: pointer; }
+.achieve table tbody th.focus { background-color: #9cf3bb !important; }
 .achieve table tbody .achieve_top th { border-bottom: 1px solid #CBCBCB; }
 .achieve table tbody .achieve_top th:first-child { border-bottom: 0; }
 .achieve table tbody th:nth-child(3) { border-right: 1px solid #CBCBCB; }
 .achieve table tbody td { width: 105px; padding: 5px; }
+.achieve table tbody td.blur { opacity: 0.1; }
 .achieve table tbody .achieve_top td { height: 75px; border-bottom: 1px solid #CBCBCB; }
 .achieve table tbody .achieve_bottom { border-bottom: 1px solid #CBCBCB; }
 .achieve table tbody .achieve_bottom th { border-bottom: 0; }
@@ -181,8 +186,13 @@
 .achieve table tbody .achieve_end { border-bottom: 1px solid #CBCBCB; }
 .point_grap { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; gap: 3px; }
 .point_grap span { display: block; width: 12px; height: 12px; background-color: #B9DDF1; border-radius: 50%; cursor: pointer; }
-.point_grap span:hover { border: 3px solid #000000; }
+.point_grap span.blur { opacity: 0.1; }
+.point_grap span.focus { border: 2px solid #000000; }
+.point_grap span:hover { border: 2px solid #000000; }
 .point_grap span.dark { background-color: #2A5783; }
+.achieve__dl { display: none; position: fixed; top: 0; left: 0; background-color: rgba(0,0,0,0.8); color: #FFFFFF; padding: 5px 10px; border-radius: 5px; font-size: 12px; line-height: 1.5; font-weight: 400; transition: all 0.1s; z-index: 3; white-space: nowrap; }
+.achieve__div { display: flex; }
+.achieve__dt { width: 110px; font-weight: 300; }
 
 .achi-sort { position: relative; cursor: pointer; }
 .achi-sort__btn { display: none; width: 15px; height: 15px; padding: 2px; border: 0; position: absolute; top: 50%; right: 0; transform: translateY(-50%); cursor: pointer; }
@@ -212,7 +222,7 @@
 .grap__name { width: 100%; height: 20px; position: absolute; top: 0; left: 0; font-size: 12px; text-align: center; display:-webkit-box; word-wrap:break-word; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis; }
 .grap__con { display: flex; flex-direction: column; }
 .grap__tit { width: 100%; font-size: 12px; text-align: center; color: #666666; background-color: transparent; padding: 0; border: 0; border-left: 1px solid #CBCBCB; border-bottom: 1px solid #CBCBCB; display:-webkit-box; word-wrap:break-word; -webkit-line-clamp:1; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis; cursor: pointer; }
-.grap__tit.focus { background-color: #9cf3bb; }
+.grap__tit.focus { background-color: #9cf3bb !important; }
 .grap__tit:hover { background-color:#F5F5F5; }
 .grap__list { flex: 1; display: flex; align-items: flex-end; justify-content: space-between; gap: 9px; padding: 10px 4px 80px 4px; border-left: 1px solid #CBCBCB; position: relative; }
 .grap__list::before { content: ''; display: block; width: 100%; height: 1px; background-color: #F2F2F2; position: absolute; top: 10px; left: 0; }
@@ -247,6 +257,8 @@
 
 .age-table { width: 100%; }
 .age-table th { font-size: 12px; color: #333333; padding: 5px; height: 20px; }
+.age-table th:hover { background-color: #F5F5F5; cursor: pointer; }
+.age-table th.focus { background-color: #9cf3bb !important; }
 .age-table td { height: 20px; }
 .age-table td.blur { opacity: 0.1; }
 .age-grap { display: flex; width: 100%; min-height: 19px; height: 100%; justify-content: flex-end; align-items: center; font-size: 10px; color: #FFFFFF; background: rgba(15,82,14,1); padding: 5px; font-weight: 400; position: relative; }
@@ -267,14 +279,12 @@
 .age-sort__btn.on .age-sort__icon--reverse { display: block; }
 
 .tr-sort { position: relative; }
-.tr-sort:hover { background-color: #F5F5F5; cursor: pointer; }
 .tr-sort__btn { display: none; width: 15px; height: 15px; border: 0; padding: 2px; position: absolute; top: 50%; right: 0; transform: translateY(-50%); cursor: pointer; }
 .tr-sort__btn:hover { box-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
 .tr-sort__icon { display: block; width: 100%; height: 100%; object-fit: contain; transform: rotate(-90deg); }
 .tr-sort:hover .tr-sort__btn { display: block; }
 
 .th-sort { position: relative; }
-.th-sort:hover { background-color: #F5F5F5; cursor: pointer; }
 .th-sort__btn { display: none; width: 15px; height: 15px; border: 0; padding: 2px; position: absolute; top: 50%; right: 0; transform: translateY(-50%); cursor: pointer; }
 .th-sort__btn:hover { box-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
 .th-sort__icon { display: block; width: 100%; height: 100%; object-fit: contain; }
