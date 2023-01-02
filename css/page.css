@@ -29,6 +29,22 @@
 .main__link { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px 35px; border-radius: 60px; background-color: #57AA54; color: #FFFFFF; font-weight: bold; font-size: 35px; }
 .main__link--org { background-color: #F47932; }
 
+.main__box { width: 100%; max-width: 1060px; padding: 0 30px; }
+.main__list { display: flex; gap: 35px; width: 100%; flex-wrap: wrap; }
+.main__item { display: flex; flex-direction: column; width: 31%; min-width: 310px; box-shadow: 6px 6px 20px #0000002a; border-radius: 40px; overflow: hidden; transition: all 0.3s; }
+.main__item:hover { scale: 1.1;}
+.main__tblock { display: flex; flex-direction: column; justify-content: center; gap: 30px; width: 100%; height: 210px; background-color: #F26922; padding: 0 40px; }
+.main__tblock--green { background-color: #0AA304; }
+.main__tblock--blue { background-color: #0061B3; }
+.main__title { font-size: 30px; font-weight: bold; color: #FFFFFF; }
+.main__ps { font-size: 15px; color: #FFFFFF; font-weight: 400; }
+.main__bblock { display: flex; flex-direction: column; justify-content: space-between; align-items: center; gap: 45px; height: 260px; padding: 40px 50px; }
+.main__descr { font-size: 14px; line-height: 1.5; }
+.main__move { display: flex; justify-content: center; align-items: center; border-radius: 10px; width: 100%; height: 50px; font-size: 17px; color: #FFFFFF; font-weight: 600; background-color: #F26922; cursor: pointer; padding: 20px; white-space: nowrap; }
+.main__move--green { background-color: #0AA304; }
+.main__move--blue { background-color: #0061B3; }
+.main__move:hover { opacity: 0.7; }
+
 .login { display: flex; flex-direction: column; align-items: center; }
 .login__tit { font-size: 40px; font-weight: bold; margin-bottom: 34px; }
 .login__box { display: flex; width: 345px; gap: 10px; margin-bottom: 28px; }
@@ -713,6 +729,8 @@
    .main__tit strong::before { width: 7px; height: 7px; }
    .main__desc { font-size: 16px; }
    .main__link { padding: 15px 30px; font-size: 18px; }
+
+   .main__item { width: 100%; min-width: unset; }
 
    .list { padding-top: 40px; }
    .list > p { padding-bottom: 17px; border-bottom: 1px solid #C5C5C5; margin-bottom: 20px; }
