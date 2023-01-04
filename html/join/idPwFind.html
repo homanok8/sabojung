@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://175.45.212.46/idPasswordSearch.do -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        
+    
+    
+    <title>아이디/비밀번호 찾기</title>
+    <link rel="stylesheet" href="../../css/common.css" type="text/css">
+    <link rel="stylesheet" href="../../css/join.css" type="text/css">
+    <link rel="stylesheet" href="../../js/lib/jquery/jquery-ui.min.css" type="text/css">
+    <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../../js/lib/jquery/jquery-ui.min.js"></script>
+    <script src="../../js/pub.js"></script>
+
+
+
+<script>
+
+  function fnSearchId() {
+    if (document.idForm.name.value =="") {
+      alert("이름을 입력하세요.");
+    } else if (document.idForm.email.value =="") {
+      alert("이메일주소를 입력하세요.");
+    } else {
+      document.idForm.submit();
+    }
+  }
+
+  function generateVeriCode() {
+
+    if($("#p_id").val() ==''){
+      alert("아이디를 입력해주세요.");
+      return false;
+    }else if($("#p_name").val() ==''){
+      alert("이름을 입력해주세요.");
+      return false;
+    }else if($("#p_phoneNum").val() ==''){
+      alert("휴대폰 번호를 입력해주세요.");
+      return false;
+    }else if ($("#p_phoneNum").val() == "" || $("#p_phoneNum").val().length < 11) {
+      alert("전화번호를 확인해주세요")
+    }else {
+      $.ajax({
+        url: '/generateCode.do',
+        data: $("#passwordForm").serialize(),
+        type: 'POST',
+        success: function (data) {
+          console.log("success");
+          //현재 발송없음 메세지만 노출
+          if(data == 'F'){
+            alert("입력하신 정보가 없습니다.");
+          }else{
+            alert("인증번호가 발송되었습니다.");
+            $("#veriCodeArea").show();
+            $("#p_id").attr("readonly", true);
+            $("#p_name").attr("readonly", true);
+            $("#p_phoneNum").attr("readonly", true);
+            // sessionStorage.setItem('code', data);
+            // console.log("인증번호 : " + data);
+          }
+        },
+        error: function (error) {
+          console.log("error");
+        }
+      });
+    }
+  }
+
+  function checkVeriCode(){
+
+    // var code = sessionStorage.getItem('code');
+      $("#n_id").val($("#p_id").val());
+      $("#n_phone").val($("#p_phoneNum").val());
+
+      $.ajax({
+        type:"POST",
+        url:"/vefifyCode.do",
+        data:{
+          "inputCode":$('#veriCode').val()
+        },
+        dataType:"json",
+        timeout:(1000*30),
+        success:function (returnData, status) {
+          if (status == "success") {
+            if (returnData.verified == true) {
+              alert("인증되었습니다");
+              $("#passArea").hide();
+              $("#newPassArea").show();
+              // sessionStorage.removeItem('code');
+              console.log("비밀번호 재설정 페이지 노출");
+            } else {
+              alert("인증에 실패하였습니다.");
+            }
+          }
+        }
+      })
+  }
+
+  function fnUpdtPassword() {
+
+    if($("#newPassword").val() !== $("#newPassword2").val()){
+      alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      return false;
+    }else if ($("#newPassword").val() == "" || $("#newPassword").val().length < 8 || $("#newPassword2").val()== "" || $("#newPassword2").val().length < 8){
+      alert("비밀번호를 입력해주세요.");
+      return false;
+    }else{
+
+      $.ajax({
+        url: '/mberPasswordUpdt.do',
+        data: $("#updtPasswordForm").serialize(),
+        type: 'POST',
+        success: function (data) {
+          console.log("success");
+          alert("비밀번호 변경완료")
+          window.location.href = "/login.do"
+        },
+        error: function (error) {
+          console.log("error");
+        }
+      });
+    }
+  }
+</script>
+
+
+
+<script>
+    $(function(){
+        $("ul.dropdown li:has(ul)").hover(function(){
+            $(this).addClass("hover");
+            $('ul:first',this).css('visibility', 'visible');
+        }, function(){
+            $(this).removeClass("hover");
+            $('ul:first',this).css('visibility', 'hidden');
+        });
+    });
+</script>
+</head>
+<body>
+<div id="skipMenu">
+  <a href="#main">본문 바로가기</a>
+  <a href="#header">주메뉴 바로가기</a>
+  <a href="#footer">하단메뉴 바로가기</a>
+</div>
+<header class="header" id="header">
+  <div class="header_inner">
+    <h1>
+      <a href="#">
+        <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+      </a>
+    </h1>
+    <p>
+      <a href="#">
+        <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+      </a>
+    </p>
+    <h2>아이디/비밀번호 찾기</h2>
+    <nav>
+      <div class="mob-close">
+        <button class="mob-close__btn" id="menuClose" type="button">
+          <span class="blind">메뉴 닫기 버튼</span>
+          <i></i>
+          <i></i>
+        </button>
+      </div>
+      <ul>
+        <li>
+          <a href="#">
+            <span>메인</span>
+            <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+          </a>
+          <ul class="sublnb">
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">추천 서비스 신청</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">바우처 서비스 신청</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <span>서비스신청</span>
+            <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+          </a>
+          <ul class="sublnb">
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">서비스 신청 목록</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">서비스 추천 목록</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">서비스 추천 대상</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">바우처 서비스 대상</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <span>서비스 제공</span>
+            <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+          </a>
+          <ul class="sublnb">
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">서비스 제공</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">온라인 계약</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">서비스 제공 관리</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">온라인 계약 관리</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <span>발달장애 자가진단</span>
+            <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+          </a>
+          <ul class="sublnb">
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">이용안내</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">자가진단</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">전문가 소견</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">발달장애 추천 서비스</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <span>서비스 관리</span>
+            <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+          </a>
+          <ul class="sublnb">
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">기관정보관리</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">담당자 관리</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">서비스 관리</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">계약서 관리</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">이의신청관리</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <span>당근 행복</span>
+            <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+          </a>
+          <ul class="sublnb">
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">당근 행복 소개</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">공지사항</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">Q&A</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">FAQ</a>
+            </li>
+            <li class="sublnb__item">
+              <a class="sublinb__link" href="#">서비스개선요청</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="loginbox">
+      <a href="#">
+        <span>로그인</span>
+        <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+      </a>
+      <button class="menu_btn" id="menuBtn" type="button">
+        <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="lnb">
+  <div class="lnb_inner">
+    <h2>
+      <a href="#">
+        <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+      </a>
+    </h2>
+    <ul>
+      <li>
+        <a href="#" class="focus">로그인</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main class="main" id="main">
+
+<!-- javascript warning tag  -->
+<noscript class="noScriptTitle">자바스크립트를 지원하지 않는 브라우저에서는 일부 기능을 사용하실 수 없습니다.</noscript>
+
+<div class="main_inner">
+  <!-- 아이디 찾기 -->
+  
+  <section class="find">
+    <form name="idForm" action="http://175.45.212.46/uat/uia/searchId.do" method="post">
+      <div class="find__inner">
+        <h2 class="find__tit">아이디찾기</h2>
+        <ul class="find__list">
+          <li class="find__item">
+            <label class="find__label" for="name">이름</label>
+            <input class="find__input" type="text" name="name" maxlength="20" title="이름" placeholder="실명으로 입력해주세요">
+          </li>
+          <li class="find__item">
+            <label class="find__label" for="email">이메일주소</label>
+            <input class="find__input" type="text" name="email" maxlength="30" title="이메일주소" placeholder="이메일주소를 입력해주세요">
+          </li>
+          <li class="find__item">
+            <input type="button" class="btn_login find__btn" onclick="fnSearchId();" value="아이디 찾기">
+          </li>
+        </ul>
+      </div>
+      <input name="userSe" type="hidden" value="GNR">
+    </form>
+    <!-- 아이디 찾기 //-->
+
+    <!-- 본인 인증 -->
+    
+    <form name="passwordForm" id="passwordForm" action="http://175.45.212.46/uat/uia/searchPassword.do" method="post">
+      <div id="passArea" class="find__inner">
+        <h2 class="find__tit">비밀번호찾기</h2>
+        <ul class="find__list">
+          <li class="find__item">
+            <label class="find__label" for="p_id">아이디</label>
+            <input class="find__input" type="text" id="p_id" name="p_id" maxlength="15" title="아이디" placeholder="가입된 아이디를 입력해주세요">
+          </li>
+          <li class="find__item">
+            <label class="find__label" for="p_name">이름</label>
+            <input class="find__input" type="text" id="p_name" name="p_name" maxlength="20" title="이름" placeholder="실명으로 입력해주세요">
+          </li>
+          <li class="find__item">
+            <label class="find__label" for="p_phoneNum">휴대폰번호</label>
+            <div class="find__flex">
+              <input class="find__input" type="text" id="p_phoneNum" name="p_phoneNum" maxlength="50" title="휴대폰번호" placeholder="&#39;-&#39; 없이 입력해주세요">
+              <input type="button" class="btn_login find__inbtn" onclick="generateVeriCode()" value="인증번호">
+            </div>
+          </li>
+          <li id="veriCodeArea" class="find__item" style="display:none;"> <!--style="display:none;"--> 
+            <label class="find__label" for="veriCode">인증번호</label>
+            <input class="find__input" type="text" id="veriCode" name="veriCode" maxlength="6" value="" placeholder="인증번호 6자리 숫자 입력">
+          </li>
+          <li class="find__item">
+            <input type="button" class="btn_login find__btn" onclick="checkVeriCode()" value="다음">
+          </li>
+        </ul>
+        <input name="userSe" type="hidden" value="GNR">
+      </div>
+    </form>
+   
+    <!-- 본인 인증 //-->
+    
+      <!-- 비밀번호 재설정 //-->
+      <form name="updtPasswordForm" id="updtPasswordForm" method="post" onsubmit="fnUpdtPassword()">
+
+          <input type="hidden" id="n_id" name="n_id">
+          <input type="hidden" id="n_phone" name="n_phone">
+          <div id="newPassArea" class="find__inner" style="display:none;"><!--style="display:none;"-->
+            <h2 class="find__tit">비밀번호찾기2단계</h2>
+            <ul class="find__list">
+              
+              <li class="find__item">
+                <label class="find__label" for="password">비밀번호를 재설정 해주세요.</label>
+                <input class="find__input" type="password" name="newPassword" id="newPassword" size="20" value="" maxlength="100" placeholder="새로운 비밀번호">
+              </li>
+              <li class="find__item">
+                <input class="find__input" type="password" name="newPassword2" id="newPassword2" size="20" value="" maxlength="100" placeholder="비밀번호 확인">
+              </li>
+              <li class="find__item">
+                <input type="submit" class="s_submit find__btn" onclick="fnUpdtPassword(); return false;" value="비밀번호 재설정">
+                
+              </li>
+            </ul>
+          </div>
+      </form>
+      <!-- 비밀번호 재설정 //-->
+    
+  </section>
+</div>
+</main>
+<footer class="footer" id="footer">
+    <div class="footer_inner">
+        <nav class="footer_lnb">
+            <ul>
+                <li>
+                    <a class="nia" href="http://175.45.212.46/idPasswordSearch.do#">
+                        <img src="./아이디_비밀번호 찾기_files/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                    </a>
+                </li>
+                <li>
+                    <a class="ssis" href="http://175.45.212.46/idPasswordSearch.do#">
+                        <img src="./아이디_비밀번호 찾기_files/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://175.45.212.46/idPasswordSearch.do#">당근행복소개</a>
+                </li>
+                <li>
+                    <a href="http://175.45.212.46/idPasswordSearch.do#" class="bold">개인정보처리방침</a>
+                </li>
+                <li>
+                    <a href="http://175.45.212.46/idPasswordSearch.do#">이용약관</a>
+                </li>
+                <li>
+                    <a href="http://175.45.212.46/idPasswordSearch.do#">사이트맵</a>
+                </li>
+            </ul>
+            <div class="footer_site">
+                <img src="./아이디_비밀번호 찾기_files/open_logo.png" alt="">
+                <select name="" id="" title="관련 사이트 이동 선택">
+                    <option value="">관련 사이트</option>
+                    <option value="">관련 사이트</option>
+                    <option value="">관련 사이트</option>
+                </select>
+            </div>
+        </nav>
+        <p class="copyright">Copyright © by MOHW SSIS. All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body></html>

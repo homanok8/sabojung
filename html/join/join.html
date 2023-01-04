@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://175.45.212.46/user/agree/joinform.do -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 페이지 제목은 head import 전에 와야함 -->
+    
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../../css/common.css" type="text/css">
+    <link rel="stylesheet" href="../../css/join.css" type="text/css">
+    <link rel="stylesheet" href="../../js/lib/jquery/jquery-ui.min.css" type="text/css">
+    <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+    <script src="../../js/lib/jquery/jquery-ui.min.js"></script>
+    <script src="../../js/pub.js"></script>
+<script type="text/javascript">
+
+
+    var bCancel = false;
+
+    function validateJoinVO(form) {
+        if (bCancel)
+            return true;
+        else
+            return validateRequired(form) && validateMinLength(form) && validateMaxLength(form);
+    }
+
+    function required () {
+        this.aa = new Array("userName", "이름은(는) 필수 입력값입니다.", new Function ("varName", "this.minlength='2';  return this[varName];"));
+        this.ab = new Array("userId", "아이디은(는) 필수 입력값입니다.", new Function ("varName", "this.minlength='2';  return this[varName];"));
+        this.ac = new Array("password", "비밀번호은(는) 필수 입력값입니다.", new Function ("varName", "this.minlength='2';  return this[varName];"));
+        this.ad = new Array("email", "vd.join.email은(는) 필수 입력값입니다.", new Function ("varName", "this.minlength='2';  return this[varName];"));
+    }
+
+    function minlength () {
+        this.aa = new Array("userName", "이름은(는) 2자 이상 입력해야 합니다.", new Function ("varName", "this.minlength='2';  return this[varName];"));
+        this.ab = new Array("userId", "아이디은(는) 2자 이상 입력해야 합니다.", new Function ("varName", "this.minlength='2';  return this[varName];"));
+        this.ac = new Array("password", "비밀번호은(는) 2자 이상 입력해야 합니다.", new Function ("varName", "this.minlength='2';  return this[varName];"));
+        this.ad = new Array("email", "vd.join.email은(는) 2자 이상 입력해야 합니다.", new Function ("varName", "this.minlength='2';  return this[varName];"));
+    }
+
+    function maxlength () {
+        this.aa = new Array("userName", "이름은(는) 20자 이상 입력할수 없습니다.", new Function ("varName", "this.maxlength='20';  return this[varName];"));
+        this.ab = new Array("userId", "아이디은(는) 20자 이상 입력할수 없습니다.", new Function ("varName", "this.maxlength='20';  return this[varName];"));
+        this.ac = new Array("email", "vd.join.email은(는) 20자 이상 입력할수 없습니다.", new Function ("varName", "this.maxlength='40';  return this[varName];"));
+    }
+
+
+    $(function() {
+
+        $( "#brthdy" ).datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            changeYear: true,
+            numberOfMonths: 1,
+            yearRange: 'c-90:c+50',
+            showButtonPanel: true,
+            showOn: "button",
+            buttonImage: "../../images/icons/calendar_icon.png",
+            buttonImageOnly: false,
+            buttonText: "Select date",
+            onSelect: function() {
+                $('#brthdy').next().focus();
+            },
+            onClose: function() {
+                $('#brthdy').next().focus();
+            }
+        });
+
+
+
+        $.datepicker.regional['ko'] = {
+            closeText: '닫기',
+            prevText: '이전',
+            nextText: '다음',
+            currentText: '오늘',
+            monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+            monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+            dayNames: ['일','월','화','수','목','금','토'],
+            dayNamesShort: ['일','월','화','수','목','금','토'],
+            dayNamesMin: ['일','월','화','수','목','금','토'],
+            weekHeader: 'Wk',
+            dateFormat: 'yy-mm-dd',
+            firstDay: 0,
+            isRTL: false,
+            showMonthAfterYear: true,
+            yearSuffix: ''};
+        $.datepicker.setDefaults($.datepicker.regional['ko']);
+
+        $('#text_field').datepicker();
+
+        $('.monthBox select').attr('disabled',true);
+        $('.manWomanWrap radio').attr('disabled',true);
+
+        $('select[name=phoneLocationType]').css({'width':'auto','height':'40px'});
+        $('select[name=academyStateType]').css('width','calc(100% - 13.5px)');
+        $('select[name=grader]').css('width','calc(100% - 13.5px)');
+        $('select[name=degreeType]').css('width','92%');
+        if(true){
+            $('select[name=mobileProvideType]').attr('disabled',true);
+        }
+        $('#professionStateType').css('margin-left','10px;');
+        $('select[name=degreeType]').css('display','none');
+        $('select[name=birthYear]').css('display','block');
+        $('select[name=birthMonth]').css('display','block');
+        $('select[name=birthDate]').css('display','block');
+
+        $('.ui-datepicker-trigger').css('float','right');
+        $('.ui-datepicker-trigger').css('margin-top','0');
+        $('.ui-datepicker-trigger').css('border','1px solid #d0d0d0');
+        $('.ui-datepicker-trigger').css('padding','10px');
+        $('.ui-datepicker-trigger').css('border-radius','5px');
+        $('.ui-datepicker-trigger').css('color','#333');
+        $('.ui-datepicker-trigger').css('background-color','#919191');
+        $('.ui-datepicker-trigger').css('height','40px');
+        $('.ui-datepicker-trigger').css('cursor','pointer');
+
+
+        $('.ui-datepicker-trigger2').css('float','left');
+        $('.ui-datepicker-trigger2').css('margin-top','10px');
+        $('.ui-datepicker-trigger2').css('border','1px solid #d0d0d0');
+        $('.ui-datepicker-trigger2').css('padding','10px');
+        $('.ui-datepicker-trigger2').css('border-radius','5px');
+        $('.ui-datepicker-trigger2').css('color','#333');
+        $('.ui-datepicker-trigger2').css('background-color','#919191');
+        $('.ui-datepicker-trigger').css('width','auto');
+        $('.ui-datepicker-trigger').css('cursor','pointer');
+
+
+    });
+
+    function pwChk(){
+        var pw=$('input[name=password]').val();
+        /* var pw = $.trim(this.value); */
+        var cnt = 0;
+        var numCnt = 0;
+        var scCnt = 0;
+        var msg = '비밀번호는 10자 이상의 영문자, 숫자, 특수문자 조합으로 이루어 져야 합니다.';
+        var sFlag = 'fail';
+        var pwlength = pw.length;
+        var pwChkCount=0;
+
+        if(pw.match(/[a-zA-z]/g) != null) cnt +=1;
+        if(pw.match(/[0-9]/g) != null) numCnt +=1;
+        if(pw.match(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/g) != null) scCnt +=1;
+
+        var SamePass_0 = 0; //동일문자 카운트
+        var SamePass_1 = 0; //연속성(+) 카운드
+        var SamePass_2 = 0; //연속성(-) 카운드
+
+        var chr_pass_0;
+        var chr_pass_1;
+
+        var chr_pass_2;
+
+        for(var i=0; i < pw.length; i++) {
+            chr_pass_0 = pw.charAt(i);
+            chr_pass_1 = pw.charAt(i+1);
+
+            //동일문자 카운트
+            if(chr_pass_0 == chr_pass_1) {
+                SamePass_0 = SamePass_0 + 1
+            }
+
+
+            chr_pass_2 = pw.charAt(i+2);
+            //연속성(+) 카운드
+
+            if(chr_pass_0.charCodeAt(0) - chr_pass_1.charCodeAt(0) == 1 && chr_pass_1.charCodeAt(0) - chr_pass_2.charCodeAt(0) == 1) {
+                SamePass_1 = SamePass_1 + 1
+            }
+
+            //연속성(-) 카운드
+            if(chr_pass_0.charCodeAt(0) - chr_pass_1.charCodeAt(0) == -1 && chr_pass_1.charCodeAt(0) - chr_pass_2.charCodeAt(0) == -1) {
+                SamePass_2 = SamePass_2 + 1
+            }
+        }
+
+        if(SamePass_0 > 1)
+        {
+            alert("동일문자를 3번 이상 사용할 수 없습니다.");
+            pwChkCount +=1;
+            return pwChkCount;
+        }
+
+        if(SamePass_1 > 1 || SamePass_2 > 1 )
+        {
+            alert("연속된 문자열(123 또는 321, abc, cba 등)을\n 3자 이상 사용 할 수 없습니다.");
+            pwChkCount +=1;
+            return pwChkCount;
+        }
+
+        if(scCnt < 1 || pwlength < 10 || numCnt < 1 || cnt < 1) {
+            alert(msg);
+            pwChkCount +=1;
+            return pwChkCount;
+        }
+
+        if(pw.indexOf($('input[name=userId]').val()) > 0) {
+            alert("비밀번호에 아이디 입력값을 포함할 수 없습니다.");
+            pwChkCount +=1;
+            return pwChkCount;
+        }
+        if(!checkStringFormat($('input[name=password]').val())){
+            alert("사용할수 없는 특수문자입니다.( + & = ) # % ^");
+            pwChkCount +=1;
+            return pwChkCount;
+        }
+
+        var arrNotPassword = ["qwer", "asdf", "zxcv", "q1w2", "e3r4", "t5y6", "u7i8", "o9p0"];
+
+        for(var i=0;i<arrNotPassword.length;i++) {
+            if(pw.toLowerCase().indexOf(arrNotPassword[i]) >= 0) {
+                alert(arrNotPassword[i]+" 키보드상 연속된  비밀번호는 사용할 수 없습니다.");
+                pwChkCount +=1;
+                return pwChkCount;
+            }
+        }
+        /* return pwChkCount; */
+    }
+
+
+    function checkStringFormat(string) {
+        //var stringRegx=/^[0-9a-zA-Z가-힝]*$/;
+        var stringRegx = /[&=+#%]/gi;
+        var isValid = true;
+        if(stringRegx.test(string)) {
+            isValid = false;
+        }
+        return isValid;
+    }
+
+</script>
+<script type="text/javascript">
+
+    $(function() {
+        $('#searchPost').click(function() {
+            $.ajax({
+                type: 'POST', url: '/membership/PostcodeList.do'
+            }).done(function(data) {
+                $(window.document.body).css('overflow', 'hidden');
+                $('.contents_area').append('<div></div><div></div>');
+                $('.ajaxWrapper').append(data);
+                fn_create_layer();
+                fn_after_ajax();
+            });
+            //var univPop = window.open('/membership/PostcodeList.do', 'searchUnivPop', 'width=747,height=500');
+            //univPop.focus();
+        });
+
+        $('input[name=addPic]').click(function() {
+            var imgPop = window.open('/common/files/uploadMembershipView.do', 'userSelectPop', 'width=747,height=720');
+            imgPop.focus();
+        });
+        $('.addPrjCrr').click(function() {
+            var len = $(this).parent().prev('table').find('.prjRow:visible').length;
+
+            if(len == 0) {
+                $(this).parent().prev('table').find('.prjRow').find('input').removeAttr('disabled').removeAttr('checked');
+                $(this).parent().prev('table').find('.prjRow').show();
+            } else {
+                var $clone = $(this).parent().prev('table').find('.prjRow').last().clone(true);
+                $(this).parent().prev('table').append($clone);
+                $(this).parent().prev('table').find('.prjRow').last().find('input[type=text]').val('');
+            }
+        });
+
+        $('input[name=mobileNumber], input[name=mobileDetailNumber], input[name=phoneNumber], input[name=phoneDetailNumber]').keyup(function() {
+            $(this).val(this.value.replace(/[^0-9]/g, ''));
+        });
+
+
+        $('.checkBtn').click(function(){
+            //인증 버튼 클릭했을 때
+            var userEmailVal=$.trim($('input[name=emailAdres]').val());
+            var el=$(this).prev();
+            if(!bool_checkEmail(userEmailVal)) {
+                msg = '이메일 주소 형식이 올바르지 않습니다.';
+                alert(msg);
+                $(el).focus();
+                return;
+            }
+
+            $("#emailVerifyBtn").remove();
+            $("#emailVertKey").remove();
+            // $('.checkEmailCert').remove();
+            $.ajax({
+                type:"POST",
+                url:"/user/agree/generateEmailKey.do",
+                data:{
+                    "email": userEmailVal
+                },
+                dataType:'json',
+                timeout:(1000*30),
+                success:function(returnData, status){
+                    if(status == "success") {
+
+                    }else{ alert("ERROR!");return;}
+                }
+            });
+            $("#emailAdres").parent().append($("<input/>").attr({
+                "type":"text",
+                // "name":"checkEmailCerfiticate",
+                "title":"인증번호",
+                "id":"emailVertKey",
+                "placeholder":"이메일로 보내진 6자리 인증번호를 입력해주세요.",
+            }).addClass("join-reg__input")).append(
+                $("<button/>")
+                    .addClass("join-reg__btn")
+                    .text("확인")
+                    .attr({"type":"button", "id":"emailVerifyBtn"})
+                    .on("click", function(){
+                        $.ajax({
+                            type:"POST",
+                            url:"/user/agree/emailVerifyAjax.do",
+                            data: {
+                                "emailVertKey":$("#emailVertKey").val()
+                            },
+                            dataType:"json",
+                            timeout:(1000*30),
+                            success:function(returnData, status) {
+                                if(status == "success") {
+                                    if(returnData.verified == true) {
+                                        alert("인증되었습니다");
+                                        $("#emailVertKey").attr("readonly", true);
+                                        $("#emailVerifyBtn").attr("readonly", true);
+                                        $('input[name=checkFlag2]').val('Y');
+                                    } else {
+                                        alert("인증에 실패하였습니다.");
+                                    }
+                                }
+                            }
+                        })
+                    })
+            );
+            alert('사용 가능한 이메일 입니다. 이메일로 보내진 6자리 인증번호를 입력해주세요.');
+        });
+    });
+
+
+    function bool_checkEmail(val) {
+        var emailfilter = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if(val.trim() == "") return false;
+        else if(!emailfilter.test(val)) return false;
+
+        return true;
+    }
+
+
+    function fn_egov_save() {
+        var frm =  document.joinForm;
+        var valid = false;
+        $('input[name=userId]').val($('input[name=email]').val());
+        var userIdVal = $.trim($('input[name=userId]').val());
+        var userEmailVal=$.trim($('input[name=email]').val());
+        var el = this;
+        var msg = '';
+
+        var opw = $('input[name=password]').val();
+        var cpw = $('input[name=pwcheck]').val();
+        var msg = '';
+        var pw = $.trim($('input[name=password]').val());
+        var pwlength = pw.length;
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = (today.getMonth() + 1) < 10 ? '0' + (today.getMonth() + 1) : (today.getMonth() + 1);
+        var date = today.getDate() < 10 ? '0' + today.getDate() : today.getDate();
+        var crrYMD = year +''+ month +''+ date;
+        var ageYMD = (year - 14) +''+ month +''+ date;
+
+        var checkFlag=$('input[name=checkFlag]').val();
+        if(checkFlag!='Y'){
+            alert('이메일 인증이 필요합니다.');
+            return;
+        }
+
+
+
+        $('form[name=joinForm] input[type=password]').each(function() {
+            var title = $.trim($(this).attr('title'));
+            var value = $.trim($(this).val());
+            if(title == value) {
+                valid = true;
+                if(msg == '') msg += $(this).attr('alt') +'은(는) 필수 입력값입니다.';
+                else msg += '\n' + $(this).attr('alt') +'은(는) 필수 입력값입니다.';
+            }
+        });
+
+
+        if(valid) {
+            alert(msg);
+            return;
+        /*} else if(!validateJoinVO(frm)){
+            return;*/
+        /*} else if(sFlag=="fail"){
+            return;*/
+        }else if(pwChk()>=1) {
+            return;
+        } else if (opw != cpw) {
+            alert("비밀번호가 일치하지 않습니다. 다시 입력해 주세요.");
+            return;
+        }
+
+        /* TODO Validation기능 보완 */
+        var ad=$('input[name=adres]').val();
+        if(ad=='' || ad==null){
+            //alert('주소를 입력해주세요.');
+            //return;
+        }
+        // var mobile1=$('select[name=mobileProvideType]').val();
+        // var mobile2=$('input[name=mobileNumber]').val();
+        // var mobile3=$('input[name=mobileDetailNumber]').val();
+        // if(mobile1=='' || mobile1==null ||mobile2=='' || mobile2==null || mobile3=='' || mobile3==null ){
+        //     alert('휴대폰 번호를 입력해주세요.');
+        //     return;
+        // }
+        if(!$("#moblphonNo").val()) {
+            alert('휴대폰 번호를 입력해주세요.');
+            return;
+        }
+
+        if($('input[name=birthDay]').val()==''){
+            alert('입학일을 입력해주세요.');
+            return false;
+        }
+        $('.monthBox select').attr('disabled',false);
+        // $('select[name=mobileProvideType]').attr('disabled',false);
+
+        frm.submit();
+    }
+
+    function goPopup(){
+        //var pop = window.open("/membership/postpopup.do","pop","width=570,height=420, scrollbars=yes");
+        new daum.Postcode({
+            oncomplete: function(data) {
+                $('input[name=zip]').val(data.zonecode);
+                $('input[name=adres]').val(data.adres);
+                $('input[name=adres]').after('<input type="text" name="adres2" class="join-reg__input join-reg__input--col comInput" placeholder="상세 주소를 입력해주세요." title="주소" />');
+            }
+        }).open();
+    }
+
+
+    /*********************************************************
+     * 아이디 체크 AJAX
+     ******************************************************** */
+    function fn_id_check(){
+        if($("#mberId").val() == null || $("#mberId").val() == ''){
+            alert('아이디를 입력해주세요.');
+            return false;
+        } else{
+            $.ajax({
+                type:"POST",
+                url:"/user/agree/idDplctCnfirmAjax.do",
+                data:{
+                    "checkId": $("#mberId").val()
+                },
+                dataType:'json',
+                timeout:(1000*30),
+                success:function(returnData, status){
+                    if(status == "success") {
+                        if(returnData.usedCnt > 0 ){
+                            alert('사용할수 없는 아이디입니다.');
+                        }else{
+                            alert('사용가능한 아이디입니다.');
+                            $("#mberId").attr("readonly", true);
+                            $('#checkFlag').val('Y');
+                        }
+                    }else{ alert("ERROR!");return;}
+                }
+            });
+        }
+    }
+</script>
+
+
+<script>
+    $(function(){
+        $("ul.dropdown li:has(ul)").hover(function(){
+            $(this).addClass("hover");
+            $('ul:first',this).css('visibility', 'visible');
+        }, function(){
+            $(this).removeClass("hover");
+            $('ul:first',this).css('visibility', 'hidden');
+        });
+    });
+</script>
+</head>
+<body>
+<div id="skipMenu">
+    <a href="#main">본문 바로가기</a>
+    <a href="#header">주메뉴 바로가기</a>
+    <a href="#footer">하단메뉴 바로가기</a>
+</div>
+<header class="header" id="header">
+    <div class="header_inner">
+        <h1>
+            <a href="#">
+                <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+        </h1>
+        <p>
+            <a href="#">
+                <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+        </p>
+        <h2>회원가입</h2>
+        <nav>
+            <div class="mob-close">
+                <button class="mob-close__btn" id="menuClose" type="button">
+                    <span class="blind">메뉴 닫기 버튼</span>
+                    <i></i>
+                    <i></i>
+                </button>
+            </div>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span>메인</span>
+                        <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                    </a>
+                    <ul class="sublnb">
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">추천 서비스 신청</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">바우처 서비스 신청</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>서비스신청</span>
+                        <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                    </a>
+                    <ul class="sublnb">
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">서비스 신청 목록</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">서비스 추천 목록</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">서비스 추천 대상</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">바우처 서비스 대상</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>서비스 제공</span>
+                        <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                    </a>
+                    <ul class="sublnb">
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">서비스 제공</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">온라인 계약</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">서비스 제공 관리</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">온라인 계약 관리</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>발달장애 자가진단</span>
+                        <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                    </a>
+                    <ul class="sublnb">
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">이용안내</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">자가진단</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">전문가 소견</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">발달장애 추천 서비스</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>서비스 관리</span>
+                        <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                    </a>
+                    <ul class="sublnb">
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">기관정보관리</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">담당자 관리</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">서비스 관리</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">계약서 관리</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">이의신청관리</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>당근 행복</span>
+                        <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                    </a>
+                    <ul class="sublnb">
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">당근 행복 소개</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">공지사항</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">Q&A</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">FAQ</a>
+                        </li>
+                        <li class="sublnb__item">
+                            <a class="sublinb__link" href="#">서비스개선요청</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="loginbox">
+            <a href="#">
+                <span>로그인</span>
+                <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" id="menuBtn" type="button">
+                <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+        </div>
+    </div>
+</header>
+<nav class="lnb">
+    <div class="lnb_inner">
+        <h2>
+            <a href="#">
+                <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+        </h2>
+        <ul>
+            <li>
+                <a href="#" class="focus">로그인</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main class="main" id="main">
+<div class="main_inner">
+    <section class="join join--white">
+        <form name="joinForm" id="joinForm" method="post" action="http://175.45.212.46/user/agree/joinRegist.do">
+            <article class="join-reg">
+                <h4 class="join-reg__tit">
+                    <strong class="join-reg__tit-bold">회원가입</strong>
+                    <span class="join-reg__tit-red">*표기는 필수 입력사항입니다.</span>
+                </h4>
+                <dl class="join-reg__dl">
+                    <dt class="join-reg__dt">
+                        <label for="mberId">ID<span class="join-reg__star">*</span></label>
+                    </dt>
+                    <dd class="join-reg__dd join-reg__dd--grid">
+                        <input class="join-reg__input" id="mberId" name="mberId" type="text" alt="아이디" title="아이디" placeholder="아이디">
+                        <button class="join-reg__btn" type="button" onclick="fn_id_check();">중복체크</button>
+                        <input type="hidden" name="checkFlag" id="checkFlag" value="N">
+                    </dd>
+                </dl>
+                <dl class="join-reg__dl">
+                    <dt class="join-reg__dt">
+                        <label for="emailAdres">이메일<span class="join-reg__star">*</span></label>
+                    </dt>
+                    <dd class="join-reg__dd join-reg__dd--grid">
+                        <input class="join-reg__input" id="emailAdres" name="emailAdres" type="text" alt="이메일" title="이메일" placeholder="이메일">
+                        <button class="join-reg__btn checkBtn" type="button">인증</button>
+                        <input type="hidden" name="checkFlag2" id="checkFlag2" value="N">
+                    </dd>
+                </dl>
+                <dl class="join-reg__dl">
+                    <dt class="join-reg__dt">
+                    <label for="password">비밀번호<span class="join-reg__star">*</span></label>
+                    </dt>
+                    <dd class="join-reg__dd">
+                    <input class="join-reg__input inputJoinBox2" type="password" id="password" name="password" title="비밀번호" placeholder="비밀번호" autocomplete="new-password">
+                    </dd>
+                </dl>
+                <dl class="join-reg__dl">
+                    <dt class="join-reg__dt">
+                    <label for="pwcheck">비밀번호확인<span class="join-reg__star">*</span></label>
+                    </dt>
+                    <dd class="join-reg__dd">
+                    <input class="join-reg__input inputJoinBox2" id="pwcheck" name="pwcheck" type="password" title="비밀번호 확인" placeholder="비밀번호 확인">
+                    </dd>
+                </dl>
+                <dl class="join-reg__dl">
+                    <dt class="join-reg__dt">
+                        <label for="mberNm">성명<span class="join-reg__star">*</span></label>
+                    </dt>
+                    <dd class="join-reg__dd">
+                        <input class="join-reg__input inputJoinBox2" id="mberNm" name="mberNm" alt="성   명" title="성   명" type="text" placeholder="성   명">
+                    </dd>
+                </dl>
+
+                <div class="join-detail">
+                    <h5 class="join-reg__tit"><strong class="join-reg__tit-bold">상세정보</strong></h5>
+                    
+                    <dl class="join-reg__dl">
+                        <dt class="join-reg__dt">
+                            <label for="zip">주소</label>
+                        </dt>
+                        <dd class="join-reg__dd join-reg__dd--gird02">
+                            <input type="text" class="join-reg__input addressinput1 comInput" value="" name="zip" id="zip" readonly="readonly" placeholder="우편번호" title="우편번호">
+                            <a href="http://175.45.212.46/user/agree/joinform.do#" name="searchPost" onclick="goPopup();" class="join-reg__btn addressA" title="우편번호 검색 새창열림">우편번호 검색</a>
+                            <input class="join-reg__input join-reg__input--col comInput1" type="text" id="adres" name="adres" readonly="" title="주소입력" placeholder="주소">
+                            <input class="join-reg__input join-reg__input--col comInput1" type="text" id="detailAdres" name="detailAdres" readonly="" title="상세주소입력" placeholder="상세주소">
+                        </dd>
+                    </dl>
+                    <dl class="join-reg__dl">
+                        <dt class="join-reg__dt">
+                            <label for="moblphonNo">휴대전화번호<span class="join-reg__star">*</span></label>
+                        </dt>
+                        <dd class="join-reg__dd">
+                            <input class="join-reg__input inputJoinBox2" id="moblphonNo" name="moblphonNo" type="text" size="20" maxlength="15">
+                        </dd>
+                    </dl>
+                    
+
+
+                    <dl class="join-reg__dl">
+                        <dt class="join-reg__dt">
+                            <label for="brthdy">생년월일<span class="join-reg__star">*</span></label>
+                        </dt>
+                        <dd class="join-reg__dd join-reg__dd--grid join-reg__dd--date">
+                            <input type="text" name="brthdy" id="brthdy" class="join-reg__input addressinput2 comInput2 hasDatepicker" placeholder="yyyy-mm-dd">
+                            <button type="button" class="ui-datepicker-trigger" >
+                                <img src="../../images/icons/calendar_icon.png" alt="Select date" title="Select date">
+                            </button>
+                        </dd>
+                    </dl>
+
+                    <dl class="join-reg__dl">
+                        <dt class="join-reg__dt">
+                            <label for="sexdstnCode">성별<span class="join-reg__star">*</span></label>
+                        </dt>
+                        <dd class="join-reg__dd">
+                            <select name="sexdstnCode" id="sexdstnCode" class="join-reg__select selectBoximages">
+                                <option value=""></option>
+                                
+                                    <option value="F">여자</option>
+                                
+                                    <option value="M">남자</option>
+                                
+                            </select>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="join-reg__save">
+                    <a class="join-reg__save-btn" onclick="fn_egov_save();" href="http://175.45.212.46/user/agree/joinform.do#">확인</a>
+                </div>
+            </article>
+        </form>
+    </section>
+</div>
+
+
+
+
+
+</main>
+<footer class="footer" id="footer">
+    <div class="footer_inner">
+        <nav class="footer_lnb">
+            <ul>
+                <li>
+                    <a class="nia" href="http://175.45.212.46/user/agree/joinform.do#">
+                        <img src="./회원가입_mo 오류_files/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                    </a>
+                </li>
+                <li>
+                    <a class="ssis" href="http://175.45.212.46/user/agree/joinform.do#">
+                        <img src="./회원가입_mo 오류_files/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://175.45.212.46/user/agree/joinform.do#">당근행복소개</a>
+                </li>
+                <li>
+                    <a href="http://175.45.212.46/user/agree/joinform.do#" class="bold">개인정보처리방침</a>
+                </li>
+                <li>
+                    <a href="http://175.45.212.46/user/agree/joinform.do#">이용약관</a>
+                </li>
+                <li>
+                    <a href="http://175.45.212.46/user/agree/joinform.do#">사이트맵</a>
+                </li>
+            </ul>
+            <div class="footer_site">
+                <img src="./회원가입_mo 오류_files/open_logo.png" alt="">
+                <select name="" id="" title="관련 사이트 이동 선택">
+                    <option value="">관련 사이트</option>
+                    <option value="">관련 사이트</option>
+                    <option value="">관련 사이트</option>
+                </select>
+            </div>
+        </nav>
+        <p class="copyright">Copyright © by MOHW SSIS. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div></body></html>
