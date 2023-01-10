@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>당근행복이란?</title>
+   <link rel="stylesheet" href="../../css/common.css" type="text/css">
+   <link rel="stylesheet" href="../../css/page.css" type="text/css">
+   <link rel="stylesheet" href="../../css/intro.css" type="text/css">
+   <script src="../../js/lib/jquery/jquery-3.6.0.min.js"></script>
+   <script src="../../js/pub.js"></script>
+</head>
+<body>
+   <div id="skipMenu">
+      <a href="#main">본문 바로가기</a>
+      <a href="#header">주메뉴 바로가기</a>
+      <a href="#footer">하단메뉴 바로가기</a>
+   </div>
+   <header class="header" id="header">
+      <div class="header_inner">
+         <h1>
+            <a href="#">
+               <img src="../../images/header_logo.png" alt="당신근처행복 로고 홈으로 이동">
+            </a>
+         </h1>
+         <p>
+            <a href="#">
+               <img src="../../images/icons/prev_black_icon.png" alt="이전페이지 이동">
+            </a>
+         </p>
+         <h2>당근 행복</h2>
+         <nav>
+            <div class="mob-close">
+               <button class="mob-close__btn" id="menuClose" type="button">
+                  <span class="blind">메뉴 닫기 버튼</span>
+                  <i></i>
+                  <i></i>
+               </button>
+            </div>
+            <ul>
+               <li>
+                  <a href="#">
+                     <span>메인</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">추천 서비스 신청</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">바우처 서비스 신청</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#">
+                     <span>서비스신청</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 신청 목록</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 추천 목록</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 추천 대상</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">바우처 서비스 대상</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#">
+                     <span>서비스 제공</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 제공</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">온라인 계약</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 제공 관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">온라인 계약 관리</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#">
+                     <span>발달장애 자가진단</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">이용안내</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">자가진단</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">전문가 소견</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">발달장애 추천 서비스</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#">
+                     <span>서비스 관리</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">기관정보관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">담당자 관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스 관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">계약서 관리</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">이의신청관리</a>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="#">
+                     <span>당근 행복</span>
+                     <img src="../../images/icons/down_icon.png" alt="하위메뉴 보기 버튼">
+                  </a>
+                  <ul class="sublnb">
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">당근 행복 소개</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">공지사항</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">Q&A</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">FAQ</a>
+                     </li>
+                     <li class="sublnb__item">
+                        <a class="sublinb__link" href="#">서비스개선요청</a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </nav>
+         <div class="loginbox">
+            <a href="#">
+               <span>로그인</span>
+               <img src="../../images/icons/login_icon.png" alt="로그인 이동">
+            </a>
+            <button class="menu_btn" id="menuBtn" type="button">
+               <img src="../../images/icons/menu_icon.png" alt="전체메뉴 버튼">
+            </button>
+         </div>
+      </div>
+   </header>
+   <nav class="lnb">
+      <div class="lnb_inner">
+         <h2>
+            <a href="#">
+               <img src="../../images/icons/home_icon.png" alt="홈으로 이동">
+            </a>
+         </h2>
+         <ul>
+            <li>
+               <a href="#">당근행복</a>
+            </li>
+            <li>
+               <a href="#" class="focus">당근행복이란?</a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <main class="main" id="main">
+      <div class="main_inner">
+         <div class="main_top">
+            <h2>당근행복이란?</h2>
+            <p>당근행복은 무엇인지 궁금하시죠? 당근행복을 소개합니다</p>
+         </div>
+         <section class="intro">
+            <article class="intro__ban">
+               <div class="intro__left">
+                  <p class="intro__me">
+                     힘들고 어려운 <b>당신 근처</b>에는<br>
+                     항상 <b>행복</b>을 줄수 있는<br>
+                     <b>도움의 손길</b>이 있습니다.
+                  </p>
+                  <p class="intro__oth">
+                     다양한 사회서비스 검색이 어려우시죠?<br>
+                     내가 대상자인지, 어디에 연락해 봐야 되는지<br>
+                     여러분의 어려움을 당근행복 플랫폼의 AI가 도와 드립니다.
+                  </p>
+               </div>
+               <img class="intro__bg" src="../../images/people_bg.png" alt="">
+            </article>
+            <article class="intro__art">
+               <h3 class="intro__tit">
+                  <img src="../../images/icons/list_icon.png" alt="">
+                  <span>사회보장서비스, 이런 문제가 있어요</span>
+               </h3>
+               <figure class="intro__fig">
+                  <img src="../../images/news_bg.png" alt="">
+                  <figcaption class="intro__figcap">
+                     <div>
+                        <span>복지사각지대 지속 발생: 신문기사 "수원 세 모녀 숨진 채 발견"</span>
+                        <span>사회서비스 바우처 미사용 지속 발생: 신문기사 "안 쓰고 버려지는<br>에너지바우처...10명 중 2명은 사용하지 못하고 있어"</span>
+                     </div>
+                     <div>
+                        <span>코로나19로 비대면 사회보장서비스 요구: 신문기사 "코로나19로<br>인해 장애인활동활동지원 서비스 연계 어려움"</span>
+                        <span>아들의 자폐진단, 월 600만원의 '센터 뺑뺑이'가 시작됐다</span>
+                     </div>
+                  </figcaption>
+               </figure>
+            </article>
+            <article class="intro__info">
+               <h3 class="intro__tit">
+                  <img src="../../images/icons/list_icon.png" alt="">
+                  <span>사회보장서비스 이렇게 달라집니다</span>
+               </h3>
+               <div class="intro__infobox">
+                  <div class="intro__con">
+                     <h4 class="intro__subtit">어려운 사회보장서비스를 찾지말고 간단한 상황을 입력해 놓으세요</h4>
+                     <ul class="intro__list">
+                        <li class="intro__item">
+                           <i class="intro__listicon"></i>
+                           <span>여러분의 어려운 상황과 조건에 맞는 사회서비스를 AI가 찾아 제공기관 담당자가 연락 드립니다</span>
+                        </li>
+                        <li class="intro__item">
+                           <i class="intro__listicon"></i>
+                           <span>여러분의 어려운 상황과 조건에 맞는 사회서비스를 AI가 찾아 제공기관 담당자가 연락 드립니다</span>
+                        </li>
+                        <li class="intro__item">
+                           <i class="intro__listicon"></i>
+                           <span>수요자 :  연령대, 지역, 장애 유형, 필요서비스 등 간단한 등록하면 끝!</span>
+                        </li>
+                        <li class="intro__item">
+                           <i class="intro__listicon"></i>
+                           <span>서비스 제공기관 : 다양한 수요자를 제공기관 담당자에 추천하고, 담당자가 수요자에게 서비스 알려드립니다.(공공, 민간자원 포함)</span>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="intro__con">
+                     <h4 class="intro__subtit">사용되지 않은 바우처가 있으신가요?</h4>
+                     <ul class="intro__list">
+                        <li class="intro__item">
+                           <i class="intro__listicon"></i>
+                           <span>수요자 :  연령대, 지역, 장애 유형, 필요서비스 등 간단한 등록하면 끝~</span>
+                        </li>
+                        <li class="intro__item">
+                           <i class="intro__listicon"></i>
+                           <span>바우처 제공기관에서 매칭 후 서비스를 안내(제안)해 드립니다</span>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="intro__con">
+                     <h4 class="intro__subtit">멀어서, 비싸서, 시간이 없어 수행하기 힘든 발달장애아동의 상태</h4>
+                     <ul class="intro__list">
+                        <li class="intro__item">
+                           <i class="intro__listicon"></i>
+                           <span>당근행복 플랫폼 스크리닝 도구와 전문가, 발달재활 기관,DTx 서비스 기관을 추천해 드립니다</span>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="intro__con">
+                     <h4 class="intro__subtit">서비스 이용 계약 등을 위해 제공기관 연락하고 방문해야 되는 어려움</h4>
+                     <ul class="intro__list">
+                        <li class="intro__item">
+                           <i class="intro__listicon"></i>
+                           <span>당근행복 플랫폼의 온라인 계약을 통해 비대면 사회 서비스를 제공합니다</span>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="intro__char">
+                  <ul class="intro__befor">
+                     <li>서비스 신청</li>
+                     <li>공공자원 중심</li>
+                     <li>대면서비스 중심</li>
+                  </ul>
+                  <img class="intro__arrow" src="../../images/icons/bigarrow_icon.png" alt="">
+                  <ul class="intro__after">
+                     <li>서비스 요구, 개인 맞춤 서비스</li>
+                     <li>민간자원 연계 및 활용</li>
+                     <li>비대면 서비스 추가 및 이용 활성화</li>
+                  </ul>
+               </div>
+            </article>
+            <article class="intro__happy">
+               <h3 class="intro__tit">
+                  <img src="../../images/icons/list_icon.png" alt="">
+                  <span>달라진 사회보장서비스로 늘어나는 행복</span>
+               </h3>
+               <ul class="intro__halist">
+                  <li class="intro__haitem">
+                     <i class="intro__num">하나</i>
+                     <span>복지 사각지대, 사회적 약자 조기 발견 및 지원</span>
+                  </li>
+                  <li class="intro__haitem">
+                     <i class="intro__num">둘</i>
+                     <span>발달장애 아동 조기발견 지원 및 장애아동 치료를 위한 지역적, 비용적, 시간적 어려움 해소 기여</span>
+                  </li>
+                  <li class="intro__haitem">
+                     <i class="intro__num">셋</i>
+                     <span>바우처 비대상 아동 대상 서비스 접근권 확대. 바우처 비대상 발달장애아 170,000명</span>
+                  </li>
+                  <li class="intro__haitem">
+                     <i class="intro__num">넷</i>
+                     <span>수요-공급 매칭으로 바우처 사용 촉진. 연간 미사용 바우처 436억원(50%)</span>
+                  </li>
+                  <li class="intro__haitem">
+                     <i class="intro__num">다섯</i>
+                     <span>사회서비스 제공 인력 일자리 창출. 연간 일자리 창출 500개(40만원/개)</span>
+                  </li>
+                  <li class="intro__haitem">
+                     <i class="intro__num">여섯</i>
+                     <span>발달장애 사회서비스 민간분야 신시장 창출. 초기국내시장 510억원 규모</span>
+                  </li>
+               </ul>
+            </article>
+         </section>
+      </div>
+   </main>
+   <footer class="footer" id="footer">
+      <div class="footer_inner">
+         <nav class="footer_lnb">
+            <ul>
+               <li>
+                  <a class="nia" href="#">
+                     <img src="../../images/nia_logo.png" alt="NIA 한국지능정보사회진흥원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a class="ssis" href="#">
+                     <img src="../../images/ssis_logo.png" alt="SSiS 한국사회보장정보원 이동">
+                  </a>
+               </li>
+               <li>
+                  <a href="#">당근행복소개</a>
+               </li>
+               <li>
+                  <a href="#" class="bold">개인정보처리방침</a>
+               </li>
+               <li>
+                  <a href="#">이용약관</a>
+               </li>
+               <li>
+                  <a href="#">사이트맵</a>
+               </li>
+            </ul>
+            <div class="footer_site">
+               <img src="../../images/open_logo.png" alt="">
+               <select name="" id="" title="관련 사이트 이동 선택">
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+                  <option value="">관련 사이트</option>
+               </select>
+            </div>
+         </nav>
+         <p class="copyright">Copyright &copy; by MOHW SSIS. All rights reserved.</p>
+      </div>
+   </footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.intro { display: flex; flex-direction: column; gap: 55px; }
+.intro__ban { display: flex; justify-content: space-between; padding: 60px; background-color: #EBF6E4; border-radius: 20px; position: relative; overflow: hidden; }
+.intro__left { display: flex; flex-direction: column; gap: 40px; position: relative; z-index: 2; }
+.intro__me { font-size: 34px; color: #00672F; }
+.intro__me b { font-weight: bold; }
+.intro__oth { font-size: 22px; color: #555555; }
+.intro__bg { display: block; width: 49%; height: 380px; object-fit: contain; position: absolute; bottom: -56px; right: 55px; }
+.intro__tit { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 600; margin-bottom: 35px; }
+.intro__tit > img { display: block; width: 20px; height: 17px; object-fit: contain; }
+.intro__fig { display: flex; align-items: center; gap: 50px; padding: 20px 40px; border: 1px solid #C5C5C5; border-radius: 20px; }
+.intro__fig > img { display: block; width: 200px; height: 160px; object-fit: contain; }
+.intro__figcap { padding: 20px 0; display: flex; gap: 10px; }
+.intro__figcap > div { display: flex; flex-direction: column; gap: 10px; }
+.intro__figcap > div > span { display: block; font-size: 16px; color: #555555; padding: 10px 25px; background-color: #EFEFEF; border-radius: 5px; }
+.intro__infobox { display: flex; flex-direction: column; gap: 35px; }
+.intro__con { display: flex; flex-direction: column; gap: 16px; }
+.intro__subtit { font-size: 18px; font-weight: 600; color: #0AA304; }
+.intro__item { display: flex; gap: 10px; font-size: 16px; color: #555555; line-height: 1.6; }
+.intro__listicon { display: block; width: 4px; min-width: 4px; height: 4px; min-height: 4px; border-radius: 50%; background-color: #555555; margin-top: 11px; }
+.intro__char { display: flex; justify-content: center; align-items: center; gap: 80px; padding-top: 80px; }
+.intro__befor { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 280px; }
+.intro__befor li { width: 100%; display: flex; justify-content: center; align-items: center; padding: 17px; border: 2px solid #0AA304; border-radius: 20px; font-size: 22px; font-weight: 600; color: #555555; }
+.intro__arrow { display: block; width: 104px; height: 154px; object-fit: contain; }
+.intro__after { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 420px; }
+.intro__after li { width: 100%; display: flex; justify-content: center; align-items: center; padding: 17px; background-color: #0AA304; color: #FFFFFF; font-weight: 600; font-size: 22px; border-radius: 20px; }
+.intro__halist { display: flex; flex-direction: column; gap: 20px; }
+.intro__haitem { display: flex; gap: 10px; padding: 16px 20px; border: 1px solid #DACF9C; background-color: #F5F1E1; border-radius: 10px; font-size: 24px; }
+.intro__num { display: flex; justify-content: center; align-items: center; width: 55px; background-color: #F26922; border-radius: 10px; padding: 5px; font-size: 16px; color: #FFFFFF; }
+
+.error { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 197px); padding: 30px 15px; }
+.error__inner { width: 100%; max-width: 820px; height: 520px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid #CDCDCD; padding: 20px; }
+.error__block { display: flex; flex-direction: column; align-items: flex-start; }
+.error__tit { display: flex; align-items: center; gap: 25px; font-size: 120px; font-weight: 300; color: #00AA4E; margin-bottom: 27px; }
+.error__tit img { display: block; width: 66px; height: 110px; object-fit: contain; }
+.error__subtit { font-size: 46px; color: #555555; margin-bottom: 21px; }
+.error__desc { font-size: 16px; color: #555555; line-height: 1.5; margin-bottom: 25px; }
+.error__link { display: flex; justify-content: center; align-items: center; border: 1px solid #CDCDCD; border-radius: 30px; padding: 9px 16px; font-size: 16px; color: #555555; cursor: pointer; }
+
+@media (max-width: 768px) {
+   .intro__ban { padding: 30px; }
+   .intro__me { font-size: 26px; }
+   .intro__oth { font-size: 16px; }
+   .intro__figcap { padding: 0; flex-direction: column; width: 100%; }
+   .intro__figcap > div > span { font-size: 14px; }
+   .intro__char { flex-direction: column; gap: 25px; }
+   .intro__arrow { transform: rotate(90deg); width: 60px; height: 87px; }
+   .intro__haitem { font-size: 16px; }
+   .intro__haitem { align-items: flex-start; }
+   .intro__num { font-size: 12px; min-width: 55px; }
+   .intro__bg { display: none; }
+   .intro__fig > img { display: none; }
+
+   .error__tit { gap: 15px; font-size: 100px; }
+   .error__tit img { width: 53px; height: 88px; }
+   .error__subtit { font-size: 24px; }
+   .error__desc { font-size: 12px; }
+}
