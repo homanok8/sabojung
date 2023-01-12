@@ -28,8 +28,8 @@
                 alert('5번 문항에 해당 사항을 선택해주세요');
                 $('#el13').focus();
             } else {
-                $(this).parents('.progress__step').stop().fadeOut();
-                $(this).parents('.progress__step').next().stop().fadeIn();
+                $(this).parents('.progress__step').stop().hide();
+                $(this).parents('.progress__step').next().stop().show();
                 $('.progress__bar').stop().animate({'width': '25%'});
                 $('.progress__state-txt').text('25%');
             }
@@ -51,8 +51,8 @@
                 alert('10번 문항에 해당 사항을 선택해주세요');
                 $('#el28').focus();
             } else {
-                $(this).parents('.progress__step').stop().fadeOut();
-                $(this).parents('.progress__step').next().stop().fadeIn();
+                $(this).parents('.progress__step').stop().hide();
+                $(this).parents('.progress__step').next().stop().show();
                 $('.progress__bar').stop().animate({'width': '50%'});
                 $('.progress__state-txt').text('50%');
             }
@@ -74,8 +74,8 @@
                 alert('5번 문항에 해당 사항을 선택해주세요');
                 $('#el43').focus();
             } else {
-                $(this).parents('.progress__step').stop().fadeOut();
-                $(this).parents('.progress__step').next().stop().fadeIn();
+                $(this).parents('.progress__step').stop().hide();
+                $(this).parents('.progress__step').next().stop().show();
                 $('.progress__bar').stop().animate({'width': '75%'});
                 $('.progress__state-txt').text('75%');
             }
@@ -101,6 +101,21 @@
                 $('.progress__state-txt').text('100%');
             }
         });
+
+        var status = $('.progress__status').offset().top;
+        console.log(status);
+
+        $(window).scroll(function() {
+            console.log($(this).scrollTop());
+            var winTop = $(this).scrollTop();
+            if (winTop > status) {
+                $('.progress__status').addClass('fixed');
+                $('.progress__state').addClass('fixed');
+            } else {
+                $('.progress__status').removeClass('fixed');
+                $('.progress__state').removeClass('fixed');
+            }
+        })
     });
    </script>
 </head>

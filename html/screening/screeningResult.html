@@ -187,6 +187,14 @@
             $('.achieve table tbody tr td:nth-child(' + num + ')').removeClass('blur');
             $(this).addClass('focus');
          });
+
+
+         // 20230112 텝 스타일
+         $('.sheet__link').click(function(e) {
+            e.preventDefault();
+            $('.sheet__link').removeClass('focus');
+            $(this).addClass('focus');
+         });
       });
    </script>
 </head>
@@ -628,7 +636,7 @@
                   <li class="major_table">
                      <ul class="sheet__list">
                         <li class="sheet__item">
-                           <a class="sheet__link" href="#">도전적 행동</a>
+                           <a class="sheet__link focus" href="#">도전적 행동</a>
                         </li>
                         <li class="sheet__item">
                            <a class="sheet__link" href="#">사회성</a>
